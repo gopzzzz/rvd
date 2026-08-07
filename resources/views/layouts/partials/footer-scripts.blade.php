@@ -19,3 +19,21 @@
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard2.js')}}"></script>
+
+<script>
+$(document).on('click', '.editdownloads', function () {
+
+    let id = $(this).data('id');
+    let documentName = $(this).data('documentname');
+    let documentPath = $(this).data('documents');
+
+    $('#edit_id').val(id);
+    $('#edit_documentname').val(documentName);
+    $('#current_document').val(documentPath);
+
+    $('#current_document_link')
+        .attr('href', "{{ asset('') }}" + documentPath);
+
+    $('#editDownloadsModal').modal('show');
+});
+</script>
