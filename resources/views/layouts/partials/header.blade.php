@@ -209,7 +209,18 @@
               </li>
             </ul>
           </li>
-
+          <li class="nav-item">
+    <a href="{{ route('course.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>Course</p>
+    </a>
+</li>
+        <li class="nav-item">
+    <a href="{{ route('department.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>department</p>
+    </a>
+</li>
           <li class="nav-item">
     <a href="{{ route('logout') }}" class="nav-link">
         <i class="nav-icon fas fa-sign-out-alt"></i>

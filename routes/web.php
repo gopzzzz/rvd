@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DepartmentController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,6 +37,18 @@ Route::get('/logout', function (Request $request) {
 
 
  Route::get('/page', [HomeController::class, 'page'])->name('page.list');
- 
+ Route::get('/course', [CourseController::class, 'index'])->name('course.index');
+ Route::post('/course', [CourseController::class, 'store'])->name('course.store');
+
+ Route::get('/department', [DepartmentController::class, 'index'])->name('department.index');
+ Route::post('/department', [DepartmentController::class, 'store'])->name('department.store');
+
+Route::get('/department/edit/{id}', [DepartmentController::class, 'edit'])->name('department.edit');
+
+Route::post('/department/update/{id}', [DepartmentController::class, 'update'])->name('department.update');
+
+
+
+
 
 require __DIR__.'/auth.php';
