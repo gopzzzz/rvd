@@ -227,7 +227,21 @@
         <p>Logout</p>
     </a>
 </li>
-         
+
+
+         <li class="nav-item">
+    <a href="{{ route('aboutus') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>About Us</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('downloads') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>Downloads</p>
+    </a>
+</li>
           
           
         </ul>
