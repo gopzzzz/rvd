@@ -6,13 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use App\Http\Controllers\NewsController;
-=======
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DepartmentController;
 
->>>>>>> 8bd88f60b6ec00de5d1d0629ab191721a53e742c
 use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\UploadsController;
 
