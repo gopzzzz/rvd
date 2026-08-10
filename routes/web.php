@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DepartmentController;
-
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\EventsController;
 
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\UploadsController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -83,7 +85,7 @@ Route::get('/events/{id}/edit', [EventsController::class, 'edit'])->name('events
 
 Route::put('/events/{id}', [EventsController::class, 'update'])->name('events.update');
 
-Route::delete('/events/{id}', [EventsController::class, 'destroy'])->name('events.destroy');
+
 
 
 Route::get('/admission', [AdmissionController::class, 'index'])->name('admission.index');
@@ -97,6 +99,22 @@ Route::put('/admission/{id}', [AdmissionController::class, 'update'])->name('adm
 
 
 
+Route::get('/news', [NewsController::class, 'index'])
+    ->name('news');
+Route::post('/createnews', [NewsController::class, 'store'])
+    ->name('createnews');
+Route::post('/updatenews', [NewsController::class, 'update'])
+    ->name('updatenews');
+
+
+Route::get('/upload-list', [UploadsController::class, 'index'])
+    ->name('uploads');
+
+Route::post('/createuploads', [UploadsController::class, 'store'])
+    ->name('createuploads');
+
+Route::post('/updateuploads', [UploadsController::class, 'update'])
+    ->name('updateuploads');
 
 
 require __DIR__.'/auth.php';

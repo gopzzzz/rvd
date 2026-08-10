@@ -255,6 +255,20 @@
         <p>Downloads</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('news') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>News</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('uploads') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>Uploads</p>
+    </a>
+</li>
           
           
         </ul>

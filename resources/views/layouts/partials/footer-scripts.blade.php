@@ -115,3 +115,78 @@ $(document).ready(function () {
 
 });
 </script>
+
+<script>
+
+$(document).ready(function(){
+
+    $('.editnews').click(function(){
+
+        $('#edit_id').val($(this).data('id'));
+
+        $('#edit_title').val($(this).data('title'));
+
+        $('#edit_description').val($(this).data('description'));
+
+        $('#previewPhoto').attr(
+            'src',
+            '/' + $(this).data('photo')
+        );
+
+    });
+
+});
+
+</script>
+
+<script>
+
+$(document).ready(function () {
+
+    $('#editUploadModal').on('show.bs.modal', function (event) {
+
+        var button = $(event.relatedTarget);
+
+        var id = button.data('id');
+
+        var status = button.data('status');
+
+        var photo = button.data('photo');
+
+        var modal = $(this);
+
+
+        // Fill ID
+        modal.find('#edit_id').val(id);
+
+
+        // Fill Status
+        modal.find('#edit_status').val(status);
+
+
+        // Show Current Photo
+        if (photo) {
+
+            var photoUrl = "{{ asset('') }}" + photo;
+
+            modal.find('#edit_photo_preview')
+                 .attr('src', photoUrl)
+                 .show();
+
+            modal.find('#current_photo_link')
+                 .attr('href', photoUrl)
+                 .show();
+
+        } else {
+
+            modal.find('#edit_photo_preview').hide();
+
+            modal.find('#current_photo_link').hide();
+
+        }
+
+    });
+
+});
+
+</script>
