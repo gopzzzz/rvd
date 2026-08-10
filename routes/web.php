@@ -10,6 +10,9 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DepartmentController;
 
 use App\Http\Controllers\DownloadsController;
+use App\Http\Controllers\EventsController;
+
+use App\Http\Controllers\AdmissionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -71,5 +74,29 @@ Route::post('/createdownloads', [DownloadsController::class, 'store'])
 
 Route::post('/updatedownloads', [DownloadsController::class, 'update'])
     ->name('updatedownloads');
+
+Route::get('/events', [EventsController::class, 'index'])->name('events.index');
+
+Route::post('/events', [EventsController::class, 'store'])->name('events.store');
+
+Route::get('/events/{id}/edit', [EventsController::class, 'edit'])->name('events.edit');
+
+Route::put('/events/{id}', [EventsController::class, 'update'])->name('events.update');
+
+Route::delete('/events/{id}', [EventsController::class, 'destroy'])->name('events.destroy');
+
+
+Route::get('/admission', [AdmissionController::class, 'index'])->name('admission.index');
+
+Route::post('/admission', [AdmissionController::class, 'store'])->name('admission.store');
+
+Route::get('/admission/{id}/edit', [AdmissionController::class, 'edit'])->name('admission.edit');
+
+Route::put('/admission/{id}', [AdmissionController::class, 'update'])->name('admission.update');
+
+
+
+
+
 
 require __DIR__.'/auth.php';

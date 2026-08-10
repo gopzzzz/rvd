@@ -55,3 +55,63 @@ $(document).on('click', '.editdownloads', function () {
     $('#editDownloadsModal').modal('show');
 });
 </script>
+<script>
+$(document).ready(function(){
+
+    $('.editEvent').click(function(){
+
+        var id = $(this).data('id');
+
+        $('#edit_type').val($(this).data('type'));
+        $('#edit_title').val($(this).data('title'));
+        $('#edit_description').val($(this).data('description'));
+        $('#edit_date').val($(this).data('date'));
+
+        $('#editForm').attr('action','/events/'+id);
+
+        $('#editEventModal').modal('show');
+
+    });
+
+});
+</script>
+
+
+
+<script>
+$(document).ready(function () {
+
+    // Edit Admission Button
+    $(document).on('click', '.editAdmission', function () {
+
+        var id = $(this).data('id');
+
+        $('#edit_name').val($(this).data('name'));
+        $('#edit_dob').val($(this).data('dob'));
+        $('#edit_gender').val($(this).data('gender'));
+        $('#edit_adharcard').val($(this).data('adharcard'));
+        $('#edit_email').val($(this).data('email'));
+        $('#edit_phonenumber').val($(this).data('phonenumber'));
+        $('#edit_tenthpercentage').val($(this).data('tenthpercentage'));
+        $('#edit_higherschoolname').val($(this).data('higherschoolname'));
+        $('#edit_higherpercentage').val($(this).data('higherpercentage'));
+        $('#edit_higherdepartment').val($(this).data('higherdepartment'));
+        $('#edit_program').val($(this).data('program'));
+        $('#edit_hearabout').val($(this).data('hearabout'));
+        $('#edit_address').val($(this).data('address'));
+        $('#edit_city').val($(this).data('city'));
+        $('#edit_state').val($(this).data('state'));
+        $('#edit_pincode').val($(this).data('pincode'));
+
+        // Set update URL
+        $('#editAdmissionForm').attr(
+            'action',
+            '/admission/' + id
+        );
+
+        // Open Edit Modal
+        $('#editAdmissionModal').modal('show');
+    });
+
+});
+</script>
