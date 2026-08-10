@@ -20,6 +20,24 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard2.js')}}"></script>
 
+    <script>
+
+$('.editDepartment').click(function(){
+
+    var id = $(this).data('id');
+
+    $.get('/department/edit/' + id,function(data){
+
+        $('#edit_name').val(data.name);
+
+        $('#editForm').attr('action','/department/update/'+id);
+
+        $('#editModal').modal('show');
+
+    });
+
+});
+
 <script>
 $(document).on('click', '.editdownloads', function () {
 
