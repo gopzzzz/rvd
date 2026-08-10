@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\DownloadsController;
+use App\Http\Controllers\UploadsController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -56,5 +59,24 @@ Route::post('/createdownloads', [DownloadsController::class, 'store'])
 
 Route::post('/updatedownloads', [DownloadsController::class, 'update'])
     ->name('updatedownloads');
+
+Route::get('/news', [NewsController::class, 'index'])
+    ->name('news');
+Route::post('/createnews', [NewsController::class, 'store'])
+    ->name('createnews');
+Route::post('/updatenews', [NewsController::class, 'update'])
+    ->name('updatenews');
+
+
+
+
+Route::get('/upload-list', [UploadsController::class, 'index'])
+    ->name('uploads');
+
+Route::post('/createuploads', [UploadsController::class, 'store'])
+    ->name('createuploads');
+
+Route::post('/updateuploads', [UploadsController::class, 'update'])
+    ->name('updateuploads');
 
 require __DIR__.'/auth.php';
