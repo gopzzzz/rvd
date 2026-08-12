@@ -10,7 +10,7 @@ class AdmissionController extends Controller
     // Display Admission
     public function index()
     {
-        $admission = DB::table('admission')->get();
+        $admission = DB::table('admissions')->get();
 
         return view('admission', compact('admission'));
     }
@@ -37,7 +37,7 @@ class AdmissionController extends Controller
             'pincode' => 'required|string',
         ]);
 
-        DB::table('admission')->insert([
+        DB::table('admissions')->insert([
             'name' => $request->name,
             'dob' => $request->dob,
             'gender' => $request->gender,
@@ -66,7 +66,7 @@ class AdmissionController extends Controller
     // Get Admission for Edit
     public function edit($id)
     {
-        $admission = DB::table('admission')
+        $admission = DB::table('admissions')
             ->where('id', $id)
             ->first();
 
@@ -95,7 +95,7 @@ class AdmissionController extends Controller
             'pincode' => 'required|string',
         ]);
 
-        DB::table('admission')
+        DB::table('admissions')
             ->where('id', $id)
             ->update([
                 'name' => $request->name,

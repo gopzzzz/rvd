@@ -830,7 +830,7 @@ div[style*="background: linear-gradient(135deg, #333"] h3 {
   background: none !important;
   -webkit-background-clip: unset !important;
 }
-.stat-label { color: rgba(255,255,255,0.55) !important; font-family: 'Inter', sans-serif !important; }
+.stat-label { color: rgba(28, 27, 27, 0.55) !important; font-family: 'Inter', sans-serif !important; }
 .stat-icon { background: rgba(201,168,76,0.1) !important; border-radius: 4px !important; }
 .stat-icon svg { color: var(--gold-muted) !important; }
 

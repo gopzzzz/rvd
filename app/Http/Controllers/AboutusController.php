@@ -9,7 +9,7 @@ class AboutusController extends Controller
 {
     public function index()
     {
-        $aboutus = DB::table('aboutus')->get();
+        $aboutus = DB::table('aboutus')->first();
 
         return view('aboutus', compact('aboutus'));
     }
@@ -44,6 +44,28 @@ class AboutusController extends Controller
             ->route('aboutus')
             ->with('success', 'About Us saved successfully.');
     }
+
+    public function update(Request $request)
+{
+     $id=$request->keyid;
+    DB::table('aboutus')
+        ->where('id', $id)
+        ->update([
+            'about'          => $request->about,
+            'vision'         => $request->vision,
+            'mission'        => $request->mission,
+            'principalmsg'   => $request->principalmsg,
+            'directormsg'   => $request->principalmsg,
+            'principal_name'   => $request->principal_name,
+            'direct_name'    => $request->direct_name,
+            'accrediation'   => $request->accrediation,
+            'infrastructure' => $request->infrastructure,
+            'campusvideo'    => $request->campusvideo,
+            'updated_at'     => now(),
+        ]);
+
+    return redirect()->back()->with('success', 'About Us updated successfully.');
+}
 
     
 }

@@ -22,9 +22,9 @@
       <div class="col-6" style="flex: 1; min-width: 300px;">
         <span class="section-tag" style="display: inline-block; padding: 5px 15px; background: rgba(139,0,0,0.1); color: var(--crimson); font-weight: 600; border-radius: 20px; margin-bottom: 15px;">Our Story</span>
         <h2 style="font-family: var(--font-cinzel); font-size: 36px; margin-bottom: 25px; color: #222;">Shaping Leaders Since <span style="color: var(--crimson);">2018</span></h2>
-        <p style="font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 20px;">Founded in 2018, RVD College of Management & Information Technology is a premier institution located in the heart of Bengaluru. We are dedicated to providing excellence in higher education with a distinct focus on Management and Commerce. Affiliated to the esteemed Bengaluru City University, RVD College is built upon a philosophy of holistic education.</p>
-        <p style="font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px;">We believe in nurturing minds that are not only academically proficient but also industry-ready and socially responsible. Our curriculum is designed to bridge the gap between theoretical knowledge and practical application, equipping our students with the skills required to excel in the competitive global landscape.</p>
-        
+        <p style="font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 20px;">{{$aboutus->about}}</p>
+        <!-- <p style="font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px;">We believe in nurturing minds that are not only academically proficient but also industry-ready and socially responsible. Our curriculum is designed to bridge the gap between theoretical knowledge and practical application, equipping our students with the skills required to excel in the competitive global landscape.</p> -->
+<!--         
         <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
           <li style="display: flex; align-items: center; gap: 10px; font-weight: 500; color: #333;">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--crimson)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Established 2018
@@ -38,12 +38,57 @@
           <li style="display: flex; align-items: center; gap: 10px; font-weight: 500; color: #333;">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--crimson)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 500+ Students
           </li>
-        </ul>
+        </ul> -->
       </div>
       <div class="col-6" style="flex: 1; min-width: 300px;">
         <div style="position: relative; padding: 20px;">
           <div style="position: absolute; top: 0; left: 0; right: 20px; bottom: 20px; border: 3px solid var(--gold); border-radius: 20px;"></div>
-          <img src="{{asset('web/images/students_classroom.jpg')}}" alt="RVD College Students" style="width: 100%; height: auto; border-radius: 20px; position: relative; z-index: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.1); object-fit: cover; aspect-ratio: 4/3;">
+         <div class="col-6" style="flex: 1; min-width: 300px;">
+    <div style="position: relative; padding: 20px;">
+
+        <!-- Gold Border -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+        "></div>
+
+        @php
+    $youtubeUrl = $aboutus->campusvideo;
+
+    preg_match(
+        '/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/',
+        $youtubeUrl,
+        $matches
+    );
+
+    $videoId = $matches[1] ?? null;
+@endphp
+
+        <!-- YouTube Video -->
+        <iframe
+            src="https://www.youtube.com/embed/{{ $videoId }}"
+            title="RVD College Students"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="
+                width: 100%;
+                height: auto;
+                aspect-ratio: 4/3;
+                border-radius: 20px;
+                position: relative;
+                z-index: 1;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            ">
+        </iframe>
+
+    </div>
+</div>
         </div>
       </div>
     </div>
@@ -60,17 +105,11 @@
     <div class="vision-mission-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
       <div class="vision-card" style="background: linear-gradient(135deg, var(--crimson), #5a0000); padding: 40px; border-radius: 15px; color: white; box-shadow: 0 10px 30px rgba(139,0,0,0.2);">
         <h3 style="font-family: var(--font-cinzel); font-size: 28px; margin-bottom: 20px; color: var(--gold);">Our Vision</h3>
-        <p style="font-size: 18px; line-height: 1.8;">"To be the most sought-after institution for Management and Commerce education in Karnataka, producing leaders of tomorrow with integrity, innovation, and impact."</p>
+        <p style="font-size: 18px; line-height: 1.8;">"{{$aboutus->vision}}"</p>
       </div>
       <div class="mission-card" style="background: #111; padding: 40px; border-radius: 15px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
         <h3 style="font-family: var(--font-cinzel); font-size: 28px; margin-bottom: 20px; color: var(--gold);">Our Mission</h3>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-          <li style="display: flex; gap: 15px; align-items: flex-start;"><span style="color: var(--crimson); font-size: 20px;">✦</span> <span style="font-size: 16px; line-height: 1.6; opacity: 0.9;">To impart quality education that meets global standards.</span></li>
-          <li style="display: flex; gap: 15px; align-items: flex-start;"><span style="color: var(--crimson); font-size: 20px;">✦</span> <span style="font-size: 16px; line-height: 1.6; opacity: 0.9;">To foster industry-readiness through practical learning and exposure.</span></li>
-          <li style="display: flex; gap: 15px; align-items: flex-start;"><span style="color: var(--crimson); font-size: 20px;">✦</span> <span style="font-size: 16px; line-height: 1.6; opacity: 0.9;">To instil strong ethical values and professionalism in our students.</span></li>
-          <li style="display: flex; gap: 15px; align-items: flex-start;"><span style="color: var(--crimson); font-size: 20px;">✦</span> <span style="font-size: 16px; line-height: 1.6; opacity: 0.9;">To encourage research, innovation, and entrepreneurial thinking.</span></li>
-          <li style="display: flex; gap: 15px; align-items: flex-start;"><span style="color: var(--crimson); font-size: 20px;">✦</span> <span style="font-size: 16px; line-height: 1.6; opacity: 0.9;">To promote holistic development via sports, cultural, and social activities.</span></li>
-        </ul>
+        <p style="font-size: 18px; line-height: 1.8;">"{{$aboutus->mission}}"</p>
       </div>
     </div>
 
@@ -98,7 +137,7 @@
 </section>
 
 <!-- MANAGEMENT SECTION -->
-<section id="management" class="bg-white section-pad" style="padding: 80px 0;">
+<!-- <section id="management" class="bg-white section-pad" style="padding: 80px 0;">
   <div class="container reveal">
     <div style="text-align: center; margin-bottom: 50px;">
       <h2 style="font-family: var(--font-cinzel); font-size: 36px; color: #222;">Our <span style="color: var(--crimson);">Leadership</span></h2>
@@ -106,7 +145,7 @@
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-      <!-- Chairman -->
+    
       <div style="text-align: center; background: #fff; padding: 40px 20px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
         <div style="width: 120px; height: 120px; background: var(--crimson); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
           DR
@@ -117,7 +156,7 @@
         <p style="font-size: 15px; color: #555; line-height: 1.6;">"Our goal is to build an ecosystem where young minds are nurtured with knowledge, values, and the courage to lead in a dynamic world."</p>
       </div>
 
-      <!-- Principal -->
+     
       <div style="text-align: center; background: #fff; padding: 40px 20px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
         <div style="width: 120px; height: 120px; background: var(--gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
           RV
@@ -128,7 +167,7 @@
         <p style="font-size: 15px; color: #555; line-height: 1.6;">"We focus on academic rigor combined with experiential learning to ensure our students excel in every sphere of life."</p>
       </div>
 
-      <!-- Director -->
+      
       <div style="text-align: center; background: #fff; padding: 40px 20px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
         <div style="width: 120px; height: 120px; background: #333; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
           MS
@@ -140,7 +179,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- MESSAGES SECTION -->
 <section id="messages" class="bg-light section-pad" style="padding: 80px 0; background-color: #f0f4f8;">
@@ -151,24 +190,16 @@
 
     <div style="display: flex; flex-direction: column; gap: 40px; max-width: 900px; margin: 0 auto;">
       <!-- Message 1 -->
-      <div style="background: white; padding: 40px; border-radius: 20px; display: flex; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); align-items: center; flex-wrap: wrap;">
-        <div style="flex-shrink: 0; width: 100px; height: 100px; background: var(--crimson); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: bold; font-family: var(--font-cinzel);">DR</div>
-        <div style="flex: 1; min-width: 300px;">
-          <h3 style="font-size: 24px; color: #222; margin-bottom: 5px;">Shri. D. Ravi Kumar</h3>
-          <span style="display: inline-block; background: rgba(212,175,55,0.2); color: #8c7322; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 15px;">Chairman</span>
-          <p style="font-size: 16px; color: #555; line-height: 1.7; font-style: italic; margin-bottom: 15px;">"Education is the most powerful tool to transform society. At RVD College, we are committed to providing an environment where intellectual curiosity thrives. We don't just create graduates; we forge leaders who will define the future of business and technology."</p>
-          <div style="font-family: var(--font-playfair); font-size: 20px; font-style: italic; color: var(--crimson);">- D. Ravi Kumar</div>
-        </div>
-      </div>
+    
 
       <!-- Message 2 -->
       <div style="background: white; padding: 40px; border-radius: 20px; display: flex; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); align-items: center; flex-wrap: wrap; flex-direction: row-reverse;">
         <div style="flex-shrink: 0; width: 100px; height: 100px; background: var(--gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: bold; font-family: var(--font-cinzel);">RV</div>
         <div style="flex: 1; min-width: 300px; text-align: right;">
-          <h3 style="font-size: 24px; color: #222; margin-bottom: 5px;">Dr. R. Venkatesh</h3>
+          <h3 style="font-size: 24px; color: #222; margin-bottom: 5px;">{{$aboutus->principal_name}}</h3>
           <span style="display: inline-block; background: rgba(212,175,55,0.2); color: #8c7322; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 15px;">Principal</span>
-          <p style="font-size: 16px; color: #555; line-height: 1.7; font-style: italic; margin-bottom: 15px;">"Welcome to RVD College. Our institution stands on the pillars of academic excellence, discipline, and holistic growth. We strive to provide our students with robust academic foundations coupled with the practical insights needed to excel in modern corporate environments."</p>
-          <div style="font-family: var(--font-playfair); font-size: 20px; font-style: italic; color: var(--crimson);">- Dr. R. Venkatesh</div>
+          <p style="font-size: 16px; color: #555; line-height: 1.7; font-style: italic; margin-bottom: 15px;">"{{$aboutus->principalmsg}}"</p>
+          <div style="font-family: var(--font-playfair); font-size: 20px; font-style: italic; color: var(--crimson);">-{{$aboutus->principal_name}}/div>
         </div>
       </div>
 
@@ -176,10 +207,10 @@
       <div style="background: white; padding: 40px; border-radius: 20px; display: flex; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); align-items: center; flex-wrap: wrap;">
         <div style="flex-shrink: 0; width: 100px; height: 100px; background: #333; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: bold; font-family: var(--font-cinzel);">MS</div>
         <div style="flex: 1; min-width: 300px;">
-          <h3 style="font-size: 24px; color: #222; margin-bottom: 5px;">Dr. M. Savitha</h3>
+          <h3 style="font-size: 24px; color: #222; margin-bottom: 5px;">{{$aboutus->direct_name}}</h3>
           <span style="display: inline-block; background: rgba(212,175,55,0.2); color: #8c7322; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 15px;">Director</span>
           <p style="font-size: 16px; color: #555; line-height: 1.7; font-style: italic; margin-bottom: 15px;">"In today's fast-paced world, agility and continuous learning are paramount. RVD College is designed to foster innovation and critical thinking. Our focus remains steadfast on industry integration, ensuring every student is placement-ready from day one."</p>
-          <div style="font-family: var(--font-playfair); font-size: 20px; font-style: italic; color: var(--crimson);">- Dr. M. Savitha</div>
+          <div style="font-family: var(--font-playfair); font-size: 20px; font-style: italic; color: var(--crimson);">-{{$aboutus->direct_name}}</div>
         </div>
       </div>
     </div>

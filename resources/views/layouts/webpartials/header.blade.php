@@ -31,7 +31,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
         </div>
-        <a href="{{url('admission')}}" class="btn btn-gold" style="padding:7px 18px;font-size:12px;">Apply Now</a>
+        <a href="{{url('admission_index')}}" class="btn btn-gold" style="padding:7px 18px;font-size:12px;">Apply Now</a>
       </div>
     </div>
   </div>
@@ -51,14 +51,14 @@
       <ul class="navbar-nav" role="list">
         <li class="nav-item"><a href="{{url('index')}}" class="nav-link">Home</a></li>
         <li class="nav-item">
-          <a href="{{url('aboutus')}}" class="nav-link">About Us <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <a href="{{url('aboutus_index')}}" class="nav-link">About Us <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="dropdown">
             <div class="dropdown-header">About RVD</div>
-            <a href="{{url('aboutus')}}#vision" class="dropdown-link">Vision & Mission</a>
-            <a href="{{url('aboutus')}}#management" class="dropdown-link">Management</a>
-            <a href="{{url('aboutus')}}#messages" class="dropdown-link">Messages</a>
-            <a href="{{url('aboutus')}}#infrastructure" class="dropdown-link">Infrastructure</a>
-            <a href="{{url('aboutus')}}#accreditation" class="dropdown-link">Accreditation</a>
+            <a href="{{url('aboutus_index')}}#vision" class="dropdown-link">Vision & Mission</a>
+            <a href="{{url('aboutus_index')}}#management" class="dropdown-link">Management</a>
+            <a href="{{url('aboutus_index')}}#messages" class="dropdown-link">Messages</a>
+            <a href="{{url('aboutus_index')}}#infrastructure" class="dropdown-link">Infrastructure</a>
+            <a href="{{url('aboutus_index')}}#accreditation" class="dropdown-link">Accreditation</a>
           </div>
         </li>
         <li class="nav-item">
@@ -66,12 +66,12 @@
           <div class="dropdown">
             <div class="dropdown-header">Our Programs</div>
             <a href="{{url('programs')}}#bba" class="dropdown-link">BBA – Business Administration</a>
-            <a href="{{url('programs')}}#bcom" class="dropdown-link">B.Com – Commerce</a>
+            <a href="{{url('programs')}}#bba" class="dropdown-link">B.Com – Commerce</a>
             <a href="{{url('programs')}}#curriculum" class="dropdown-link">Curriculum Overview</a>
-            <a href="{{url('programs')}}#placements" class="dropdown-link">Placements & Careers</a>
+            <a href="{{url('programs')}}#feestructure" class="dropdown-link">Fee Structure</a>
           </div>
         </li>
-        <li class="nav-item"><a href="{{url('admission')}}" class="nav-link">Admissions</a></li>
+        <li class="nav-item"><a href="{{url('admission_index')}}" class="nav-link">Admissions</a></li>
         <li class="nav-item"><a href="{{url('faculty')}}" class="nav-link">Faculty</a></li>
         <li class="nav-item">
           <a href="{{url('studentlife')}}" class="nav-link">Student Life <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -83,13 +83,13 @@
             <a href="{{url('studentlife')}}#nss" class="dropdown-link">NSS & Social</a>
           </div>
         </li>
-        <li class="nav-item"><a href="{{url('news')}}" class="nav-link">News & Events</a></li>
+        <li class="nav-item"><a href="{{url('news_index')}}" class="nav-link">News & Events</a></li>
         <li class="nav-item"><a href="{{url('gallery')}}" class="nav-link">Gallery</a></li>
         <li class="nav-item"><a href="{{url('contact')}}" class="nav-link">Contact</a></li>
       </ul>
 
       <div class="navbar-cta">
-        <a href="{{url('admission')}}" class="btn btn-primary">Apply Now</a>
+        <a href="{{url('admission_index')}}" class="btn btn-primary">Apply Now</a>
       </div>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -111,10 +111,10 @@
       <a href="{{url('index')}}" class="mobile-nav-link">Home</a>
       <div class="mobile-nav-link" data-submenu="mobileAbout">About Us <span class="mobile-arrow">▼</span></div>
       <div class="mobile-submenu" id="mobileAbout">
-        <a href="{{url('aboutus')}}#vision">Vision & Mission</a>
-        <a href="{{url('aboutus')}}#management">Management</a>
-        <a href="{{url('aboutus')}}#messages">Messages</a>
-        <a href="{{url('aboutus')}}#infrastructure">Infrastructure</a>
+        <a href="{{url('aboutus_index')}}#vision">Vision & Mission</a>
+        <a href="{{url('aboutus_index')}}#management">Management</a>
+        <a href="{{url('aboutus_index')}}#messages">Messages</a>
+        <a href="{{url('aboutus_index')}}#infrastructure">Infrastructure</a>
       </div>
       <div class="mobile-nav-link" data-submenu="mobilePrograms">Programs <span class="mobile-arrow">▼</span></div>
       <div class="mobile-submenu" id="mobilePrograms">
@@ -122,7 +122,7 @@
         <a href="{{url('programs')}}#bcom">B.Com</a>
         <a href="{{url('programs')}}#placements">Placements</a>
       </div>
-      <a href="{{url('admission')}}" class="mobile-nav-link">Admissions</a>
+      <a href="{{url('admission_index')}}" class="mobile-nav-link">Admissions</a>
       <a href="faculty.html" class="mobile-nav-link">Faculty</a>
       <div class="mobile-nav-link" data-submenu="mobileStudent">Student Life <span class="mobile-arrow">▼</span></div>
       <div class="mobile-submenu" id="mobileStudent">
@@ -130,12 +130,12 @@
         <a href="{{url('studentlife')}}#clubs">Clubs</a>
         <a href="{{url('studentlife')}}#sports">Sports</a>
       </div>
-      <a href="{{url('news')}}" class="mobile-nav-link">News & Events</a>
+      <a href="{{url('news_index')}}" class="mobile-nav-link">News & Events</a>
       <a href="{{url('gallery')}}" class="mobile-nav-link">Gallery</a>
       <a href="{{url('contact')}}" class="mobile-nav-link">Contact</a>
     </div>
     <div class="mobile-nav-footer">
-      <a href="{{url('admission')}}" class="btn btn-primary">Apply Now 2026</a>
+      <a href="{{url('admission_index')}}" class="btn btn-primary">Apply Now 2026</a>
       <a href="{{url('contact')}}" class="btn btn-outline">Contact Us</a>
     </div>
   </div>

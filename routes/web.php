@@ -114,19 +114,28 @@ Route::get('/upload-list', [UploadsController::class, 'index'])
 Route::post('/createuploads', [UploadsController::class, 'store'])
     ->name('createuploads');
 
-Route::post('/updateuploads', [UploadsController::class, 'update'])
+    Route::post('/updateuploads', [UploadsController::class, 'update'])
     ->name('updateuploads');
+
+Route::post('/updateaboutus', [AboutusController::class, 'update'])
+    ->name('updateaboutus');
+
+
+
+
 
 Route::get('/', [WebController::class, 'index'])->name('uploads');
 Route::get('/index', [WebController::class, 'index'])->name('uploads');
-Route::get('/aboutus', [WebController::class, 'aboutus'])->name('aboutus');
+Route::get('/aboutus_index', [WebController::class, 'aboutus'])->name('aboutus_index');
 Route::get('/programs', [WebController::class, 'programs'])->name('programs');
-Route::get('/admission', [WebController::class, 'admission'])->name('admission');
+Route::get('/admission_index', [WebController::class, 'admission'])->name('admission_index');
 Route::get('/faculty', [WebController::class, 'faculty'])->name('faculty');
 Route::get('/studentlife', [WebController::class, 'studentlife'])->name('studentlife');
-Route::get('/news', [WebController::class, 'news'])->name('news');
+Route::get('/news_index', [WebController::class, 'news'])->name('news');
 Route::get('/gallery', [WebController::class, 'gallary'])->name('gallary');
 Route::get('/contact', [WebController::class, 'contact'])->name('contact');
+Route::post('/application/store', [WebController::class, 'store'])
+    ->name('application.store');
 
 
 require __DIR__.'/auth.php';

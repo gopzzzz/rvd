@@ -6,7 +6,7 @@
  <!-- PAGE HERO -->
   <header class="page-hero">
     <div class="container hero-content text-center">
-      <h1 class="reveal fade-up">Admissions <span>2026-27</span></h1>
+      <h1 class="reveal fade-up">Admissions <span>Open</span></h1>
       <p class="hero-desc reveal fade-up" style="max-width: 600px; margin: 0 auto; color: #f0f0f0; margin-bottom: 30px;">
         Join RVD College for the academic year 2026-27. Applications open for BBA and B.Com programs. Shape your future with quality education and practical exposure.
       </p>
@@ -25,16 +25,11 @@
         <div class="reveal fade-right">
           <h3 style="font-family: 'Playfair Display', serif; color: var(--crimson); margin-bottom: 20px;">Welcome to RVD College</h3>
           <p style="margin-bottom: 15px; line-height: 1.6; color: #444;">
-            Choosing the right college is the first step towards a successful career. At RVD College of Management & Information Technology, we simplify the admission process to ensure you can focus on what matters most—your education.
+           {{$aboutus->about}}
           </p>
-          <p style="margin-bottom: 15px; line-height: 1.6; color: #444;">
-            Our dedicated admissions counseling team is here to guide you through every step, from selecting the right program (BBA or B.Com) to submitting your documentation and answering any queries you may have about campus life, placements, and curriculum.
-          </p>
-          <p style="margin-bottom: 20px; line-height: 1.6; color: #444;">
-            Take the leap and become part of a vibrant learning community dedicated to academic excellence and holistic development.
-          </p>
+          
         </div>
-        <div class="reveal fade-left">
+        <!-- <div class="reveal fade-left">
           <div style="background: var(--dark); border-left: 5px solid var(--gold); padding: 30px; border-radius: 8px; color: white;">
             <h3 style="color: var(--gold-bright); margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Admission Highlights 2026</h3>
             <ul style="list-style: none; padding: 0;">
@@ -46,7 +41,7 @@
               <li style="margin-bottom: 12px; display: flex; justify-content: space-between;"><strong style="color: #ccc;">Contact:</strong> <a href="tel:+919880012345" style="color: var(--gold-bright);">+91 98800 12345</a></li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -80,31 +75,25 @@
     </div>
   </section>
 
+   @if($course != null)
+
   <!-- ELIGIBILITY -->
   <section class="section-pad bg-white">
     <div class="container">
       <h2 class="section-title text-center reveal fade-up">Eligibility <span>Criteria</span></h2>
       <div class="grid grid-2 reveal fade-up" style="gap: 30px; margin-top: 40px;">
+        @foreach($course as $courSe)
         <div class="card" style="border: 1px solid #eee; padding: 30px; border-radius: 8px; transition: transform 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
-          <h3 style="color: var(--crimson); font-family: 'Playfair Display', serif; border-bottom: 2px solid var(--gold); padding-bottom: 15px; margin-bottom: 20px;">BBA Eligibility</h3>
+          <h3 style="color: var(--crimson); font-family: 'Playfair Display', serif; border-bottom: 2px solid var(--gold); padding-bottom: 15px; margin-bottom: 20px;">{{$courSe->coursename}} Eligibility</h3>
           <ul style="list-style-type: none; padding-left: 0;">
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Must have passed 10+2 / PUC or equivalent examination from a recognized board.</span></li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Minimum 45% aggregate marks in the qualifying examination.</span></li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Students from any stream (Science, Commerce, Arts) are eligible to apply.</span></li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Age limit: Below 22 years at the time of admission.</span></li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Admission via Karnataka CET scores or Direct Management quota.</span></li>
+            @foreach(explode(',', $courSe->eligibility) as $item)
+          <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Must have passed 10+2 / PUC or equivalent examination from a recognized board.</span></li>
+            @endforeach
           </ul>
         </div>
-        <div class="card" style="border: 1px solid #eee; padding: 30px; border-radius: 8px; transition: transform 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
-          <h3 style="color: var(--crimson); font-family: 'Playfair Display', serif; border-bottom: 2px solid var(--gold); padding-bottom: 15px; margin-bottom: 20px;">B.Com Eligibility</h3>
-          <ul style="list-style-type: none; padding-left: 0;">
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Must have passed 10+2 / PUC or equivalent from a recognized board.</span></li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Minimum 45% aggregate marks in the qualifying examination.</span></li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Candidates from Commerce stream are preferred.</span></li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Age limit: Below 22 years at the time of admission.</span></li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Relaxation of 5% marks for SC/ST/OBC category candidates as per norms.</span></li>
-          </ul>
-        </div>
+        @endforeach
+
+        
       </div>
     </div>
   </section>
@@ -135,8 +124,10 @@
     </div>
   </section>
 
+  @endif
+
   <!-- FEE STRUCTURE -->
-  <section class="section-pad bg-white">
+  <!-- <section class="section-pad bg-white">
     <div class="container">
       <h2 class="section-title text-center reveal fade-up">Fee <span>Structure</span></h2>
       <div class="reveal fade-up" style="margin-top: 40px; overflow-x: auto;">
@@ -172,10 +163,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- SCHOLARSHIP -->
-  <section class="section-pad bg-dark" style="color: white;">
+  <!-- <section class="section-pad bg-dark" style="color: white;">
     <div class="container">
       <h2 class="section-title text-center reveal fade-up" style="color: white;">Scholarship <span>Opportunities</span></h2>
       <div class="grid grid-4 reveal fade-up" style="margin-top: 40px; gap: 20px;">
@@ -197,28 +188,29 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ONLINE APPLICATION FORM -->
   <section id="online-form" class="section-pad bg-light">
     <div class="container">
       <h2 class="section-title text-center reveal fade-up">Online <span>Application Form</span></h2>
       <div class="reveal fade-up" style="max-width: 800px; margin: 40px auto 0; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <form action="#" method="POST" data-validate="true">
+      <form action="{{ route('application.store') }}" method="POST" >
+    @csrf
           
           <h4 style="color: var(--crimson); border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px;">Personal Details</h4>
           <div class="grid grid-2" style="gap: 20px; margin-bottom: 20px;">
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">Full Name *</label>
-              <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input type="text" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">Date of Birth *</label>
-              <input type="date" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input type="date" name="dob" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">Gender *</label>
-              <select required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <select required name="gender" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
                 <option value="">Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -227,15 +219,15 @@
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">Aadhar Number *</label>
-              <input type="text" required pattern="[0-9]{12}" title="12 digit Aadhar number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input type="text" name="adharcard" required  title="12 digit Aadhar number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">Email Address *</label>
-              <input type="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input type="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">Phone Number *</label>
-              <input type="tel" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input type="tel" name="phonenumber" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
           </div>
 
@@ -243,23 +235,23 @@
           <div class="grid grid-2" style="gap: 20px; margin-bottom: 20px;">
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">10th School Name *</label>
-              <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input type="text" name="tenth_school_name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">10th Percentage / CGPA *</label>
-              <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input type="text" name="tenthpercentage" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">12th/PUC College Name</label>
-              <input type="text" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input type="text" required name="higherschoolname" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">12th/PUC Percentage</label>
-              <input type="text" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;" placeholder="Leave blank if awaiting results">
+              <input type="text" required name="higherpercentage" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;" placeholder="Leave blank if awaiting results">
             </div>
             <div style="grid-column: span 2;">
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">Stream (12th/PUC) *</label>
-              <select required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <select required name="higherdepartment" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
                 <option value="">Select Stream</option>
                 <option value="Commerce">Commerce</option>
                 <option value="Science">Science</option>
@@ -283,7 +275,7 @@
           </div>
           <div style="margin-bottom: 20px;">
             <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">How did you hear about us?</label>
-            <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+            <select name="hearabout" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
               <option value="">Select Option</option>
               <option value="Internet Search">Internet Search</option>
               <option value="Social Media">Social Media</option>
@@ -296,31 +288,31 @@
           <h4 style="color: var(--crimson); border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; margin-top: 30px;">Address</h4>
           <div style="margin-bottom: 20px;">
             <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">Full Address *</label>
-            <textarea required rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+            <textarea name="address" required rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
           </div>
           <div class="grid grid-2" style="gap: 20px; margin-bottom: 20px;">
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">City / District *</label>
-              <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input name="city" type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">State *</label>
-              <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input name="state" type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
             <div>
               <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px;">PIN Code *</label>
-              <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+              <input name="pincode" type="text" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
             </div>
           </div>
 
           <div style="margin-top: 30px; margin-bottom: 30px;">
             <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #555; cursor: pointer;">
-              <input type="checkbox" required style="margin-top: 3px;">
+              <input name="declaration" type="checkbox" value="1" required style="margin-top: 3px;">
               <span>I hereby declare that all information provided above is true to the best of my knowledge. I understand that admission is subject to verification of original documents and meeting eligibility criteria.</span>
             </label>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 16px;">Submit Application</button>
+          <button type="submit" name="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 16px;">Submit Application</button>
 
         </form>
       </div>

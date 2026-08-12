@@ -147,11 +147,11 @@
                       <td>{{$key->coursename}}</td>
                       <td>{{$key->overview}}</td>
                       <td>{{$key->eligibility}}</td>
-                      <td>{{$key->	duration}}</td>
+                      <td>{{$key->duration}}</td>
 
-                      <td>{{$key->Curriculum}}</td>
-                      <td>{{$key->Opportunities}}</td>
-                      <td>{{$key->Certifications}}</td>
+                      <td>{{$key->curriculum}}</td>
+                      <td>{{$key->opportunities}}</td>
+                      <td>{{$key->certifications}}</td>
                       <td>{{$key->values}}</td>
                       <td>{{$key->placementsupport}}</td>
                       <td>{{$key->fees}}</td>
