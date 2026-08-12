@@ -190,3 +190,65 @@ $(document).ready(function () {
 });
 
 </script>
+
+
+<script>
+$(document).on('click', '.editCourse', function () {
+
+    var id = $(this).data('id');
+
+    $('#edit_coursename').val($(this).data('coursename'));
+    $('#edit_coursefullname').val($(this).data('coursefullname'));
+    $('#edit_eligibility').val($(this).data('eligibility'));
+    $('#edit_duration').val($(this).data('duration'));
+    $('#edit_CoreObjectives').val($(this).data('coreobjectives'));
+    $('#edit_Opportunities').val($(this).data('opportunities'));
+    $('#edit_Highlights').val($(this).data('highlights'));
+    $('#edit_intake').val($(this).data('intake'));
+    $('#edit_fees').val($(this).data('fees'));
+
+    $('#editCourseForm').attr(
+        'action',
+        '/course/update/' + id
+    );
+
+    $('#editCourseModal').modal('show');
+
+});
+</script>
+
+
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+$(document).ready(function () {
+
+    $('.editSemester').on('click', function () {
+
+        var id = $(this).data('id');
+        var semester = $(this).data('semester');
+        var subjects = $(this).data('subjects');
+
+        // Fill edit form
+        $('#edit_semester').val(semester);
+        $('#edit_subjects').val(subjects);
+
+        // Set update URL
+        $('#editSemesterForm').attr(
+            'action',
+            "{{ url('/semester-details/update') }}/" + id
+        );
+
+        // Open modal
+        $('#editSemesterModal').modal('show');
+
+    });
+
+});
+
+</script>

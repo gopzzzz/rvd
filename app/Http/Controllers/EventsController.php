@@ -15,15 +15,49 @@ class EventsController extends Controller
         return view('events', compact('events'));
     }
 
-    // Store New Event
-    public function store(Request $request)
-    {
-        $request->validate([
-            'type' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'date' => 'required|date',
-        ]);
+   // Store New Event
+public function store(Request $request)
+{
+    $request->validate([
+        'type' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[A-Za-z ]+$/',
+        ],
+
+        'title' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[A-Za-z ]+$/',
+        ],
+
+        'description' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[A-Za-z ]+$/',
+        ],
+
+        'date' => 'required|date',
+
+    ], [
+        'type.required' => 'Type is required.',
+        'type.regex' => 'Type can contain only letters.',
+
+        'title.required' => 'Title is required.',
+        'title.regex' => 'Title can contain only letters.',
+
+        'description.required' => 'Description is required.',
+        'description.regex' => 'Description can contain only letters.',
+
+        'date.required' => 'Date is required.',
+        'date.date' => 'Please enter a valid date.',
+    ]);
+
+    // Your database insert code here
+
 
         DB::table('events')->insert([
             'type' => $request->type,
@@ -48,14 +82,47 @@ class EventsController extends Controller
     }
 
     // Update Event
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'type' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'date' => 'required|date',
-        ]);
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'type' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[A-Za-z ]+$/',
+        ],
+
+        'title' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[A-Za-z ]+$/',
+        ],
+
+        'description' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[A-Za-z ]+$/',
+        ],
+
+        'date' => 'required|date',
+
+    ], [
+        'type.required' => 'Type is required.',
+        'type.regex' => 'Type can contain only letters.',
+
+        'title.required' => 'Title is required.',
+        'title.regex' => 'Title can contain only letters.',
+
+        'description.required' => 'Description is required.',
+        'description.regex' => 'Description can contain only letters.',
+
+        'date.required' => 'Date is required.',
+        'date.date' => 'Please enter a valid date.',
+    ]);
+
+    // Your update code here
 
         DB::table('events')
             ->where('id', $id)
@@ -72,13 +139,5 @@ class EventsController extends Controller
             ->with('success', 'Event Updated Successfully');
     }
 
-    // Delete Event (Optional)
-    public function destroy($id)
-    {
-        DB::table('events')->where('id', $id)->delete();
-
-        return redirect()
-            ->route('events.index')
-            ->with('success', 'Event Deleted Successfully');
-    }
+    
 }

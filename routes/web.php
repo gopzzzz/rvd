@@ -14,6 +14,7 @@ use App\Http\Controllers\EventsController;
 
 use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\UploadsController;
+use App\Http\Controllers\SemesterDetailsController;
 
 
 Route::get('/', function () {
@@ -43,8 +44,20 @@ Route::get('/logout', function (Request $request) {
 
 
  Route::get('/page', [HomeController::class, 'page'])->name('page.list');
- Route::get('/course', [CourseController::class, 'index'])->name('course.index');
- Route::post('/course', [CourseController::class, 'store'])->name('course.store');
+ 
+
+ Route::get('/course', [CourseController::class, 'index'])
+    ->name('course.index');
+
+Route::post('/course', [CourseController::class, 'store'])
+    ->name('course.store');
+
+Route::get('/course/edit/{id}', [CourseController::class, 'edit'])
+    ->name('course.edit');
+
+Route::put('/course/update/{id}', [CourseController::class, 'update'])
+    ->name('course.update');
+
 
  Route::get('/department', [DepartmentController::class, 'index'])->name('department.index');
  Route::post('/department', [DepartmentController::class, 'store'])->name('department.store');
@@ -115,6 +128,34 @@ Route::post('/createuploads', [UploadsController::class, 'store'])
 
 Route::post('/updateuploads', [UploadsController::class, 'update'])
     ->name('updateuploads');
+
+
+
+
+Route::get(
+    '/semester-details/{course_id}',
+    [SemesterDetailsController::class, 'index']
+)->name('semester.index');
+
+Route::post(
+    '/semester-details',
+    [SemesterDetailsController::class, 'store']
+)->name('semester.store');
+
+Route::get(
+    '/semester-details/edit/{id}',
+    [SemesterDetailsController::class, 'edit']
+)->name('semester.edit');
+
+Route::put(
+    '/semester-details/update/{id}',
+    [SemesterDetailsController::class, 'update']
+)->name('semester.update');
+
+Route::delete(
+    '/semester-details/delete/{id}',
+    [SemesterDetailsController::class, 'destroy']
+)->name('semester.delete');
 
 
 require __DIR__.'/auth.php';
