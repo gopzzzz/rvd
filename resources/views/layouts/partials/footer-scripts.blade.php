@@ -116,27 +116,63 @@ $(document).ready(function () {
 });
 </script>
 
+
+
+<!-- OPEN ADD MODAL AUTOMATICALLY WHEN VALIDATION FAILS -->
+<!-- ===================================================== -->
+
+@if ($errors->any())
+
 <script>
 
-$(document).ready(function(){
+    $(document).ready(function () {
 
-    $('.editnews').click(function(){
+        $('#newRecordModal').modal('show');
 
-        $('#edit_id').val($(this).data('id'));
+    });
 
-        $('#edit_title').val($(this).data('title'));
+</script>
 
-        $('#edit_description').val($(this).data('description'));
+@endif
 
-        $('#previewPhoto').attr(
-            'src',
-            '/' + $(this).data('photo')
-        );
+
+
+<!-- ===================================================== -->
+<!-- EDIT BUTTON SCRIPT -->
+<!-- ===================================================== -->
+
+<script>
+$(document).ready(function () {
+
+    $('.editnews').click(function () {
+
+        var id = $(this).data('id');
+        var type = $(this).data('type');
+        var title = $(this).data('title');
+        var description = $(this).data('description');
+        var photo = $(this).data('photo');
+        var date = $(this).data('date');
+
+        $('#edit_id').val(id);
+
+        // These two lines fix your problem
+        $('#edit_type').val(type);
+        $('#edit_date').val(date);
+
+        $('#edit_title').val(title);
+        $('#edit_description').val(description);
+
+        if (photo) {
+            $('#previewPhoto')
+                .attr('src', '{{ asset("") }}' + photo)
+                .show();
+        } else {
+            $('#previewPhoto').hide();
+        }
 
     });
 
 });
-
 </script>
 
 <script>
@@ -223,6 +259,7 @@ $(document).on('click', '.editCourse', function () {
 <!-- ================================================= -->
 <!-- JAVASCRIPT -->
 <!-- ================================================= -->
+@if ($errors->any() && old('_form') == 'create')
 
 <script>
 
@@ -246,9 +283,53 @@ $(document).ready(function () {
 
         // Open modal
         $('#editSemesterModal').modal('show');
+    $('#newContactModal').modal('show');
+
+});
+
+</script>
+
+@endif
+
+<script>
+
+$(document).ready(function () {
+
+    $('.editfaq').click(function () {
+
+        $('#edit_id').val(
+            $(this).data('id')
+        );
+
+        $('#edit_question').val(
+            $(this).data('question')
+        );
+
+        $('#edit_answer').val(
+            $(this).data('answer')
+        );
 
     });
 
 });
 
 </script>
+
+
+
+<!-- REOPEN CREATE MODAL ONLY ON CREATE VALIDATION ERROR -->
+
+@if($errors->any() && old('_form') == 'create')
+
+<script>
+
+$(document).ready(function () {
+
+    $('#newFaqModal').modal('show');
+
+});
+
+</script>
+
+@endif
+

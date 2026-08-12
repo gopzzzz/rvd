@@ -6,20 +6,25 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\NewsController;
+
+
 use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\EventsController;
 
 use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\UploadsController;
 use App\Http\Controllers\SemesterDetailsController;
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\WebController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -126,8 +131,45 @@ Route::get('/upload-list', [UploadsController::class, 'index'])
 Route::post('/createuploads', [UploadsController::class, 'store'])
     ->name('createuploads');
 
-Route::post('/updateuploads', [UploadsController::class, 'update'])
+    Route::post('/updateuploads', [UploadsController::class, 'update'])
     ->name('updateuploads');
+
+Route::get('/contacts', [ContactsController::class, 'index'])
+    ->name('contacts');
+
+Route::post('/createcontacts', [ContactsController::class, 'store'])
+    ->name('createcontacts');
+
+Route::get('/faq', [FaqController::class, 'index'])
+    ->name('faq');
+
+Route::post('/createfaq', [FaqController::class, 'store'])
+    ->name('createfaq');
+
+Route::post('/updatefaq', [FaqController::class, 'update'])
+    ->name('updatefaq');
+
+Route::post('/deletefaq', [FaqController::class, 'delete'])
+    ->name('deletefaq');
+Route::post('/updateaboutus', [AboutusController::class, 'update'])
+    ->name('updateaboutus');
+
+
+
+
+
+Route::get('/', [WebController::class, 'index'])->name('uploads');
+Route::get('/index', [WebController::class, 'index'])->name('uploads');
+Route::get('/aboutus_index', [WebController::class, 'aboutus'])->name('aboutus_index');
+Route::get('/programs', [WebController::class, 'programs'])->name('programs');
+Route::get('/admission_index', [WebController::class, 'admission'])->name('admission_index');
+Route::get('/faculty', [WebController::class, 'faculty'])->name('faculty');
+Route::get('/studentlife', [WebController::class, 'studentlife'])->name('studentlife');
+Route::get('/news_index', [WebController::class, 'news'])->name('news');
+Route::get('/gallery', [WebController::class, 'gallary'])->name('gallary');
+Route::get('/contact', [WebController::class, 'contact'])->name('contact');
+Route::post('/application/store', [WebController::class, 'store'])
+    ->name('application.store');
 
 
 

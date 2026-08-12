@@ -1,0 +1,419 @@
+/* =====================================================
+   RVD COLLEGE — Mobile Responsiveness
+   Breakpoints: 1024px | 768px | 576px | 380px
+   ===================================================== */
+
+/* ===================================================
+   CRITICAL FIXES (all screen sizes)
+   =================================================== */
+
+/* Hero: ensure stats bar never overlaps content */
+.hero-content {
+  padding-bottom: 160px !important;
+}
+
+/* Hero buttons: always wrap gracefully */
+.hero-btns {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 14px !important;
+}
+
+/* Navbar: remove any unintended white card/box on logo area */
+.navbar-logo {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Prevent hero section from having overflow issues */
+.hero { overflow: hidden !important; }
+
+/* ===================================================
+   1. TABLET — max-width: 1024px
+   =================================================== */
+@media (max-width: 1024px) {
+
+  .container { padding: 0 24px; }
+  section, .section { padding: 70px 0; }
+  .navbar-nav  { gap: 2px; }
+  .nav-link    { font-size: 12.5px; padding: 7px 10px; }
+  .navbar-logo-name { font-size: 16px; }
+  .hero h1, .hero h1[style] { font-size: 3rem !important; }
+  .hero h2, .hero h2[style] { font-size: 1.5rem !important; }
+  .features-grid  { grid-template-columns: repeat(2, 1fr) !important; }
+  .clubs-grid     { grid-template-columns: repeat(2, 1fr) !important; }
+  .faculty-grid   { grid-template-columns: repeat(3, 1fr) !important; }
+  .section-title, h2 { font-size: clamp(24px, 3vw, 36px); }
+  .programs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ===================================================
+   2. MOBILE — max-width: 768px
+   =================================================== */
+@media (max-width: 768px) {
+
+  /* Container & Base */
+  .container { padding: 0 18px; max-width: 100%; }
+  section, .section { padding: 56px 0; }
+  p { font-size: 14.5px !important; }
+
+  /* Top Bar */
+  .top-bar { display: none !important; }
+
+  /*   /* ---- Navbar ---- */
+  .navbar { padding: 0 !important; }
+  .navbar .container { padding: 10px 18px; }
+  .navbar-nav  { display: none !important; }
+  .navbar-cta  { display: none !important; }
+  .hamburger   { display: flex !important; }
+  /* Remove logo white box on mobile */
+  .navbar-logo {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+  .navbar-logo img { width: 44px !important; height: 44px !important; }
+  .navbar-logo-name { font-size: 14px !important; letter-spacing: 1.5px !important; }
+  .navbar-logo-sub  { font-size: 8.5px !important; }
+  .navbar-logo-tagline { display: none !important; }
+  .hamburger { width: 40px !important; height: 40px !important; }
+
+  /* Mobile Nav */
+  .mobile-nav { width: 100% !important; }
+  .mobile-nav-link { padding: 14px 20px !important; min-height: 48px !important; }
+  .dropdown-link   { padding: 13px 20px !important; min-height: 44px !important; }
+
+  /* ---- Hero ---- */
+  .hero {
+    min-height: 100svh !important;
+    background-attachment: scroll !important;
+  }
+  /* Hero content: push up from stats bar */
+  .hero-content {
+    padding-bottom: 180px !important;
+    padding-top: 20px !important;
+  }
+  .hero h1[style] { font-size: 2rem !important; line-height: 1.15 !important; }
+  .hero h2[style] { font-size: 1.1rem !important; margin-bottom: 14px !important; }
+  .hero p[style] { font-size: 14px !important; padding: 0 8px !important; }
+  .hero [style*="text-align: center"] { padding-left: 16px !important; padding-right: 16px !important; }
+  .hero span.badge, .hero .badge {
+    font-size: 9px !important; padding: 5px 14px !important; letter-spacing: 2px !important;
+  }
+  /* Buttons: stack vertically */
+  .hero-btns {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  .hero-btns .btn {
+    width: 85% !important;
+    max-width: 300px !important;
+    justify-content: center !important;
+  }
+
+
+  /* Hero stats bar */
+  .hero-stats { border-top: 1px solid rgba(255,255,255,0.1); }
+  .hero-stats .container > div,
+  [style*="display: flex; justify-content: space-between; padding: 20px 0"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+  }
+  .hero-stats h3[style] { font-size: 1.6rem !important; }
+  .hero-stats p[style]  { font-size: 0.75rem !important; }
+
+  /* Admission Banner */
+  .admission-banner .container,
+  .admission-banner [style*="display: flex"] {
+    flex-direction: column !important; text-align: center !important; gap: 14px !important;
+  }
+  .admission-banner h4[style] { font-size: 14px !important; }
+  .admission-banner p[style]  { font-size: 12px !important; }
+  .admission-banner svg { width: 20px !important; height: 20px !important; }
+
+  /* Section Headers */
+  .section-header { margin-bottom: 32px !important; }
+  .section-title, h2[style*="font-family"] { font-size: 1.7rem !important; }
+  .section-subtitle { font-size: 14px !important; }
+
+  /* All auto-fit grids stack */
+  div[style*="grid-template-columns: repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Feature Cards */
+  .features-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+  .feature-card[style] { padding: 24px 20px !important; border-radius: 4px !important; }
+
+  /* Program Cards */
+  .programs-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .program-card-header { padding: 28px 22px !important; }
+  .program-card-header h3[style] { font-size: 1.6rem !important; }
+  .program-card div[style*="padding: 30px"] { padding: 22px !important; }
+  div[style*="padding: 40px 30px"] { padding: 24px 18px !important; }
+  div[style*="padding: 30px"]      { padding: 20px 16px !important; }
+
+  /* Stats Section */
+  .stats-section .container > div,
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important;
+  }
+  .stat-number, .stats-section h2[style] { font-size: 2.5rem !important; }
+  .stats-section .container > div > div { padding: 20px 10px !important; }
+
+  /* Testimonials */
+  .testimonials-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .testimonial-card[style] { padding: 24px !important; }
+  .testimonial-text, .testimonial-card p { font-size: 14px !important; }
+
+  /* Events */
+  .events-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+  .event-card[style*="display: flex"] {
+    display: grid !important; grid-template-columns: 72px 1fr !important;
+  }
+  .event-date-bar { min-width: 72px !important; padding: 14px 10px !important; }
+  .event-date-bar span:first-child { font-size: 22px !important; }
+  .event-card h4 { font-size: 15px !important; }
+  [style*="display: flex; justify-content: space-between; align-items: flex-end"] {
+    flex-direction: column !important; align-items: flex-start !important; gap: 12px !important;
+  }
+
+  /* Gallery Preview */
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto !important; gap: 8px !important;
+  }
+  .gallery-grid .gallery-item:first-child { grid-column: span 2 !important; grid-row: auto !important; }
+
+  /* Recruiters */
+  .recruiter-item { padding: 10px 18px !important; font-size: 13px !important; }
+  .recruiter-track { animation-duration: 25s !important; }
+
+  /* CTA Section */
+  .cta-section { padding: 56px 0 !important; }
+  .cta-section h2, .cta-section h2[style] { font-size: 1.6rem !important; }
+  .cta-buttons {
+    flex-direction: column !important; align-items: center !important; gap: 12px !important;
+  }
+  .cta-buttons .btn { width: 100% !important; max-width: 280px !important; }
+
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .footer-bottom { flex-direction: column !important; text-align: center !important; gap: 10px !important; }
+  .footer-bottom-links { justify-content: center !important; }
+  .footer-col h4 { font-size: 10px !important; }
+  .footer-logo-text .name { font-size: 16px !important; }
+
+  /* Page Hero */
+  .page-hero { padding: 90px 0 40px !important; }
+  .page-hero h1 { font-size: 2rem !important; }
+  .page-hero p  { font-size: 14px !important; }
+  .breadcrumb { font-size: 12px !important; }
+
+  /* About Page */
+  .about-intro-grid, .about-grid { grid-template-columns: 1fr !important; }
+  .about-intro-grid img, .about-intro-grid .about-image-wrap {
+    height: 220px !important; object-fit: cover !important; border-radius: 4px !important;
+  }
+  .vision-mission-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .values-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; }
+  .management-grid, .leadership-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .message-card {
+    flex-direction: column !important; gap: 20px !important; padding: 24px !important;
+  }
+  .message-card::before { display: none !important; }
+  .message-photo { width: 80px !important; height: 80px !important; }
+  .infrastructure-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+  .accreditation-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Programs Page */
+  .programs-detail-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .curriculum-tabs { flex-wrap: wrap !important; gap: 8px !important; }
+  .semester-grid { grid-template-columns: 1fr !important; }
+  .value-added-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .placement-stats { grid-template-columns: repeat(2, 1fr) !important; }
+  .subject-list { grid-template-columns: 1fr !important; }
+  .career-tags { gap: 8px !important; }
+  .career-tag { font-size: 11.5px !important; padding: 5px 10px !important; }
+  .fee-table { font-size: 13px !important; }
+  .fee-table th, .fee-table td { padding: 12px 10px !important; }
+
+  /* Admissions Page */
+  .admission-overview-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .admission-steps { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
+  .admission-steps::before { display: none !important; }
+  .eligibility-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .scholarship-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .form-row { grid-template-columns: 1fr !important; gap: 14px !important; }
+
+  /* Faculty Page */
+  .faculty-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+  .faculty-stat-row { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .principal-card {
+    flex-direction: column !important; text-align: center !important; align-items: center !important;
+  }
+  .methodology-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .research-stats { grid-template-columns: repeat(2, 1fr) !important; }
+  .qual-badge { font-size: 10px !important; }
+
+  /* Student Life Page */
+  .campus-intro-grid { grid-template-columns: 1fr !important; }
+  .facilities-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .clubs-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; }
+  .sports-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .events-showcase { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+  /* Gallery Page */
+  .gallery-filter { flex-wrap: wrap !important; gap: 8px !important; justify-content: center !important; }
+  .gallery-filter-btn { padding: 8px 16px !important; font-size: 12px !important; }
+  .gallery-full-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+  .gallery-full-item.wide,
+  .gallery-full-item.tall { grid-column: span 1 !important; grid-row: span 1 !important; }
+  .gallery-item-info h5 { font-size: 13px !important; }
+
+  /* News Page */
+  .news-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .mini-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Contact Page */
+  .contact-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .dept-contacts-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .map-section iframe { height: 280px !important; }
+  .map-overlay-card { padding: 14px !important; bottom: 10px !important; left: 10px !important; right: 10px !important; }
+
+  /* Tables scrollable */
+  table { display: block !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+  .fee-table-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+
+  /* Forms */
+  input, select, textarea {
+    width: 100% !important;
+    font-size: 16px !important;
+  }
+  .newsletter-form { flex-direction: column !important; gap: 10px !important; }
+  .newsletter-input { width: 100% !important; }
+  .newsletter-btn   { width: 100% !important; }
+
+  /* FAQ */
+  details summary { font-size: 14px !important; padding: 14px 16px !important; }
+
+  /* Touch targets */
+  .btn, a.btn, button.btn,
+  a[class*="btn"], button[class*="btn"],
+  input[type="submit"], button[type="submit"] {
+    min-height: 44px !important;
+  }
+
+  /* Back to top & WhatsApp */
+  .back-to-top { bottom: 80px !important; right: 16px !important; }
+  .whatsapp-float { bottom: 20px !important; right: 16px !important; }
+
+  /* Images safe */
+  img { max-width: 100% !important; height: auto !important; }
+}
+
+
+/* ===================================================
+   3. SMALL MOBILE — max-width: 576px
+   =================================================== */
+@media (max-width: 576px) {
+
+  .container { padding: 0 14px; }
+  section, .section { padding: 44px 0; }
+
+  .hero h1[style] { font-size: 1.75rem !important; }
+  .hero h2[style] { font-size: 1rem !important; }
+  .hero-btns .btn, .hero-actions .btn { padding: 12px 22px !important; font-size: 13px !important; }
+  .hero-stats h3[style] { font-size: 1.4rem !important; }
+  .hero-stats p[style]  { font-size: 0.7rem !important; letter-spacing: 0.5px !important; }
+
+  .section-title, h2[style*="font-family"] { font-size: 1.5rem !important; }
+  .section-tag, .tag { font-size: 9.5px !important; letter-spacing: 3px !important; }
+
+  .features-grid { grid-template-columns: 1fr !important; }
+  .program-card-header h3[style] { font-size: 1.4rem !important; }
+  .stats-section h2[style] { font-size: 2.2rem !important; }
+
+  .values-grid { grid-template-columns: 1fr !important; }
+  .faculty-grid { grid-template-columns: 1fr !important; }
+  .clubs-grid { grid-template-columns: 1fr !important; }
+  .sports-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .accreditation-grid { grid-template-columns: 1fr !important; }
+  .value-added-grid { grid-template-columns: 1fr !important; }
+  .admission-steps { grid-template-columns: 1fr !important; }
+
+  .gallery-full-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .gallery-grid { grid-template-columns: 1fr !important; }
+  .gallery-grid .gallery-item:first-child { grid-column: span 1 !important; }
+
+  .fee-table { min-width: 460px !important; font-size: 12.5px !important; }
+  .map-section iframe { height: 240px !important; }
+  .dept-contacts-grid { grid-template-columns: 1fr !important; }
+
+  .btn { padding: 11px 22px !important; font-size: 13px !important; }
+  .page-hero { padding: 80px 0 36px !important; }
+  .page-hero h1 { font-size: 1.7rem !important; }
+  .navbar-logo-name { font-size: 12.5px !important; letter-spacing: 1px !important; }
+  .navbar-logo img  { width: 38px !important; height: 38px !important; }
+  .research-stats { grid-template-columns: 1fr 1fr !important; }
+  .principal-detail { text-align: center !important; }
+}
+
+
+/* ===================================================
+   4. EXTRA SMALL — max-width: 380px
+   =================================================== */
+@media (max-width: 380px) {
+
+  .container { padding: 0 12px; }
+  .hero h1[style] { font-size: 1.5rem !important; }
+  .hero-btns { gap: 10px !important; }
+  .hero-stats .container > div { grid-template-columns: 1fr !important; }
+  .stats-section .container > div { grid-template-columns: 1fr !important; }
+  .section-title, h2[style*="font-family"] { font-size: 1.3rem !important; }
+  .program-card-header { padding: 20px 16px !important; }
+  .faculty-grid { grid-template-columns: 1fr !important; }
+  .sports-grid { grid-template-columns: 1fr !important; }
+  .placement-stats { grid-template-columns: 1fr !important; }
+  .navbar-logo-sub, .navbar-logo-tagline { display: none !important; }
+  .navbar-logo-name { font-size: 13px !important; }
+}
+
+
+/* ===================================================
+   5. LANDSCAPE PHONE
+   =================================================== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero { min-height: 100vh !important; padding: 70px 0 0 !important; }
+  .hero h1[style] { font-size: 1.6rem !important; }
+  .hero h2[style] { font-size: 1rem !important; }
+  .page-hero { padding: 70px 0 30px !important; }
+}
+
+
+/* ===================================================
+   6. NO-HOVER DEVICES (touch screens)
+   =================================================== */
+@media (hover: none) {
+  .feature-card:hover,
+  .event-card:hover,
+  .testimonial-card:hover,
+  .program-card:hover,
+  .faculty-card:hover,
+  .value-card:hover,
+  .club-card:hover,
+  .facility-card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08) !important;
+  }
+}

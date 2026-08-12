@@ -24,6 +24,85 @@
                     </ol>
                 </div>
 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+
+                    <button type="submit" class="btn btn-primary">
+                        Save Course
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Course Name</th>
+                      <th>Over View</th>
+                       <th>Eligibility</th>
+                       <th>Duration</th>
+                       <th>Curriculum</th>
+                       <th>Opportunities</th>
+                        <th>Certifications</th>
+                        <th>Values</th>
+                        <th>Placement Support</th>
+                        <th>Fees</th>
+                      <th style="width: 40px">Label</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                  @foreach($courses as $key)
+                      
+                    <tr>
+                      <td>{{ $key->id }}</td>
+                      <td>{{$key->coursename}}</td>
+                      <td>{{$key->overview}}</td>
+                      <td>{{$key->eligibility}}</td>
+                      <td>{{$key->duration}}</td>
+
+                      <td>{{$key->curriculum}}</td>
+                      <td>{{$key->opportunities}}</td>
+                      <td>{{$key->certifications}}</td>
+                      <td>{{$key->values}}</td>
+                      <td>{{$key->placementsupport}}</td>
+                      <td>{{$key->fees}}</td>
+
+                      
+                      <td>
+
+                      <button type="button"
+            class="btn btn-sm btn-primary editaboutus"
+            data-id="{{ $key->id }}">
+        Edit
+    </button>
+                      </td>
+                    </tr>
+
+                    @endforeach
+                    
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
             </div>
         </div>
     </section>

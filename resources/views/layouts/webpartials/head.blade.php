@@ -1,25 +1,12 @@
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{$app_profile->name ?? 'Pouch Gallery'}} | Premium Tech & Gaming Accessories</title>
-
-	<meta name="author" content="{{$app_profile->name ?? 'Pouch Gallery'}}">
-	<meta name="robots" content="index, follow">
-	
-	<link rel="icon" type="image/png" href="{{asset('public/assets/logo.png')}}">
-    <link rel="apple-touch-icon" href="{{asset('public/assets/logo.png')}}" />
-
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-		<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-
-		<link rel="stylesheet" type="text/css" href="{{asset('public/style.css')}}?v={{ time() }}">
-
-		
-	
-		</head>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - RVD College of Management & Information Technology</title>
+  <meta name="description" content="RVD College of Management & Information Technology - Empowering Futures, Shaping Leaders. BBA and B.Com programs affiliated with Bengaluru City University.">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <link rel="stylesheet" href="{{asset('web/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/override.css')}}">
+  <link rel="stylesheet" href="{{asset('web/css/mobile.css')}}">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>

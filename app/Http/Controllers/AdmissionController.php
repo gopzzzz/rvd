@@ -10,7 +10,7 @@ class AdmissionController extends Controller
     // Display Admission
     public function index()
     {
-        $admission = DB::table('admission')->get();
+        $admission = DB::table('admissions')->get();
 
         return view('admission', compact('admission'));
     }
@@ -120,7 +120,7 @@ public function store(Request $request)
     ]);
 
 
-        DB::table('admission')->insert([
+        DB::table('admissions')->insert([
             'name' => $request->name,
             'dob' => $request->dob,
             'gender' => $request->gender,
@@ -149,7 +149,7 @@ public function store(Request $request)
     // Get Admission for Edit
     public function edit($id)
     {
-        $admission = DB::table('admission')
+        $admission = DB::table('admissions')
             ->where('id', $id)
             ->first();
 
@@ -293,7 +293,7 @@ public function update(Request $request, $id)
     // Your existing update code here
 
 
-        DB::table('admission')
+        DB::table('admissions')
             ->where('id', $id)
             ->update([
                 'name' => $request->name,
