@@ -18,11 +18,12 @@ use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\UploadsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\WebController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -137,5 +138,16 @@ Route::post('/updatefaq', [FaqController::class, 'update'])
 
 Route::post('/deletefaq', [FaqController::class, 'delete'])
     ->name('deletefaq');
+Route::get('/', [WebController::class, 'index'])->name('uploads');
+Route::get('/index', [WebController::class, 'index'])->name('uploads');
+Route::get('/aboutus', [WebController::class, 'aboutus'])->name('aboutus');
+Route::get('/programs', [WebController::class, 'programs'])->name('programs');
+Route::get('/admission', [WebController::class, 'admission'])->name('admission');
+Route::get('/faculty', [WebController::class, 'faculty'])->name('faculty');
+Route::get('/studentlife', [WebController::class, 'studentlife'])->name('studentlife');
+Route::get('/news', [WebController::class, 'news'])->name('news');
+Route::get('/gallery', [WebController::class, 'gallary'])->name('gallary');
+Route::get('/contact', [WebController::class, 'contact'])->name('contact');
+
 
 require __DIR__.'/auth.php';
