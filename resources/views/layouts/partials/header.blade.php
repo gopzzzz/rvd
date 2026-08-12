@@ -137,7 +137,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">RVD College</span>
     </a>
 
     <!-- Sidebar -->
@@ -174,7 +174,7 @@
           </li>
          
          
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -208,19 +208,46 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
+
+            <li class="nav-item">
+    <a href="{{ route('admission.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>Admission</p>
+    </a>
+</li>
+
+            <li class="nav-item">
+    <a href="{{ route('aboutus') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>About Us</p>
+    </a>
+</li>
+
+
           <li class="nav-item">
     <a href="{{ route('course.index') }}" class="nav-link">
         <i class="nav-icon fas fa-book"></i>
         <p>Course</p>
     </a>
 </li>
-      <li class="nav-item">
-    <a href="{{ route('admission.index') }}" class="nav-link">
-        <i class="nav-icon fas fa-book"></i>
-        <p>Admission</p>
+
+<li class="nav-item">
+    <a href="{{ route('news') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>News & Events</p>
     </a>
 </li>
+
+
+<li class="nav-item">
+    <a href="{{ route('uploads') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>Gallery</p>
+    </a>
+</li>
+         
+    
         <li class="nav-item">
     <a href="{{ route('department.index') }}" class="nav-link">
         <i class="nav-icon fas fa-book"></i>
@@ -228,12 +255,12 @@
     </a>
 </li>
 
- <li class="nav-item">
+ <!-- <li class="nav-item">
     <a href="{{ route('events.index') }}" class="nav-link">
         <i class="nav-icon fas fa-book"></i>
         <p>Events</p>
     </a>
-</li>
+</li> -->
           <li class="nav-item">
     <a href="{{ route('logout') }}" class="nav-link">
         <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -242,13 +269,7 @@
 </li>
 
 
-         <li class="nav-item">
-    <a href="{{ route('aboutus') }}" class="nav-link">
-        <i class="nav-icon fas fa-info-circle"></i>
-        <p>About Us</p>
-    </a>
-</li>
-
+       
 <li class="nav-item">
     <a href="{{ route('downloads') }}" class="nav-link">
         <i class="nav-icon fas fa-info-circle"></i>
@@ -256,12 +277,6 @@
     </a>
 </li>
 
-<li class="nav-item">
-    <a href="{{ route('news') }}" class="nav-link">
-        <i class="nav-icon fas fa-info-circle"></i>
-        <p>News</p>
-    </a>
-</li>
 
 <li class="nav-item">
     <a href="{{ route('uploads') }}" class="nav-link">
@@ -284,6 +299,7 @@
     </a>
 </li>
           
+ 
           
         </ul>
       </nav>

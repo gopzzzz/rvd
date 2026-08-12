@@ -7,13 +7,13 @@
   <section class="hero reveal" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('images/hero_campus.jpg'); min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative;">
     <div class="hero-particles" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></div>
     <div class="hero-content container" style="text-align: center; color: white; z-index: 2; padding-bottom: 160px;">
-      <span class="badge" style="background-color: var(--gold); color: var(--crimson); padding: 6px 18px; border-radius: 2px; font-weight: 700; font-size: 11px; letter-spacing: 3px; margin-bottom: 20px; display: inline-block; font-family: 'Cinzel', serif;">ADMISSIONS OPEN 2026-27</span>
+      <span class="badge" style="background-color: var(--gold); color: var(--crimson); padding: 6px 18px; border-radius: 2px; font-weight: 700; font-size: 11px; letter-spacing: 3px; margin-bottom: 20px; display: inline-block; font-family: 'Cinzel', serif;">ADMISSIONS OPEN </span>
       <h1 style="font-family: 'Cinzel', serif; font-size: 4rem; margin-bottom: 10px; line-height: 1.1;"><span class="accent" style="color: var(--gold-muted);">RVD</span><br>College of Management</h1>
       <h2 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 2rem; margin-bottom: 20px; color: rgba(255,255,255,0.88);">Empowering Futures, Shaping Leaders</h2>
       <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px auto; color: rgba(255,255,255,0.78);">Providing unparalleled quality education in Management and Commerce in Bengaluru since 2018. Discover a campus where excellence meets opportunity.</p>
       <div class="hero-btns" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <a href="admissions.html" class="btn btn-primary">Apply Now →</a>
-        <a href="programs.html" class="btn btn-outline-white">Explore Programs</a>
+        <a href="{{url('admission_index')}}" class="btn btn-primary">Apply Now →</a>
+        <a href="{{url('programs')}}" class="btn btn-outline-white">Explore Programs</a>
       </div>
     </div>
     
@@ -51,11 +51,11 @@
       <div style="display: flex; align-items: center; gap: 15px;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="2" style="width:24px; height:24px;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
         <div>
-          <h4 style="margin:0; font-size: 1.1rem;">Admissions Open for 2026-27 Academic Year | BBA & B.Com</h4>
+          <h4 style="margin:0; font-size: 1.1rem;">Admissions Open  | BBA & B.Com</h4>
           <p style="margin:0; font-size: 0.9rem; opacity: 0.8;">Limited seats available. Secure your future with BCU affiliated programs.</p>
         </div>
       </div>
-      <a href="admissions.html" class="btn btn-gold" style="white-space: nowrap;">Apply Now</a>
+      <a href="{{url('admission_index')}}" class="btn btn-gold" style="white-space: nowrap;">Apply Now</a>
     </div>
   </div>
 
@@ -132,58 +132,38 @@
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
         <!-- BBA Card -->
+         @if($course != null)
+         @foreach($course as $courSe)
         <div class="program-card reveal-left" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
           <div style="background: linear-gradient(135deg, var(--crimson), #c41e3a); padding: 40px 30px; color: white; position: relative;">
-            <h3 style="font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 10px;">BBA</h3>
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; opacity: 0.9;">Bachelor of Business Administration</p>
+            <h3 style="font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 10px;">{{$courSe->coursename}}</h3>
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; opacity: 0.9;">{{$courSe->fullname}}</p>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="position: absolute; right: 20px; top: 30px; width: 80px; height: 80px; opacity: 0.2;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
           <div style="padding: 30px;">
-            <p style="color: #555; margin-bottom: 20px; line-height: 1.6;">The BBA program is designed to impart business and management skills to students and prepare them for corporate roles and entrepreneurship.</p>
+            <p style="color: #555; margin-bottom: 20px; line-height: 1.6;">{{$courSe->overview}}</p>
             <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
               <li style="display: flex; align-items: center; margin-bottom: 10px; color: #444;">
                 <svg style="width:20px; height:20px; color:var(--crimson); margin-right:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <strong>Duration:</strong> &nbsp; 3 Years (6 Semesters)
+                <strong>Duration:</strong> &nbsp; {{$courSe->duration}} Years 
               </li>
               <li style="display: flex; align-items: center; margin-bottom: 10px; color: #444;">
                 <svg style="width:20px; height:20px; color:var(--crimson); margin-right:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                <strong>Intake:</strong> &nbsp; 60 Seats
+                <strong>Intake:</strong> &nbsp;  {{$courSe->values}}   Seats
               </li>
               <li style="display: flex; align-items: center; margin-bottom: 10px; color: #444;">
                 <svg style="width:20px; height:20px; color:var(--crimson); margin-right:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <strong>Highlights:</strong> &nbsp; Case Studies, Internships, Seminars
+                <strong>Highlights:</strong> &nbsp; {{$courSe->certifications}}
               </li>
             </ul>
-            <a href="programs.html#bba" class="btn btn-outline" style="width: 100%; text-align: center; display: block; border: 2px solid var(--crimson); color: var(--crimson); padding: 12px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s;">Learn More</a>
+            <a href="{{url('programs')}}#bba" class="btn btn-outline" style="width: 100%; text-align: center; display: block; border: 2px solid var(--crimson); color: var(--crimson); padding: 12px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s;">Learn More</a>
           </div>
         </div>
+        @endforeach
+        @endif
 
         <!-- B.Com Card -->
-        <div class="program-card reveal-right" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
-          <div style="background: linear-gradient(135deg, #1a1a1a, #333); padding: 40px 30px; color: var(--gold); position: relative;">
-            <h3 style="font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 10px;">B.Com</h3>
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; opacity: 0.9; color: white;">Bachelor of Commerce</p>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="position: absolute; right: 20px; top: 30px; width: 80px; height: 80px; opacity: 0.2;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <div style="padding: 30px;">
-            <p style="color: #555; margin-bottom: 20px; line-height: 1.6;">Our B.Com program equips students with analytical skills and deeply rooted knowledge in accounting, finance, taxation, and business law.</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-              <li style="display: flex; align-items: center; margin-bottom: 10px; color: #444;">
-                <svg style="width:20px; height:20px; color:#333; margin-right:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <strong>Duration:</strong> &nbsp; 3 Years (6 Semesters)
-              </li>
-              <li style="display: flex; align-items: center; margin-bottom: 10px; color: #444;">
-                <svg style="width:20px; height:20px; color:#333; margin-right:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                <strong>Intake:</strong> &nbsp; 100 Seats
-              </li>
-              <li style="display: flex; align-items: center; margin-bottom: 10px; color: #444;">
-                <svg style="width:20px; height:20px; color:#333; margin-right:10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <strong>Highlights:</strong> &nbsp; Practical Accounting, Industry Visits
-              </li>
-            </ul>
-            <a href="programs.html#bcom" class="btn btn-outline" style="width: 100%; text-align: center; display: block; border: 2px solid #333; color: #333; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s;">Learn More</a>
-          </div>
-        </div>
+       
       </div>
     </div>
   </section>
@@ -271,6 +251,8 @@
     </div>
   </section>
 
+  @if($events->isNotEmpty())
+
   <!-- EVENTS SECTION -->
   <section class="events-section section reveal" style="background: #f9f9f9;">
     <div class="container">
@@ -279,124 +261,65 @@
           <span class="tag" style="color: var(--crimson); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Campus Happenings</span>
           <h2 style="font-family: 'Cinzel', serif; font-size: 2.5rem; margin-top: 10px;">Upcoming Events</h2>
         </div>
-        <a href="news.html" class="btn btn-outline" style="border: 2px solid var(--crimson); color: var(--crimson); padding: 8px 20px; border-radius: 4px; text-decoration: none; font-weight: 600;">View All Events</a>
+        <a href="{{url('news_index')}}" class="btn btn-outline" style="border: 2px solid var(--crimson); color: var(--crimson); padding: 8px 20px; border-radius: 4px; text-decoration: none; font-weight: 600;">View All Events</a>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
         <!-- Event 1 -->
+         @foreach($events as $evEnts)
         <div class="event-card reveal-left" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex;">
           <div class="event-date-bar" style="background: var(--crimson); color: white; padding: 20px 15px; text-align: center; min-width: 80px; display: flex; flex-direction: column; justify-content: center;">
-            <span style="font-size: 1.8rem; font-weight: bold; line-height: 1;">15</span>
-            <span style="font-size: 0.9rem; text-transform: uppercase;">Aug</span>
+            <span style="font-size: 1.8rem; font-weight: bold; line-height: 1;">
+    {{ \Carbon\Carbon::parse($evEnts->date)->format('d') }}
+</span>
+
+<span style="font-size: 0.9rem; text-transform: uppercase;">
+    {{ \Carbon\Carbon::parse($evEnts->date)->format('M') }}
+</span>
           </div>
           <div style="padding: 20px;">
-            <h4 style="margin: 0 0 10px 0; font-size: 1.2rem; color: #333;">Management Fest 2026</h4>
-            <p style="margin: 0 0 15px 0; color: #666; font-size: 0.9rem;">Annual inter-college management festival featuring competitions and cultural events.</p>
-            <a href="#" style="color: var(--crimson); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
+            <h4 style="margin: 0 0 10px 0; font-size: 1.2rem; color: #333;">{{$evEnts->title}}</h4>
+            <p style="margin: 0 0 15px 0; color: #666; font-size: 0.9rem;">{{ \Illuminate\Support\Str::words($evEnts->description, 50, '...') }}</p>
+            <a href="{{url('news_index')}}" style="color: var(--crimson); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
           </div>
         </div>
-        <!-- Event 2 -->
-        <div class="event-card reveal" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex;">
-          <div class="event-date-bar" style="background: #333; color: var(--gold); padding: 20px 15px; text-align: center; min-width: 80px; display: flex; flex-direction: column; justify-content: center;">
-            <span style="font-size: 1.8rem; font-weight: bold; line-height: 1;">05</span>
-            <span style="font-size: 0.9rem; text-transform: uppercase;">Sep</span>
-          </div>
-          <div style="padding: 20px;">
-            <h4 style="margin: 0 0 10px 0; font-size: 1.2rem; color: #333;">Industry Visit</h4>
-            <p style="margin: 0 0 15px 0; color: #666; font-size: 0.9rem;">Exclusive visit to leading IT parks and manufacturing units for final year students.</p>
-            <a href="#" style="color: var(--crimson); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
-          </div>
-        </div>
-        <!-- Event 3 -->
-        <div class="event-card reveal-right" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex;">
-          <div class="event-date-bar" style="background: var(--crimson); color: white; padding: 20px 15px; text-align: center; min-width: 80px; display: flex; flex-direction: column; justify-content: center;">
-            <span style="font-size: 1.8rem; font-weight: bold; line-height: 1;">10</span>
-            <span style="font-size: 0.9rem; text-transform: uppercase;">Oct</span>
-          </div>
-          <div style="padding: 20px;">
-            <h4 style="margin: 0 0 10px 0; font-size: 1.2rem; color: #333;">Alumni Meet</h4>
-            <p style="margin: 0 0 15px 0; color: #666; font-size: 0.9rem;">Networking session bridging current students with distinguished RVD alumni.</p>
-            <a href="#" style="color: var(--crimson); font-weight: bold; text-decoration: none; font-size: 0.9rem;">Read More →</a>
-          </div>
-        </div>
+        @endforeach
+     
       </div>
     </div>
   </section>
+
+  @endif
+
+  @if($photos->isNotEmpty())
 
   <!-- GALLERY PREVIEW -->
   <section class="gallery-preview section reveal" style="background: #111; color: white;">
     <div class="container">
       <div class="section-header text-center" style="margin-bottom: 50px;">
-        <h2 style="font-family: 'Cinzel', serif; font-size: 2.5rem; color: white;">Glimpse of <span style="color: var(--gold);">Campus Life</span></h2>
+        <p style="font-family: 'Cinzel', serif; font-size: 2.5rem; color: #fff;">Glimpse of <span style="color: ;">Campus Life</span></p>
         <p style="max-width: 600px; margin: 15px auto 0; color: #aaa;">Experience the vibrant life at RVD College of Management & Information Technology.</p>
       </div>
 
       <div class="gallery-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr; grid-auto-rows: 200px; gap: 15px; margin-bottom: 40px;">
-        <div style="grid-column: span 1; grid-row: span 2; border-radius: 8px; overflow: hidden;">
-          <img src="{{asset('web/images/hero_campus.jpg')}}" alt="Campus" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; cursor: pointer;" onclick="document.getElementById('lightbox').classList.add('active'); document.getElementById('lightboxImg').src=this.src;">
+      @foreach($photos as $phoTos)
+      <div style="grid-column: span 1; grid-row: span 2; border-radius: 8px; overflow: hidden;">
+          <img src="{{asset('/'.$phoTos->photo)}}" alt="Campus" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; cursor: pointer;" onclick="document.getElementById('lightbox').classList.add('active'); document.getElementById('lightboxImg').src=this.src;">
         </div>
-        <div style="border-radius: 8px; overflow: hidden;">
-          <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Classroom" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; cursor: pointer;" onclick="document.getElementById('lightbox').classList.add('active'); document.getElementById('lightboxImg').src=this.src;">
-        </div>
-        <div style="border-radius: 8px; overflow: hidden;">
-          <img src="{{asset('web/images/college_library.jpg')}}" alt="Library" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; cursor: pointer;" onclick="document.getElementById('lightbox').classList.add('active'); document.getElementById('lightboxImg').src=this.src;">
-        </div>
-        <div style="border-radius: 8px; overflow: hidden;">
-          <img src="{{asset('web/images/convocation.jpg')}}" alt="Convocation" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; cursor: pointer;" onclick="document.getElementById('lightbox').classList.add('active'); document.getElementById('lightboxImg').src=this.src;">
-        </div>
-        <div style="border-radius: 8px; overflow: hidden;">
-          <img src="{{asset('web/images/college_library.jpg')}}" alt="Students" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; cursor: pointer;" onclick="document.getElementById('lightbox').classList.add('active'); document.getElementById('lightboxImg').src=this.src;">
-        </div>
+
+        @endforeach
+        
       </div>
 
       <div style="text-align: center;">
-        <a href="gallery.html" class="btn btn-gold" style="padding: 12px 30px;">View Full Gallery</a>
+        <a href="{{url('gallery')}}" class="btn btn-gold" style="padding: 12px 30px;">View Full Gallery</a>
       </div>
     </div>
   </section>
 
-  <!-- RECRUITERS SECTION -->
-  <section class="recruiters-section section reveal">
-    <div class="container text-center">
-      <h3 style="font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 40px; color: #333;">Our Recruiters & Partners</h3>
-      
-      <div style="overflow: hidden; white-space: nowrap; position: relative;">
-        <!-- Marquee effect could be handled in CSS, adding inline style for continuous loop -->
-        <div style="display: inline-block; animation: marquee 30s linear infinite; font-weight: bold; font-size: 1.2rem; color: #666; letter-spacing: 1px;">
-          <span style="margin: 0 30px;">Infosys</span>
-          <span style="margin: 0 30px;">Wipro</span>
-          <span style="margin: 0 30px;">TCS</span>
-          <span style="margin: 0 30px;">Deloitte</span>
-          <span style="margin: 0 30px;">KPMG</span>
-          <span style="margin: 0 30px;">EY</span>
-          <span style="margin: 0 30px;">HDFC Bank</span>
-          <span style="margin: 0 30px;">Axis Bank</span>
-          <span style="margin: 0 30px;">ICICI Bank</span>
-          <span style="margin: 0 30px;">Bajaj Finance</span>
-          <span style="margin: 0 30px;">Amazon</span>
-          <span style="margin: 0 30px;">Flipkart</span>
-          <span style="margin: 0 30px;">Swiggy</span>
-          <span style="margin: 0 30px;">Zomato</span>
-          <span style="margin: 0 30px;">D-Mart</span>
-          <!-- Duplicate for infinite effect -->
-          <span style="margin: 0 30px;">Infosys</span>
-          <span style="margin: 0 30px;">Wipro</span>
-          <span style="margin: 0 30px;">TCS</span>
-          <span style="margin: 0 30px;">Deloitte</span>
-          <span style="margin: 0 30px;">KPMG</span>
-          <span style="margin: 0 30px;">EY</span>
-          <span style="margin: 0 30px;">HDFC Bank</span>
-          <span style="margin: 0 30px;">Axis Bank</span>
-        </div>
-      </div>
-      <style>
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      </style>
-    </div>
-  </section>
+  @endif
+
+
 
   <!-- CTA SECTION -->
   <section class="cta-section section reveal" style="background: var(--crimson); color: white; text-align: center; padding: 60px 0;">
@@ -404,7 +327,7 @@
       <h2 style="font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 20px;">Begin Your Journey at RVD College</h2>
       <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.9;">Take the first step towards a successful career. Admissions for the batch of 2026-27 are currently ongoing.</p>
       <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <a href="admissions.html" class="btn" style="background: white; color: var(--crimson); padding: 12px 30px; border-radius: 4px; font-weight: bold; text-decoration: none;">Apply for Admission</a>
+        <a href="{{url('admission_index')}}" class="btn" style="background: white; color: var(--crimson); padding: 12px 30px; border-radius: 4px; font-weight: bold; text-decoration: none;">Apply for Admission</a>
         <a href="#" class="btn" style="border: 2px solid white; color: white; padding: 12px 30px; border-radius: 4px; font-weight: bold; text-decoration: none;">Download Brochure</a>
       </div>
     </div>

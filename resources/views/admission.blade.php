@@ -495,21 +495,21 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th>name</th>
-                      <th>dob</th>
+                      <!-- <th>dob</th> -->
                       <th>gender</th>
-                      <th>adharcard</th>
+                      <!-- <th>adharcard</th> -->
                       <th>email</th>
                       <th>phonenumber</th>
-                      <th>tenthpercentage</th>
-                      <th>higherschoolname</th>
-                      <th>higherpercentage</th>
-                      <th>higherdepartment</th>
+                      <th>10 %</th>
+                      <!-- <th>higherschoolname</th> -->
+                      <th>12 %</th>
+                      <!-- <th>higherdepartment</th> -->
                       <th>program</th>
-                      <th>hearabout</th>
-                      <th>address</th>
+                      <!-- <th>hearabout</th> -->
+                      <!-- <th>address</th>
                       <th>city</th>
                       <th>state</th>
-                      <th>pincode</th>
+                      <th>pincode</th> -->
 
                       <th style="width: 40px">ACTION</th>
                     </tr>
@@ -519,21 +519,21 @@
                     <tr>
                         <td>{{ $key->id }}</td>
                         <td>{{ $key->name }}</td>
-                        <td>{{ $key->dob }}</td>
+                        <!-- <td>{{ $key->dob }}</td> -->
                         <td>{{ $key->gender }}</td>
-                        <td>{{ $key->adharcard }}</td>
+                        <!-- <td>{{ $key->adharcard }}</td> -->
                         <td>{{ $key->email }}</td>
                         <td>{{ $key->phonenumber }}</td>
                         <td>{{ $key->tenthpercentage }}</td>
-                        <td>{{ $key->higherschoolname }}</td>
+                        <!-- <td>{{ $key->higherschoolname }}</td> -->
                         <td>{{ $key->higherpercentage }}</td>
-                        <td>{{ $key->higherdepartment }}</td>
+                        <!-- <td>{{ $key->higherdepartment }}</td> -->
                         <td>{{ $key->program }}</td>
-                        <td>{{ $key->hearabout }}</td>
-                        <td>{{ $key->address }}</td>
+                        <!-- <td>{{ $key->hearabout }}</td> -->
+                        <!-- <td>{{ $key->address }}</td>
                         <td>{{ $key->city }}</td>
                         <td>{{ $key->state }}</td>
-                        <td>{{ $key->pincode }}</td>
+                        <td>{{ $key->pincode }}</td> -->
 
 
                         <td>

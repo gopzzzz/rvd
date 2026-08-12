@@ -45,68 +45,24 @@
       <div class="divider mx-auto"></div>
       <p style="max-width: 700px; margin: 20px auto 0; color: #666;">Our campus is equipped with state-of-the-art infrastructure designed to provide an optimal environment for learning and growth.</p>
     </div>
-    
+     @if($facilities != null)
     <div class="facilities-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
       <!-- Card 1 -->
+
+       @foreach($facilities as $fac)
       <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
         <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
         <div style="padding: 25px;">
-          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">Smart Classrooms</h4>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">20 fully air-conditioned classrooms equipped with multimedia projectors, digital interactive boards, and high-speed Wi-Fi connectivity.</p>
+          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">{{$fac->title}}</h4>
+          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">{{$fac->description}}.</p>
         </div>
       </div>
+
+      @endforeach
       
-      <!-- Card 2 -->
-      <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-        <img src="{{asset('web/images/college_library.jpg')}}" alt="Computer Laboratory" style="width: 100%; height: 200px; object-fit: cover;">
-        <div style="padding: 25px;">
-          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">Computer Laboratory</h4>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">A modern lab featuring 50 high-configuration computer systems, 100 Mbps dedicated internet line, and licensed essential software.</p>
-        </div>
-      </div>
-      
-      <!-- Card 3 -->
-      <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-        <img src="{{asset('web/images/college_library.jpg')}}" alt="Library & Resource Center" style="width: 100%; height: 200px; object-fit: cover;">
-        <div style="padding: 25px;">
-          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">Library & Resource Center</h4>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">An extensive collection of over 5000+ books, national/international journals, digital databases, and a dedicated e-library section.</p>
-        </div>
-      </div>
-      
-      <!-- Card 4 -->
-      <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-        <div style="background-color: var(--crimson); height: 200px; display: flex; align-items: center; justify-content: center; color: white;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div style="padding: 25px;">
-          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">Seminar Hall & Auditorium</h4>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">A spacious, acoustically treated 300-seat capacity auditorium with advanced audio-visual systems for guest lectures and cultural events.</p>
-        </div>
-      </div>
-      
-      <!-- Card 5 -->
-      <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-        <div style="background-color: #333; height: 200px; display: flex; align-items: center; justify-content: center; color: white;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        </div>
-        <div style="padding: 25px;">
-          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">Sports Complex</h4>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Excellent sports infrastructure including indoor badminton courts, table tennis arenas, and expansive outdoor cricket and basketball grounds.</p>
-        </div>
-      </div>
-      
-      <!-- Card 6 -->
-      <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-         <div style="background-color: var(--gold); height: 200px; display: flex; align-items: center; justify-content: center; color: white;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
-        </div>
-        <div style="padding: 25px;">
-          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">Cafeteria</h4>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">A hygienic, spacious multi-cuisine food court offering highly nutritious and affordable meals and snacks in a relaxing environment.</p>
-        </div>
-      </div>
+   
     </div>
+     @endif
   </div>
 </section>
 
@@ -118,6 +74,25 @@
       <div class="divider mx-auto"></div>
       <p style="max-width: 700px; margin: 20px auto 0; color: #666;">Engage, lead, and excel through our diverse range of student clubs and committees.</p>
     </div>
+
+     @if($club != null)
+    <div class="facilities-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+      <!-- Card 1 -->
+
+       @foreach($club as $clubs)
+      <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+        <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
+        <div style="padding: 25px;">
+          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">{{$clubs->title}}</h4>
+          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">{{$clubs->description}}.</p>
+        </div>
+      </div>
+
+      @endforeach
+      
+    </div>
+
+      @endif
     
     <div class="clubs-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 50px;">
       

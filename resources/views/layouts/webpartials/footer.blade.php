@@ -43,9 +43,9 @@
           <h4>Quick Links</h4>
           <div class="footer-links">
             <a href="{{url('index')}}" class="footer-link">Home</a>
-            <a href="{{url('aboutus')}}" class="footer-link">About Us</a>
+            <a href="{{url('aboutus_index')}}" class="footer-link">About Us</a>
             <a href="{{url('programs')}}" class="footer-link">Programs</a>
-            <a href="{{url('admission')}}" class="footer-link">Admissions</a>
+            <a href="{{url('admission_index')}}" class="footer-link">Admissions</a>
             <a href="{{url('faculty')}}" class="footer-link">Faculty</a>
             <a href="{{url('studentlife')}}" class="footer-link">Student Life</a>
             <a href="{{url('gallery')}}" class="footer-link">Gallery</a>
@@ -59,9 +59,9 @@
             <a href="{{url('programs')}}#bcom" class="footer-link">B.Com – Commerce</a>
             <a href="{{url('programs')}}#curriculum" class="footer-link">Curriculum</a>
             <a href="{{url('programs')}}#placements" class="footer-link">Placements</a>
-            <a href="{{url('admission')}}" class="footer-link">Admission 2026</a>
+            <a href="{{url('admission_index')}}" class="footer-link">Admission 2026</a>
             <a href="{{url('studemtlife')}}#facilities" class="footer-link">Facilities</a>
-            <a href="{{url('news')}}" class="footer-link">News & Events</a>
+            <a href="{{url('news_index')}}" class="footer-link">News & Events</a>
           </div>
         </div>
         <div class="footer-col footer-newsletter">

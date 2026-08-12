@@ -13,6 +13,8 @@
   </div>
 </section>
 
+  @if($course->isNotEmpty())
+
 <!-- PROGRAMS OVERVIEW -->
 <section class="bg-white section-pad">
   <div class="container">
@@ -23,89 +25,49 @@
     
     <div class="programs-detail-grid grid-2 reveal" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap:40px;">
       <!-- BBA CARD -->
+       
+       @foreach($course as $courSe)
       <div class="program-card-large" id="bba" style="background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.08); overflow:hidden;">
         <div class="prog-header grad-red-gold" style="padding:40px 30px; text-align:center; position:relative; background:linear-gradient(135deg, var(--crimson), #c41e3a); color:white; overflow:hidden;">
-          <div class="bg-text" style="position:absolute; font-size:150px; font-weight:800; opacity:0.05; top:50%; left:50%; transform:translate(-50%, -50%); line-height:1;">BBA</div>
-          <h3 style="font-size:3rem; margin-bottom:10px; position:relative; z-index:1;">BBA</h3>
-          <h4 style="font-size:1.2rem; font-weight:400; position:relative; z-index:1;">Bachelor of Business Administration</h4>
+          <div class="bg-text" style="position:absolute; font-size:150px; font-weight:800; opacity:0.05; top:50%; left:50%; transform:translate(-50%, -50%); line-height:1;">{{$courSe->coursename}}</div>
+          <h3 style="font-size:3rem; margin-bottom:10px; position:relative; z-index:1;">{{$courSe->coursename}}</h3>
+          <h4 style="font-size:1.2rem; font-weight:400; position:relative; z-index:1;">{{$courSe->fullname}}</h4>
         </div>
         <div class="prog-meta" style="display:flex; justify-content:space-between; padding:20px; background:#f9f9f9; border-bottom:1px solid #eee; font-size:14px;">
-          <span><strong>Duration:</strong> 3 Years</span>
-          <span><strong>Seats:</strong> 60</span>
+          <span><strong>Duration:</strong> {{$courSe->duration}} Years</span>
+          <span><strong>Seats:</strong> {{$courSe->values}}</span>
           <span><strong>Medium:</strong> English</span>
         </div>
         <div class="prog-body" style="padding:30px;">
-          <p class="prog-about" style="margin-bottom:25px; line-height:1.7; color:#555;">The Bachelor of Business Administration (BBA) at RVD College is tailored to equip students with practical business insights, leadership skills, and an entrepreneurial mindset. The curriculum bridges theory and practice, ensuring graduates are ready to navigate the dynamic corporate world.</p>
+          <p class="prog-about" style="margin-bottom:25px; line-height:1.7; color:#555;">{{$courSe->overview}}</p>
           <h5 style="color:var(--crimson); font-size:1.2rem; margin-bottom:15px; border-bottom:2px solid #eee; padding-bottom:10px;">Core Subjects</h5>
           <ul class="subject-list" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:30px; list-style:none; padding:0; font-size:14px;">
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Principles of Management</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Business Communication</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Financial Accounting</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Marketing Management</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Human Resource Mgt</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Business Economics</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Entrepreneurship</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Business Law</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Strategic Management</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Operations Management</li>
-          </ul>
+             @foreach(explode(',', $courSe->curriculum) as $item)
+             
+               <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> {{ trim($item) }}</li>
+         
+              @endforeach
+            </ul>
           <h5 style="color:var(--crimson); font-size:1.2rem; margin-bottom:15px; border-bottom:2px solid #eee; padding-bottom:10px;">Career Opportunities</h5>
           <div class="career-tags" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px;">
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Entrepreneur</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Marketing Manager</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">HR Manager</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Business Analyst</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Sales Executive</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Banking Professional</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Consultant</span>
-          </div>
-          <a href="admissions.html" class="btn btn-primary" style="display:block; text-align:center;">Apply for BBA</a>
+             @foreach(explode(',', $courSe->curriculum) as $oppertunities)
+                <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">{{ trim($oppertunities) }}</span>
+          
+             @endforeach
+           </div>
+          <a href="admissions.html" class="btn btn-primary" style="display:block; text-align:center;">Apply for {{$courSe->coursename}}</a>
         </div>
       </div>
 
+      @endforeach
+
       <!-- B.COM CARD -->
-      <div class="program-card-large" id="bcom" style="background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.08); overflow:hidden;">
-        <div class="prog-header grad-red-gold" style="padding:40px 30px; text-align:center; position:relative; background:linear-gradient(135deg, var(--crimson), #c41e3a); color:white; overflow:hidden;">
-          <div class="bg-text" style="position:absolute; font-size:150px; font-weight:800; opacity:0.05; top:50%; left:50%; transform:translate(-50%, -50%); line-height:1;">B.Com</div>
-          <h3 style="font-size:3rem; margin-bottom:10px; position:relative; z-index:1;">B.Com</h3>
-          <h4 style="font-size:1.2rem; font-weight:400; position:relative; z-index:1;">Bachelor of Commerce</h4>
-        </div>
-        <div class="prog-meta" style="display:flex; justify-content:space-between; padding:20px; background:#f9f9f9; border-bottom:1px solid #eee; font-size:14px;">
-          <span><strong>Duration:</strong> 3 Years</span>
-          <span><strong>Seats:</strong> 60</span>
-          <span><strong>Medium:</strong> English</span>
-        </div>
-        <div class="prog-body" style="padding:30px;">
-          <p class="prog-about" style="margin-bottom:25px; line-height:1.7; color:#555;">Our Bachelor of Commerce (B.Com) program is a comprehensive course that focuses on core financial, accounting, and taxation principles. It lays a solid foundation for careers in finance, commerce, and advanced studies like CA and CS.</p>
-          <h5 style="color:var(--crimson); font-size:1.2rem; margin-bottom:15px; border-bottom:2px solid #eee; padding-bottom:10px;">Core Subjects</h5>
-          <ul class="subject-list" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:30px; list-style:none; padding:0; font-size:14px;">
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Financial Accounting</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Cost Accounting</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Income Tax</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Auditing</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Business Law</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Economics</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Statistics</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Computer Applications</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> Banking</li>
-            <li style="position:relative; padding-left:20px;"><span style="position:absolute; left:0; color:var(--gold);">•</span> E-Commerce</li>
-          </ul>
-          <h5 style="color:var(--crimson); font-size:1.2rem; margin-bottom:15px; border-bottom:2px solid #eee; padding-bottom:10px;">Career Opportunities</h5>
-          <div class="career-tags" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px;">
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Accountant</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">CA Foundation</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Tax Consultant</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Banker</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Finance Analyst</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Stock Broker</span>
-            <span class="tag" style="background:#f1f1f1; padding:6px 12px; border-radius:20px; font-size:13px; color:#333;">Commerce Teacher</span>
-          </div>
-          <a href="admissions.html" class="btn btn-primary" style="display:block; text-align:center;">Apply for B.Com</a>
-        </div>
-      </div>
+     
     </div>
   </div>
 </section>
+
+@endif
 
 <!-- CURRICULUM SECTION -->
 <section class="bg-light section-pad" id="curriculum">
@@ -325,7 +287,7 @@ function openTab(tabId, btn) {
       </div>
     </div>
 
-    <div class="text-center reveal">
+    <!-- <div class="text-center reveal">
       <h4 class="mb-20" style="color:var(--gold); font-size:1.5rem; margin-bottom:20px;">Top Recruiters</h4>
       <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
         <span class="badge" style="background:rgba(255,255,255,0.1); padding:10px 25px; border-radius:30px; font-weight:500;">Infosys</span>
@@ -337,50 +299,74 @@ function openTab(tabId, btn) {
         <span class="badge" style="background:rgba(255,255,255,0.1); padding:10px 25px; border-radius:30px; font-weight:500;">Amazon</span>
         <span class="badge" style="background:rgba(255,255,255,0.1); padding:10px 25px; border-radius:30px; font-weight:500;">Bajaj Finance</span>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
+
+@if($course->isNotEmpty())
+
 <!-- FEE STRUCTURE -->
-<section class="bg-light section-pad">
+<section class="bg-light section-pad" id="feestructure">
   <div class="container">
     <div class="section-header text-center reveal">
       <h2>Fee <span>Structure</span></h2>
       <div class="divider mx-auto"></div>
       <p style="max-width:600px; margin:0 auto; color:#666;">Transparent fee structures for our undergraduate programs. Scholarships available for meritorious students.</p>
     </div>
-    
-    <div class="grid-2 reveal" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap:40px; margin-top:40px;">
+    @foreach($course as $fees)
+    <div class="grid-2 " style="display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap:40px; margin-top:40px;">
       <div class="card" style="background:white; padding:30px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.05);">
-        <h3 class="text-center" style="color:var(--crimson); margin-bottom:20px; font-size:1.5rem;">BBA Fee Structure</h3>
-        <table style="width:100%; border-collapse:collapse; text-align:left;">
-          <tr style="border-bottom:2px solid var(--crimson);"><th style="padding:15px 10px; color:#333;">Year</th><th style="padding:15px 10px; color:#333;">Tuition Fee</th><th style="padding:15px 10px; color:#333;">Other Fees</th><th style="padding:15px 10px; color:#333;">Total</th></tr>
-          <tr style="border-bottom:1px solid #eee;"><td style="padding:15px 10px; color:#555;">Year 1</td><td style="padding:15px 10px; color:#555;">₹35,000</td><td style="padding:15px 10px; color:#555;">₹5,000</td><td style="padding:15px 10px; color:#555; font-weight:600;">₹40,000</td></tr>
-          <tr style="border-bottom:1px solid #eee;"><td style="padding:15px 10px; color:#555;">Year 2</td><td style="padding:15px 10px; color:#555;">₹35,000</td><td style="padding:15px 10px; color:#555;">₹4,000</td><td style="padding:15px 10px; color:#555; font-weight:600;">₹39,000</td></tr>
-          <tr style="border-bottom:1px solid #eee;"><td style="padding:15px 10px; color:#555;">Year 3</td><td style="padding:15px 10px; color:#555;">₹35,000</td><td style="padding:15px 10px; color:#555;">₹4,000</td><td style="padding:15px 10px; color:#555; font-weight:600;">₹39,000</td></tr>
-          <tr style="font-weight:bold; background:#f9f9f9;"><td style="padding:15px 10px; color:var(--crimson);">Total</td><td style="padding:15px 10px; color:var(--crimson);">₹1,05,000</td><td style="padding:15px 10px; color:var(--crimson);">₹13,000</td><td style="padding:15px 10px; color:var(--crimson); font-size:1.1rem;">₹1,18,000</td></tr>
-        </table>
+        <h3 class="text-center" style="color:var(--crimson); margin-bottom:20px; font-size:1.5rem;">{{$fees->coursename}} Fee Structure</h3>
+      @php
+    $semesterFee = (float) $fees->fees;
+    $totalFee = $semesterFee * 6;
+@endphp
+
+<table style="width:100%; border-collapse:collapse; text-align:left;">
+    <tr style="border-bottom:2px solid var(--crimson);">
+        <th style="padding:15px 10px; color:#333;">Semester</th>
+        <th style="padding:15px 10px; color:#333;">Semester Fee</th>
+    </tr>
+
+    @for($i = 1; $i <= 6; $i++)
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:15px 10px; color:#555;">
+                Semester {{ $i }}
+            </td>
+
+            <td style="padding:15px 10px; color:#555;">
+                ₹{{ number_format($semesterFee, 2) }}
+            </td>
+        </tr>
+    @endfor
+
+    <tr style="font-weight:bold; background:#f9f9f9;">
+        <td style="padding:15px 10px; color:var(--crimson);">
+            Total
+        </td>
+
+        <td style="padding:15px 10px; color:var(--crimson); font-size:1.1rem;">
+            ₹{{ number_format($totalFee, 2) }}
+        </td>
+    </tr>
+</table>
       </div>
-      <div class="card" style="background:white; padding:30px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,0.05);">
-        <h3 class="text-center" style="color:var(--crimson); margin-bottom:20px; font-size:1.5rem;">B.Com Fee Structure</h3>
-        <table style="width:100%; border-collapse:collapse; text-align:left;">
-          <tr style="border-bottom:2px solid var(--crimson);"><th style="padding:15px 10px; color:#333;">Year</th><th style="padding:15px 10px; color:#333;">Tuition Fee</th><th style="padding:15px 10px; color:#333;">Other Fees</th><th style="padding:15px 10px; color:#333;">Total</th></tr>
-          <tr style="border-bottom:1px solid #eee;"><td style="padding:15px 10px; color:#555;">Year 1</td><td style="padding:15px 10px; color:#555;">₹35,000</td><td style="padding:15px 10px; color:#555;">₹5,000</td><td style="padding:15px 10px; color:#555; font-weight:600;">₹40,000</td></tr>
-          <tr style="border-bottom:1px solid #eee;"><td style="padding:15px 10px; color:#555;">Year 2</td><td style="padding:15px 10px; color:#555;">₹35,000</td><td style="padding:15px 10px; color:#555;">₹4,000</td><td style="padding:15px 10px; color:#555; font-weight:600;">₹39,000</td></tr>
-          <tr style="border-bottom:1px solid #eee;"><td style="padding:15px 10px; color:#555;">Year 3</td><td style="padding:15px 10px; color:#555;">₹35,000</td><td style="padding:15px 10px; color:#555;">₹4,000</td><td style="padding:15px 10px; color:#555; font-weight:600;">₹39,000</td></tr>
-          <tr style="font-weight:bold; background:#f9f9f9;"><td style="padding:15px 10px; color:var(--crimson);">Total</td><td style="padding:15px 10px; color:var(--crimson);">₹1,05,000</td><td style="padding:15px 10px; color:var(--crimson);">₹13,000</td><td style="padding:15px 10px; color:var(--crimson); font-size:1.1rem;">₹1,18,000</td></tr>
-        </table>
-      </div>
+      @endforeach
     </div>
+   
   </div>
 </section>
+
+
+@endif
 
 <!-- CTA -->
 <section class="cta-section text-center section-pad" style="background:var(--crimson); color:white; padding:60px 0;">
   <div class="container reveal">
     <h2 style="font-size:2.5rem; margin-bottom:15px;">Ready to Join?</h2>
     <p class="mb-20" style="font-size:1.1rem; opacity:0.9; margin-bottom:30px;">Take the first step towards a successful career with RVD College.</p>
-    <a href="admissions.html" class="btn btn-gold" style="font-size:1.1rem; padding:12px 30px;">Apply Now</a>
+    <a href="{{url('admission_index')}}" class="btn btn-gold" style="font-size:1.1rem; padding:12px 30px;">Apply Now</a>
   </div>
 </section>
 
