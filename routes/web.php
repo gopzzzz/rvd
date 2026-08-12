@@ -10,8 +10,14 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DepartmentController;
 
+
 use App\Http\Controllers\DownloadsController;
+use App\Http\Controllers\EventsController;
+
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\UploadsController;
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\FaqController;
 
 
 Route::get('/', function () {
@@ -75,14 +81,34 @@ Route::post('/createdownloads', [DownloadsController::class, 'store'])
 Route::post('/updatedownloads', [DownloadsController::class, 'update'])
     ->name('updatedownloads');
 
+Route::get('/events', [EventsController::class, 'index'])->name('events.index');
+
+Route::post('/events', [EventsController::class, 'store'])->name('events.store');
+
+Route::get('/events/{id}/edit', [EventsController::class, 'edit'])->name('events.edit');
+
+Route::put('/events/{id}', [EventsController::class, 'update'])->name('events.update');
+
+
+
+
+Route::get('/admission', [AdmissionController::class, 'index'])->name('admission.index');
+
+Route::post('/admission', [AdmissionController::class, 'store'])->name('admission.store');
+
+Route::get('/admission/{id}/edit', [AdmissionController::class, 'edit'])->name('admission.edit');
+
+Route::put('/admission/{id}', [AdmissionController::class, 'update'])->name('admission.update');
+
+
+
+
 Route::get('/news', [NewsController::class, 'index'])
     ->name('news');
 Route::post('/createnews', [NewsController::class, 'store'])
     ->name('createnews');
 Route::post('/updatenews', [NewsController::class, 'update'])
     ->name('updatenews');
-
-
 
 
 Route::get('/upload-list', [UploadsController::class, 'index'])
@@ -93,5 +119,23 @@ Route::post('/createuploads', [UploadsController::class, 'store'])
 
 Route::post('/updateuploads', [UploadsController::class, 'update'])
     ->name('updateuploads');
+
+Route::get('/contacts', [ContactsController::class, 'index'])
+    ->name('contacts');
+
+Route::post('/createcontacts', [ContactsController::class, 'store'])
+    ->name('createcontacts');
+
+Route::get('/faq', [FaqController::class, 'index'])
+    ->name('faq');
+
+Route::post('/createfaq', [FaqController::class, 'store'])
+    ->name('createfaq');
+
+Route::post('/updatefaq', [FaqController::class, 'update'])
+    ->name('updatefaq');
+
+Route::post('/deletefaq', [FaqController::class, 'delete'])
+    ->name('deletefaq');
 
 require __DIR__.'/auth.php';

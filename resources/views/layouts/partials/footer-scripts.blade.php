@@ -55,28 +55,124 @@ $(document).on('click', '.editdownloads', function () {
     $('#editDownloadsModal').modal('show');
 });
 </script>
-
 <script>
-
 $(document).ready(function(){
 
-    $('.editnews').click(function(){
+    $('.editEvent').click(function(){
 
-        $('#edit_id').val($(this).data('id'));
+        var id = $(this).data('id');
 
+        $('#edit_type').val($(this).data('type'));
         $('#edit_title').val($(this).data('title'));
-
         $('#edit_description').val($(this).data('description'));
+        $('#edit_date').val($(this).data('date'));
 
-        $('#previewPhoto').attr(
-            'src',
-            '/' + $(this).data('photo')
-        );
+        $('#editForm').attr('action','/events/'+id);
+
+        $('#editEventModal').modal('show');
 
     });
 
 });
+</script>
 
+
+
+<script>
+$(document).ready(function () {
+
+    // Edit Admission Button
+    $(document).on('click', '.editAdmission', function () {
+
+        var id = $(this).data('id');
+
+        $('#edit_name').val($(this).data('name'));
+        $('#edit_dob').val($(this).data('dob'));
+        $('#edit_gender').val($(this).data('gender'));
+        $('#edit_adharcard').val($(this).data('adharcard'));
+        $('#edit_email').val($(this).data('email'));
+        $('#edit_phonenumber').val($(this).data('phonenumber'));
+        $('#edit_tenthpercentage').val($(this).data('tenthpercentage'));
+        $('#edit_higherschoolname').val($(this).data('higherschoolname'));
+        $('#edit_higherpercentage').val($(this).data('higherpercentage'));
+        $('#edit_higherdepartment').val($(this).data('higherdepartment'));
+        $('#edit_program').val($(this).data('program'));
+        $('#edit_hearabout').val($(this).data('hearabout'));
+        $('#edit_address').val($(this).data('address'));
+        $('#edit_city').val($(this).data('city'));
+        $('#edit_state').val($(this).data('state'));
+        $('#edit_pincode').val($(this).data('pincode'));
+
+        // Set update URL
+        $('#editAdmissionForm').attr(
+            'action',
+            '/admission/' + id
+        );
+
+        // Open Edit Modal
+        $('#editAdmissionModal').modal('show');
+    });
+
+});
+</script>
+
+
+<!-- ===================================================== -->
+<!-- OPEN ADD MODAL AUTOMATICALLY WHEN VALIDATION FAILS -->
+<!-- ===================================================== -->
+
+@if ($errors->any())
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#newRecordModal').modal('show');
+
+    });
+
+</script>
+
+@endif
+
+
+
+<!-- ===================================================== -->
+<!-- EDIT BUTTON SCRIPT -->
+<!-- ===================================================== -->
+
+<script>
+$(document).ready(function () {
+
+    $('.editnews').click(function () {
+
+        var id = $(this).data('id');
+        var type = $(this).data('type');
+        var title = $(this).data('title');
+        var description = $(this).data('description');
+        var photo = $(this).data('photo');
+        var date = $(this).data('date');
+
+        $('#edit_id').val(id);
+
+        // These two lines fix your problem
+        $('#edit_type').val(type);
+        $('#edit_date').val(date);
+
+        $('#edit_title').val(title);
+        $('#edit_description').val(description);
+
+        if (photo) {
+            $('#previewPhoto')
+                .attr('src', '{{ asset("") }}' + photo)
+                .show();
+        } else {
+            $('#previewPhoto').hide();
+        }
+
+    });
+
+});
 </script>
 
 <script>
@@ -130,3 +226,61 @@ $(document).ready(function () {
 });
 
 </script>
+
+
+@if ($errors->any() && old('_form') == 'create')
+
+<script>
+
+$(document).ready(function () {
+
+    $('#newContactModal').modal('show');
+
+});
+
+</script>
+
+@endif
+
+<script>
+
+$(document).ready(function () {
+
+    $('.editfaq').click(function () {
+
+        $('#edit_id').val(
+            $(this).data('id')
+        );
+
+        $('#edit_question').val(
+            $(this).data('question')
+        );
+
+        $('#edit_answer').val(
+            $(this).data('answer')
+        );
+
+    });
+
+});
+
+</script>
+
+
+
+<!-- REOPEN CREATE MODAL ONLY ON CREATE VALIDATION ERROR -->
+
+@if($errors->any() && old('_form') == 'create')
+
+<script>
+
+$(document).ready(function () {
+
+    $('#newFaqModal').modal('show');
+
+});
+
+</script>
+
+@endif
+
