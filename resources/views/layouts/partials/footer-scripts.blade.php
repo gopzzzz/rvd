@@ -175,6 +175,37 @@ $(document).ready(function () {
 });
 </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const editBtn = document.getElementById('editBtn');
+    const updateBtn = document.getElementById('updateBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+    const fields = document.querySelectorAll('.about-field');
+
+    editBtn.addEventListener('click', function () {
+
+        fields.forEach(function (field) {
+            field.disabled = false;
+        });
+
+        editBtn.classList.add('d-none');
+        updateBtn.classList.remove('d-none');
+        cancelBtn.classList.remove('d-none');
+    });
+
+    cancelBtn.addEventListener('click', function () {
+
+        location.reload();
+
+    });
+
+});
+</script>
+
+
 <script>
 
 $(document).ready(function () {

@@ -36,7 +36,6 @@
     </section>
 
 
-<<<<<<< HEAD
     <!-- SUCCESS MESSAGE -->
 
     @if(session('success'))
@@ -404,7 +403,6 @@
                     </div>
 
 
-=======
     <!-- <button type="button" class="btn btn-primary btn-sm"
             data-toggle="modal"
             data-target="#newRecordModal">
@@ -529,7 +527,6 @@
                             class="btn btn-secondary d-none">
                         Cancel
                     </button>
->>>>>>> 5f773ee3aeb386be49d40932c5e6e0a35aa80e31
 
                     <!-- VISION -->
 
@@ -707,7 +704,6 @@
 </div>
                 </div>
 
-<<<<<<< HEAD
 
 
                 <!-- Modal Footer -->
@@ -765,7 +761,6 @@
 
 
 @endsection
-=======
             </div>
 
         </form>
@@ -841,4 +836,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
->>>>>>> 5f773ee3aeb386be49d40932c5e6e0a35aa80e31
