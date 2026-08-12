@@ -94,49 +94,7 @@
 
       @endif
     
-    <div class="clubs-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 50px;">
-      
-      <div style="border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='#eee';">
-        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Management Club</h4>
-        <p style="font-size: 0.9rem; color: #666;">Business competitions, case studies, and corporate workshops.</p>
-      </div>
-      
-      <div style="border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='#eee';">
-        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Commerce Club</h4>
-        <p style="font-size: 0.9rem; color: #666;">CA awareness sessions, accounting workshops, and financial modeling.</p>
-      </div>
-      
-      <div style="border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='#eee';">
-        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Cultural Committee</h4>
-        <p style="font-size: 0.9rem; color: #666;">Organizing festivals, dance, music, and drama performances.</p>
-      </div>
-      
-      <div style="border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='#eee';">
-        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Literary Club</h4>
-        <p style="font-size: 0.9rem; color: #666;">Fostering talent through debates, elocution, creative writing.</p>
-      </div>
-      
-      <div style="border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='#eee';">
-        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Tech Club</h4>
-        <p style="font-size: 0.9rem; color: #666;">Coding bootcamps, IT workshops, and tech hackathons.</p>
-      </div>
-      
-      <div style="border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='#eee';">
-        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Entrepreneurship Cell</h4>
-        <p style="font-size: 0.9rem; color: #666;">Incubating startup ideas and hosting successful alumni entrepreneurs.</p>
-      </div>
-      
-      <div style="border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='#eee';">
-        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Photography Club</h4>
-        <p style="font-size: 0.9rem; color: #666;">Event coverage, photo walks, and digital editing skills.</p>
-      </div>
-      
-      <div style="border: 1px solid #eee; padding: 30px; border-radius: 8px; text-align: center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 10px 25px rgba(0,0,0,0.1)'; this.style.borderColor='var(--gold)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='#eee';">
-        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Green Club</h4>
-        <p style="font-size: 0.9rem; color: #666;">Environmental awareness campaigns and sustainability projects.</p>
-      </div>
-      
-    </div>
+    
   </div>
 </section>
 
@@ -144,21 +102,32 @@
 <section id="sports" class="section-pad" style="background-color: #1a1a1a; color: white;">
   <div class="container">
     <div class="section-header text-center reveal">
-      <h2 style="color: white;">Sports & <span style="color: var(--gold);">Athletics</span></h2>
+      <h1 style="color: #fff;">Sports & <span style="color: var(--gold);">Athletics</span></h1>
       <div class="divider mx-auto" style="background-color: var(--gold);"></div>
       <p style="max-width: 700px; margin: 20px auto 0; color: #ccc;">Physical fitness and team spirit are integral to life at RVD College.</p>
     </div>
-    
-    <div class="reveal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 40px 0;">
-      <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; font-weight: 500;">Cricket</span>
-      <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; font-weight: 500;">Football</span>
-      <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; font-weight: 500;">Badminton</span>
-      <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; font-weight: 500;">Table Tennis</span>
-      <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; font-weight: 500;">Chess</span>
-      <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; font-weight: 500;">Volleyball</span>
-      <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; font-weight: 500;">Basketball</span>
-      <span style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; font-weight: 500;">Kabaddi</span>
+
+       @if($sports != null)
+    <div class="facilities-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+      <!-- Card 1 -->
+
+       @foreach($sports as $sport)
+      <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+        <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
+        <div style="padding: 25px;">
+          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">{{$sport->title}}</h4>
+          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">{{$sport->description}}.</p>
+        </div>
+      </div>
+
+      @endforeach
+      
     </div>
+
+      @endif
+    
+    
+   
     
     <div class="stats-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 50px; text-align: center;">
       <div>
@@ -218,84 +187,28 @@
       </div>
     </div>
   </div>
+
+     @if($nss != null)
+    <div class="facilities-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+      <!-- Card 1 -->
+
+       @foreach($nss as $ns)
+      <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+        <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
+        <div style="padding: 25px;">
+          <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">{{$ns->title}}</h4>
+          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">{{$ns->description}}.</p>
+        </div>
+      </div>
+
+      @endforeach
+      
+    </div>
+
+      @endif
+    
 </section>
 
-<!-- CULTURAL EVENTS -->
-<section class="bg-white section-pad">
-  <div class="container">
-    <div class="section-header text-center reveal">
-      <h2>Fests & <span style="color: var(--crimson);">Cultural Events</span></h2>
-      <div class="divider mx-auto"></div>
-    </div>
-    
-    <div class="events-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
-      <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-        <img src="{{asset('web/images/convocation.jpg')}}" alt="RVDIAN FEST" style="width: 100%; height: 220px; object-fit: cover;">
-        <div style="padding: 25px; background: white;">
-          <h4 style="color: var(--crimson); font-family: 'Playfair Display', serif; margin-bottom: 5px;">RVDIAN FEST</h4>
-          <p style="font-weight: 600; color: #888; font-size: 0.9rem; margin-bottom: 15px;">Annual Cultural Festival | October</p>
-          <p style="color: #666; font-size: 0.95rem;">Our flagship inter-college cultural extravaganza featuring dance, music, fashion shows, and dramatic performances, drawing crowds from across the city.</p>
-        </div>
-      </div>
-      
-      <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-        <div style="width: 100%; height: 220px; background-color: #222; display: flex; align-items: center; justify-content: center; color: white;">
-           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-        </div>
-        <div style="padding: 25px; background: white;">
-          <h4 style="color: var(--crimson); font-family: 'Playfair Display', serif; margin-bottom: 5px;">VYAPAR</h4>
-          <p style="font-weight: 600; color: #888; font-size: 0.9rem; margin-bottom: 15px;">Management Business Fest | November</p>
-          <p style="color: #666; font-size: 0.95rem;">A platform for aspiring business leaders to showcase their entrepreneurial skills, marketing acumen, and strategic thinking through dynamic competitions.</p>
-        </div>
-      </div>
-      
-      <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-        <img src="{{asset('web/images/students_classroom.jpg')}}" alt="COMMERCE WEEK" style="width: 100%; height: 220px; object-fit: cover;">
-        <div style="padding: 25px; background: white;">
-          <h4 style="color: var(--crimson); font-family: 'Playfair Display', serif; margin-bottom: 5px;">COMMERCE WEEK</h4>
-          <p style="font-weight: 600; color: #888; font-size: 0.9rem; margin-bottom: 15px;">B.Com Special Event | January</p>
-          <p style="color: #666; font-size: 0.95rem;">A week dedicated to the world of commerce, featuring mock stock exchanges, financial quizzes, tax planning seminars, and corporate interactions.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ANTI-RAGGING & COMMITTEES -->
-<section class="bg-light section-pad">
-  <div class="container reveal">
-    <div class="section-header text-center">
-      <h2>Committees & <span style="color: var(--crimson);">Grievance Cells</span></h2>
-      <div class="divider mx-auto"></div>
-      <p style="max-width: 800px; margin: 20px auto 0; color: #666;">RVD College strictly maintains a zero-tolerance policy towards ragging and discrimination. We have dedicated statutory committees to ensure a safe, inclusive, and supportive campus environment for all.</p>
-    </div>
-    
-    <div style="max-width: 800px; margin: 40px auto 0; background: white; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 30px;">
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li style="padding: 15px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-          <strong style="font-size: 1.1rem; color: #333;">Anti-Ragging Committee</strong>
-          <a href="tel:+918026691234" style="color: var(--crimson); text-decoration: none; font-weight: 500;">+91 80 2669 1234</a>
-        </li>
-        <li style="padding: 15px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-          <strong style="font-size: 1.1rem; color: #333;">Internal Complaints Committee (ICC)</strong>
-          <a href="tel:+918026691234" style="color: var(--crimson); text-decoration: none; font-weight: 500;">+91 80 2669 1234</a>
-        </li>
-        <li style="padding: 15px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-          <strong style="font-size: 1.1rem; color: #333;">Student Welfare Committee</strong>
-          <a href="tel:+918026691234" style="color: var(--crimson); text-decoration: none; font-weight: 500;">+91 80 2669 1234</a>
-        </li>
-        <li style="padding: 15px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-          <strong style="font-size: 1.1rem; color: #333;">Grievance Redressal Cell</strong>
-          <a href="mailto:grievance@rvdcollege.com" style="color: var(--crimson); text-decoration: none; font-weight: 500;">grievance@rvdcollege.com</a>
-        </li>
-        <li style="padding: 15px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-          <strong style="font-size: 1.1rem; color: #333;">Women's Cell</strong>
-          <a href="tel:+918026691234" style="color: var(--crimson); text-decoration: none; font-weight: 500;">+91 80 2669 1234</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
 
   
  @endsection
