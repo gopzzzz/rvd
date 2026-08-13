@@ -9,40 +9,55 @@ class UploadsController extends Controller
 {
     public function index()
     {
-        $uploads = DB::table('uploads')->get();
+       $uploads = DB::table('uploads')
+    ->leftJoin('gallerytypes', 'gallerytypes.id', '=', 'uploads.type_id')
+    ->select(
+        'uploads.*',
+        'gallerytypes.type_name'
+    )
+    ->get();
+        $types=DB::table('gallerytypes')->get();
 
-        return view('uploads', compact('uploads'));
+        return view('uploads', compact('uploads','types'));
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'photo' => 'required|image|mimes:jpg,jpeg,png,gif|max:5120',
-            'status' => 'required|string|max:20',
-        ]);
+{
+    $request->validate([
+        'photo' => 'required',
+        'photo.*' => 'image|mimes:jpg,jpeg,png,gif|max:5120',
+        'status' => 'required|string|max:20',
+    ]);
 
-        $file = $request->file('photo');
+    if ($request->hasFile('photo')) {
 
-        $filename = time() . '_' . $file->getClientOriginalName();
+       $type=$request->type;
 
-        $file->move(
-            public_path('uploads/photos'),
-            $filename
-        );
+        foreach ($request->file('photo') as $file) {
 
-        $photoPath = 'uploads/photos/' . $filename;
+            $filename = time() . '_' . uniqid() . '_' . $file->getClientOriginalName();
 
-        DB::table('uploads')->insert([
-            'photo' => $photoPath,
-            'status' => $request->status,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+            $file->move(
+                public_path('uploads/photos'),
+                $filename
+            );
 
-        return redirect()
-            ->route('uploads')
-            ->with('success', 'Upload added successfully.');
+            $photoPath = 'uploads/photos/' . $filename;
+
+            DB::table('uploads')->insert([
+                'type_id'=>$type,
+                'photo' => $photoPath,
+                'status' => $request->status,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
+
+    return redirect()
+        ->route('uploads')
+        ->with('success', 'Photos uploaded successfully.');
+}
 
     public function update(Request $request)
     {

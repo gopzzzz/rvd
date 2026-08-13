@@ -137,7 +137,7 @@
 </section>
 
 <!-- MANAGEMENT SECTION -->
-<!-- <section id="management" class="bg-white section-pad" style="padding: 80px 0;">
+<section id="management" class="bg-white section-pad" style="padding: 80px 0;">
   <div class="container reveal">
     <div style="text-align: center; margin-bottom: 50px;">
       <h2 style="font-family: var(--font-cinzel); font-size: 36px; color: #222;">Our <span style="color: var(--crimson);">Leadership</span></h2>
@@ -145,41 +145,29 @@
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+
+     @foreach($principal as $leaders)
     
       <div style="text-align: center; background: #fff; padding: 40px 20px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-        <div style="width: 120px; height: 120px; background: var(--crimson); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-          DR
-        </div>
-        <h3 style="font-size: 22px; margin-bottom: 5px; color: #222;">Shri. D. Ravi Kumar</h3>
-        <h4 style="color: var(--crimson); font-size: 16px; margin-bottom: 10px; font-weight: 600; text-transform: uppercase;">Chairman</h4>
-        <p style="font-size: 14px; color: #777; margin-bottom: 15px;">Visionary Leader & Educationist</p>
-        <p style="font-size: 15px; color: #555; line-height: 1.6;">"Our goal is to build an ecosystem where young minds are nurtured with knowledge, values, and the courage to lead in a dynamic world."</p>
+       <div style="width: 120px; height: 120px; background: var(--crimson); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+    {{ collect(explode(' ', trim($leaders->name)))->map(fn($word) => strtoupper(substr($word, 0, 1)))->take(2)->implode('') }}
+</div>
+        <h3 style="font-size: 22px; margin-bottom: 5px; color: #222;">{{$leaders->name}}</h3>
+        <h4 style="color: var(--crimson); font-size: 16px; margin-bottom: 10px; font-weight: 600; text-transform: uppercase;">{{$leaders->occupation}}</h4>
+        <p style="font-size: 14px; color: #777; margin-bottom: 15px;">{{$leaders->qualification}}</p>
+        <p style="font-size: 15px; color: #555; line-height: 1.6;">"{{$leaders->bio}}"</p>
       </div>
+
+
+      @endforeach
 
      
-      <div style="text-align: center; background: #fff; padding: 40px 20px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-        <div style="width: 120px; height: 120px; background: var(--gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-          RV
-        </div>
-        <h3 style="font-size: 22px; margin-bottom: 5px; color: #222;">Dr. R. Venkatesh</h3>
-        <h4 style="color: var(--crimson); font-size: 16px; margin-bottom: 10px; font-weight: 600; text-transform: uppercase;">Principal</h4>
-        <p style="font-size: 14px; color: #777; margin-bottom: 15px;">M.Com, Ph.D. | 20+ Yrs Experience</p>
-        <p style="font-size: 15px; color: #555; line-height: 1.6;">"We focus on academic rigor combined with experiential learning to ensure our students excel in every sphere of life."</p>
-      </div>
+      
 
       
-      <div style="text-align: center; background: #fff; padding: 40px 20px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-        <div style="width: 120px; height: 120px; background: #333; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-          MS
-        </div>
-        <h3 style="font-size: 22px; margin-bottom: 5px; color: #222;">Dr. M. Savitha</h3>
-        <h4 style="color: var(--crimson); font-size: 16px; margin-bottom: 10px; font-weight: 600; text-transform: uppercase;">Director</h4>
-        <p style="font-size: 14px; color: #777; margin-bottom: 15px;">MBA, Ph.D. | Industry Expert</p>
-        <p style="font-size: 15px; color: #555; line-height: 1.6;">"Bridging academia and industry is our core strength, giving students a competitive edge for successful careers globally."</p>
-      </div>
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- MESSAGES SECTION -->
 <section id="messages" class="bg-light section-pad" style="padding: 80px 0; background-color: #f0f4f8;">

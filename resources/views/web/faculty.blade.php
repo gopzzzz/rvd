@@ -51,7 +51,7 @@
                     RV
                 </div>
                 <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 5px; color: #fff;">{{$principal->name}}</h3>
-                <p style="color: var(--gold); font-size: 1.1rem; font-weight: 600;">{{$principal->department_name}}</p>
+                <p style="color: var(--gold); font-size: 1.1rem; font-weight: 600;">{{$principal->occupation}}</p>
             </div>
             <div style="flex: 2; min-width: 300px; padding: 40px;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">

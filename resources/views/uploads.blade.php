@@ -115,6 +115,10 @@
                                                 Photo
                                             </th>
 
+                                             <th>
+                                                Title
+                                            </th>
+
                                             <th>
                                                 Status
                                             </th>
@@ -163,6 +167,8 @@
                                                     @endif
 
                                                 </td>
+
+                                                <td>  {{ $key->type_name }}</td>
 
 
                                                 <!-- Status -->
@@ -277,15 +283,30 @@
                     <div class="form-group">
 
                         <label>
+                            Gallery Title
+                            <span class="text-danger">*</span>
+                        </label>
+
+                        <select class="form-control" name="type" required>
+                            @foreach($types as $type)
+                            <option value="{{$type->id}}">{{$type->type_name}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+
+                     <div class="form-group">
+
+                        <label>
                             Photo
                             <span class="text-danger">*</span>
                         </label>
 
                         <input type="file"
-                               name="photo"
+                               name="photo[]"
                                class="form-control"
                                accept=".jpg,.jpeg,.png,.gif"
-                               required>
+                               required multiple> 
 
                     </div>
 

@@ -34,6 +34,12 @@ class CourseController extends Controller
                 'max:100',
                 'regex:/^[A-Za-z ]+$/',
             ],
+              'overview' => [
+                'required',
+                'string',
+                'max:100',
+                'regex:/^[A-Za-z ]+$/',
+            ],
 
             'eligibility' => [
                 'required',
@@ -109,7 +115,9 @@ class CourseController extends Controller
 
             'coursename' => $request->coursename,
 
-            'overview' => $request->coursefullname,
+            'overview' => $request->overview,
+
+             'fullname' => $request->coursefullname,
 
             'eligibility' => $request->eligibility,
 
@@ -213,7 +221,7 @@ class CourseController extends Controller
 
             'eligibility.required' => 'Eligibility is required.',
             'eligibility.regex' => 'Eligibility can contain only letters and spaces.',
-            'eligibility.max' => 'Eligibility cannot exceed 100 characters.',
+            'eligibility.max' => 'Eligibility cannot exceed 500 characters.',
 
             'duration.required' => 'Duration is required.',
             'duration.integer' => 'Duration must contain numbers only.',
@@ -241,7 +249,9 @@ class CourseController extends Controller
 
                 'coursename' => $request->coursename,
 
-                'overview' => $request->coursefullname,
+                'fullname' => $request->coursefullname,
+
+                 'overview' => $request->overview,
 
                 'eligibility' => $request->eligibility,
 
