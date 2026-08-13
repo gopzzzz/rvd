@@ -38,7 +38,7 @@
 
 
 <div class="modal fade" id="newRecordModal" tabindex="-1" role="dialog" aria-labelledby="newRecordModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog ">
         <form action="{{ route('admission.store') }}" method="POST">
             @csrf
 
@@ -287,7 +287,7 @@
 
 
         <!-- City -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label>City</label>
                 <input type="text"
@@ -304,7 +304,7 @@
 
 
         <!-- State -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label>State</label>
                 <input type="text"
@@ -321,7 +321,7 @@
 
 
         <!-- Pincode -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label>Pincode</label>
                 <input type="text"
@@ -344,46 +344,6 @@
 </div>
                     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
 
 
                 </div>
