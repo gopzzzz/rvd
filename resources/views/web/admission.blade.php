@@ -12,7 +12,7 @@
       </p>
       <div class="hero-actions reveal fade-up" style="display: flex; gap: 15px; justify-content: center;">
         <a href="#online-form" class="btn btn-primary">Apply Online</a>
-        <a href="#" class="btn btn-outline" style="color: white; border-color: white;">Download Brochure</a>
+        <a href="{{$downloads}}" download class="btn btn-outline" style="color: white; border-color: white;">Download Brochure</a>
       </div>
     </div>
   </header>
@@ -87,7 +87,7 @@
           <h3 style="color: var(--crimson); font-family: 'Playfair Display', serif; border-bottom: 2px solid var(--gold); padding-bottom: 15px; margin-bottom: 20px;">{{$courSe->coursename}} Eligibility</h3>
           <ul style="list-style-type: none; padding-left: 0;">
             @foreach(explode(',', $courSe->eligibility) as $item)
-          <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>Must have passed 10+2 / PUC or equivalent examination from a recognized board.</span></li>
+          <li style="margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--gold); margin-right: 10px; font-size: 18px;">✓</span> <span>{{$item}}</span></li>
             @endforeach
           </ul>
         </div>

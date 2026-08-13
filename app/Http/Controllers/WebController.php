@@ -21,7 +21,13 @@ class WebController extends Controller
     public function aboutus()
     {
         $aboutus=DB::table('aboutus')->first();
-        return view('web.aboutus',compact('aboutus'));
+         $principal=DB::table('faculties')
+          ->leftJoin('department', 'faculties.department_id', '=', 'department.id')
+        ->where('faculties.department_id',1)
+        ->select('faculties.*','department.name as department_name')
+        ->get();
+         
+        return view('web.aboutus',compact('aboutus','principal'));
     }
      public function programs()
     {
@@ -32,16 +38,21 @@ class WebController extends Controller
     {
          $aboutus=DB::table('aboutus')->first();
           $course=DB::table('courses')->get();
-        return view('web.admission',compact('aboutus','course'));
+           $downloads = DB::table('contacts')->value('broacher');
+        return view('web.admission',compact('aboutus','course','downloads'));
     }
 
     public function faculty()
     {
-        $principal=DB::table('faculties')
-          ->leftJoin('department', 'faculties.department_id', '=', 'department.id')
-        ->where('faculties.department_id',1)
-        ->select('faculties.*','department.name as department_name')
-        ->first();
+        $principal = DB::table('faculties')
+    ->leftJoin('department', 'faculties.department_id', '=', 'department.id')
+    // ->where('faculties.department_id', 1)
+    ->where('faculties.occupation', 'LIKE', '%Principal%')
+    ->select(
+        'faculties.*',
+        'department.name as department_name'
+    )
+    ->first();
        
 
             $department = DB::table('department')
@@ -68,15 +79,30 @@ class WebController extends Controller
     }
       public function news()
     {
-        return view('web.news');
+        $news=DB::table('news')->where('type',1)->limit(4)->get();
+         $events=DB::table('news')->where('type',2)->limit(6)->get();
+         $downloads=DB::table('downloads')->get();
+        return view('web.news',compact('news','events','downloads'));
     }
       public function gallary()
     {
-        return view('web.gallary');
+        $gallery_type=DB::table('gallerytypes')->get();
+        $uploads = DB::table('uploads')
+            ->leftJoin('gallerytypes', 'gallerytypes.id', '=', 'uploads.type_id')
+            ->select(
+                'uploads.*',
+                'gallerytypes.type_name'
+            )
+            ->get();
+       $downloads = DB::table('contacts')->value('broacher');
+       $youtubeUrl = DB::table('aboutus')->value('campusvideo');
+        return view('web.gallary',compact('gallery_type','uploads','downloads','youtubeUrl'));
     }
       public function contact()
     {
-        return view('web.contact');
+        $contacts=DB::table('contacts')->first();
+        $faq=DB::table('faq')->get();
+        return view('web.contact',compact('contacts','faq'));
     }
     /**
      * Show the form for creating a new resource.

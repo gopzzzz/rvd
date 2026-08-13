@@ -242,6 +242,7 @@ $(document).on('click', '.editCourse', function () {
     $('#edit_Highlights').val($(this).data('highlights'));
     $('#edit_intake').val($(this).data('intake'));
     $('#edit_fees').val($(this).data('fees'));
+     $('#edit_overview').val($(this).data('overview'));
 
     $('#editCourseForm').attr(
         'action',

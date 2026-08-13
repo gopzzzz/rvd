@@ -11,7 +11,7 @@ class ContactsController extends Controller
     // Show Contacts page
     public function index()
     {
-        $contacts = DB::table('contacts')->get();
+        $contacts = DB::table('contacts')->first();
 
         return view('contacts', compact('contacts'));
     }
@@ -299,4 +299,52 @@ class ContactsController extends Controller
                 'Contact added successfully.'
             );
     }
+public function updatecontacts(Request $request)
+{
+    $id=$request->keyid;
+
+    $data = [
+        'smallcaption' => $request->smallcaption,
+        'phonenumber' => $request->phonenumber,
+        'mail' => $request->mail,
+        'open' => $request->open,
+        'close' => $request->close,
+        'facebooklink' => $request->facebooklink,
+        'instagramlink' => $request->instagramlink,
+        'youtubelink' => $request->youtubelink,
+        'linkedinlink' => $request->linkedinlink,
+        'whatsappnumber' => $request->whatsappnumber,
+        'address' => $request->address,
+        'maplink' => $request->maplink,
+        'updated_at' => now(),
+    ];
+
+    if ($request->hasFile('logo')) {
+        $logo = $request->file('logo');
+        $logoName = time() . '_' . $logo->getClientOriginalName();
+        $logoPath = 'uploads/contacts/logos/' . $logoName;
+        $logo->move(public_path('uploads/contacts/logos/'), $logoName);
+
+        $data['logo'] = $logoPath;
+    }
+
+    if ($request->hasFile('broacher')) {
+        $broacher = $request->file('broacher');
+        $broacherName = time() . '_' . $broacher->getClientOriginalName();
+        $broPath = 'uploads/contacts/logos/' . $broacherName;
+        $broacher->move(public_path('uploads/contacts/logos/'), $broacherName);
+
+        $data['broacher'] = $broPath;
+    }
+
+    DB::table('contacts')
+        ->where('id', $id)
+        ->update($data);
+
+    return redirect()->back()->with(
+        'success',
+        'Contact updated successfully.'
+    );
+}
+
 }

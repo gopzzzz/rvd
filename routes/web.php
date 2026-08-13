@@ -154,6 +154,8 @@ Route::post('/deletefaq', [FaqController::class, 'delete'])
 Route::post('/updateaboutus', [AboutusController::class, 'update'])
     ->name('updateaboutus');
 
+Route::post('/updatecontacts', [ContactsController::class, 'updatecontacts']) ->name('updatecontacts');
+
 
 
 

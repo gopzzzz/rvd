@@ -4,108 +4,7 @@
 
 <div class="content-wrapper">
 
-    <!-- Content Header -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-
-                <div class="col-sm-6">
-                    <h1>Courses</h1>
-                </div>
-
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item">
-                            <a href="#">Home</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            Courses
-                        </li>
-                    </ol>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Close
-                    </button>
-
-                    <button type="submit" class="btn btn-primary">
-                        Save Course
-                    </button>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
-</div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Course Name</th>
-                      <th>Over View</th>
-                       <th>Eligibility</th>
-                       <th>Duration</th>
-                       <th>Curriculum</th>
-                       <th>Opportunities</th>
-                        <th>Certifications</th>
-                        <th>Values</th>
-                        <th>Placement Support</th>
-                        <th>Fees</th>
-                      <th style="width: 40px">Label</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-            
-                  @foreach($courses as $key)
-                      
-                    <tr>
-                      <td>{{ $key->id }}</td>
-                      <td>{{$key->coursename}}</td>
-                      <td>{{$key->overview}}</td>
-                      <td>{{$key->eligibility}}</td>
-                      <td>{{$key->duration}}</td>
-
-                      <td>{{$key->curriculum}}</td>
-                      <td>{{$key->opportunities}}</td>
-                      <td>{{$key->certifications}}</td>
-                      <td>{{$key->values}}</td>
-                      <td>{{$key->placementsupport}}</td>
-                      <td>{{$key->fees}}</td>
-
-                      
-                      <td>
-
-                      <button type="button"
-            class="btn btn-sm btn-primary editaboutus"
-            data-id="{{ $key->id }}">
-        Edit
-    </button>
-                      </td>
-                    </tr>
-
-                    @endforeach
-                    
-
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
-        </div>
-    </section>
+  
 
 
     <!-- Main Content -->
@@ -201,6 +100,7 @@
 
                                             </div>
 
+                                             
 
                                             <!-- Course Full Name -->
                                             <div class="form-group">
@@ -214,6 +114,7 @@
                                                        class="form-control @error('coursefullname') is-invalid @enderror"
                                                        value="{{ old('coursefullname') }}"
                                                        required>
+                                                       
 
                                                 @error('coursefullname')
                                                     <span class="text-danger">
@@ -222,6 +123,28 @@
                                                 @enderror
 
                                             </div>
+
+                                            <div class="form-group">
+
+                                                <label>
+                                                    Overview
+                                                </label>
+
+                                               
+                                                       
+                                                <textarea name="overview"
+                                                          class="form-control @error('overview') is-invalid @enderror"
+                                                          rows="3"
+                                                          required>{{ old('overview') }}</textarea>
+
+                                                @error('overview')
+                                                    <span class="text-danger">
+                                                        {{ $message }}
+                                                    </span>
+                                                @enderror
+
+                                            </div>
+
 
 
                                             <!-- Eligibility -->
@@ -472,6 +395,25 @@
 
                                             </div>
 
+                                             <div class="form-group">
+
+                                                <label>
+                                                  Over View
+                                                </label>
+
+                                                 <textarea name="overview"
+                                                          id="edit_overview"
+                                                          class="form-control"
+                                                          rows="3"
+                                                          required></textarea>
+                                                @error('overview')
+                                                    <span class="text-danger">
+                                                        {{ $message }}
+                                                    </span>
+                                                @enderror
+
+                                            </div>
+
 
                                             <!-- Eligibility -->
                                             <div class="form-group">
@@ -683,11 +625,12 @@
             class="btn btn-sm btn-primary editCourse"
             data-id="{{ $key->id }}"
             data-coursename="{{ $key->coursename }}"
-            data-coursefullname="{{ $key->overview }}"
+            data-overview="{{ $key->overview }}"
+            data-coursefullname="{{ $key->fullname }}"
             data-eligibility="{{ $key->eligibility }}"
             data-duration="{{ $key->duration }}"
-            data-coreobjectives="{{ $key->Curriculum }}"
-            data-highlights="{{ $key->Certifications }}"
+            data-coreobjectives="{{ $key->curriculum }}"
+            data-highlights="{{ $key->certifications }}"
             data-intake="{{ $key->values }}"
             data-fees="{{ $key->fees }}">
 
