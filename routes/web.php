@@ -20,7 +20,7 @@ use App\Http\Controllers\SemesterDetailsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\WebController;
-
+use App\Http\Controllers\StudentLifeController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -64,13 +64,16 @@ Route::put('/course/update/{id}', [CourseController::class, 'update'])
     ->name('course.update');
 
 
- Route::get('/department', [DepartmentController::class, 'index'])->name('department.index');
- Route::post('/department', [DepartmentController::class, 'store'])->name('department.store');
+ 
 
-Route::get('/department/edit/{id}', [DepartmentController::class, 'edit'])->name('department.edit');
+Route::get('/department', [DepartmentController::class, 'index'])
+    ->name('department.index');
 
-Route::post('/department/update/{id}', [DepartmentController::class, 'update'])->name('department.update');
+Route::post('/department', [DepartmentController::class, 'store'])
+    ->name('department.store');
 
+Route::put('/department/{id}', [DepartmentController::class, 'update'])
+    ->name('department.update');
 
 
 
@@ -200,6 +203,37 @@ Route::delete(
     '/semester-details/delete/{id}',
     [SemesterDetailsController::class, 'destroy']
 )->name('semester.delete');
+
+
+
+
+Route::get('/student-life', [StudentLifeController::class, 'index'])
+    ->name('student-life.index');
+
+Route::post('/student-life', [StudentLifeController::class, 'store'])
+    ->name('student-life.store');
+
+Route::get('/student-life/{id}/edit', [StudentLifeController::class, 'edit'])
+    ->name('student-life.edit');
+
+Route::put('/student-life/{id}', [StudentLifeController::class, 'update'])
+    ->name('student-life.update');
+
+Route::delete('/student-life/{id}', [StudentLifeController::class, 'destroy'])
+    ->name('student-life.destroy');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 require __DIR__.'/auth.php';
