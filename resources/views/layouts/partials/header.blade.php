@@ -281,6 +281,13 @@
         <p>FAQ</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('faculties') }}"class="nav-link">
+         <i class="nav-icon fas fa-user-tie"></i>
+         <p>Faculties</p>
+    </a>
+
+</li>
 
           <li class="nav-item">
     <a href="{{ route('logout') }}" class="nav-link">

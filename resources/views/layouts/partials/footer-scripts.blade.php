@@ -206,58 +206,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<script>
-
-$(document).ready(function () {
-
-    $('#editUploadModal').on('show.bs.modal', function (event) {
-
-        var button = $(event.relatedTarget);
-
-        var id = button.data('id');
-
-        var status = button.data('status');
-
-        var photo = button.data('photo');
-
-        var modal = $(this);
-
-
-        // Fill ID
-        modal.find('#edit_id').val(id);
-
-
-        // Fill Status
-        modal.find('#edit_status').val(status);
-
-
-        // Show Current Photo
-        if (photo) {
-
-            var photoUrl = "{{ asset('') }}" + photo;
-
-            modal.find('#edit_photo_preview')
-                 .attr('src', photoUrl)
-                 .show();
-
-            modal.find('#current_photo_link')
-                 .attr('href', photoUrl)
-                 .show();
-
-        } else {
-
-            modal.find('#edit_photo_preview').hide();
-
-            modal.find('#current_photo_link').hide();
-
-        }
-
-    });
-
-});
-
-</script>
-
 
 <script>
 $(document).on('click', '.editCourse', function () {
@@ -365,3 +313,246 @@ $(document).ready(function () {
 
 @endif
 
+
+
+
+<script>
+
+$(document).ready(function () {
+
+
+    $('.editfaculty').click(function () {
+
+
+        var id =
+            $(this).data('id');
+
+        var department =
+            $(this).data('department');
+
+        var name =
+            $(this).data('name');
+
+        var photo =
+            $(this).data('photo');
+
+        var occupation =
+            $(this).data('occupation');
+
+        var qualification =
+            $(this).data('qualification');
+
+        var experiance =
+            $(this).data('experiance');
+
+        var bio =
+            $(this).data('bio');
+
+
+        // Fill values
+
+        $('#edit_id').val(id);
+
+        $('#edit_department').val(department);
+
+        $('#edit_name').val(name);
+
+        $('#edit_occupation').val(occupation);
+
+        $('#edit_qualification').val(qualification);
+
+        $('#edit_experiance').val(experiance);
+
+        $('#edit_bio').val(bio);
+
+
+        // Photo Preview
+
+        if(photo) {
+
+            var photoUrl =
+                '{{ asset("") }}' + photo;
+
+
+            $('#previewPhoto')
+                .attr('src', photoUrl)
+                .show();
+
+
+            $('#previewPhotoLink')
+                .attr('href', photoUrl)
+                .show();
+
+        }
+        else {
+
+            $('#previewPhoto').hide();
+
+            $('#previewPhotoLink').hide();
+
+        }
+
+
+    });
+
+
+});
+
+</script>
+
+
+
+@if($errors->any() && old('_form') == 'create')
+
+<script>
+
+$(document).ready(function () {
+
+    $('#newFacultyModal').modal('show');
+
+});
+
+</script>
+
+@endif
+
+
+
+<!-- ====================================================== -->
+<!-- DELETE CONFIRMATION -->
+<!-- ====================================================== -->
+
+<script>
+
+$(document).ready(function () {
+
+
+    $('.delete-upload-form').on('submit', function(e) {
+
+
+        var confirmed = confirm(
+            'Are you sure you want to delete this photo?'
+        );
+
+
+        if(!confirmed) {
+
+            e.preventDefault();
+
+            return false;
+
+        }
+
+
+    });
+
+
+});
+
+</script>
+
+
+
+<!-- ====================================================== -->
+<!-- IMAGE PREVIEW -->
+<!-- ====================================================== -->
+
+<script>
+
+$(document).ready(function () {
+
+
+    $('#photos').on('change', function () {
+
+
+        $('#imagePreview').html('');
+
+
+        var files = this.files;
+
+
+        if(files && files.length > 0) {
+
+
+            Array.from(files).forEach(function(file) {
+
+
+                if(file.type.startsWith('image/')) {
+
+
+                    var reader =
+                        new FileReader();
+
+
+                    reader.onload = function(e) {
+
+
+                        var image =
+                            $('<img>');
+
+
+                        image.attr(
+                            'src',
+                            e.target.result
+                        );
+
+
+                        image.addClass(
+                            'preview-image'
+                        );
+
+
+                        $('#imagePreview')
+                            .append(image);
+
+
+                    };
+
+
+                    reader.readAsDataURL(file);
+
+
+                }
+
+
+            });
+
+
+        }
+        else {
+
+
+            $('#imagePreview').html(
+                '<span class="preview-empty">Selected images will appear here.</span>'
+            );
+
+
+        }
+
+
+    });
+
+
+});
+
+</script>
+
+
+
+<!-- ====================================================== -->
+<!-- REOPEN MODAL AFTER VALIDATION ERROR -->
+<!-- ====================================================== -->
+
+@if($errors->any() && old('_form') == 'create')
+
+<script>
+
+$(document).ready(function () {
+
+    $('#newRecordModal').modal('show');
+
+});
+
+</script>
+
+@endif

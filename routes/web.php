@@ -20,6 +20,7 @@ use App\Http\Controllers\SemesterDetailsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\FacultiesController;
 
 
 // Route::get('/', function () {
@@ -128,11 +129,12 @@ Route::post('/updatenews', [NewsController::class, 'update'])
 Route::get('/upload-list', [UploadsController::class, 'index'])
     ->name('uploads');
 
-Route::post('/createuploads', [UploadsController::class, 'store'])
-    ->name('createuploads');
+Route::post('/createuploads',[UploadsController::class, 'store']
+)->name('createuploads');
 
-    Route::post('/updateuploads', [UploadsController::class, 'update'])
-    ->name('updateuploads');
+
+Route::post('/deleteuploads',[UploadsController::class, 'delete']
+)->name('deleteuploads');
 
 Route::get('/contacts', [ContactsController::class, 'index'])
     ->name('contacts');
@@ -201,5 +203,16 @@ Route::delete(
     [SemesterDetailsController::class, 'destroy']
 )->name('semester.delete');
 
+
+Route::get('/faculties',[FacultiesController::class, 'index']
+)->name('faculties');
+
+
+Route::post('/createfaculties',[FacultiesController::class, 'store']
+)->name('createfaculties');
+
+
+Route::post('/updatefaculties',[FacultiesController::class, 'update']
+)->name('updatefaculties');
 
 require __DIR__.'/auth.php';

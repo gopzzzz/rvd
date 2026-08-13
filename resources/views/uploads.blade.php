@@ -4,17 +4,19 @@
 
 <div class="content-wrapper">
 
-    <!-- Content Header -->
+    <!-- PAGE HEADER -->
     <section class="content-header">
+
         <div class="container-fluid">
 
             <div class="row mb-2">
 
                 <div class="col-sm-6">
-                    <h1>Uploads</h1>
+                    <h1>Gallery</h1>
                 </div>
 
                 <div class="col-sm-6">
+
                     <ol class="breadcrumb float-sm-right">
 
                         <li class="breadcrumb-item">
@@ -22,207 +24,337 @@
                         </li>
 
                         <li class="breadcrumb-item active">
-                            Uploads
+                            Gallery
                         </li>
 
                     </ol>
+
                 </div>
 
             </div>
 
         </div>
+
     </section>
 
 
-    <!-- Main Content -->
+    <!-- MAIN CONTENT -->
     <section class="content">
 
         <div class="container-fluid">
 
-            <div class="row">
+            <div class="card">
 
-                <div class="col-md-12">
+                <!-- HEADER -->
+                <div class="card-header d-flex justify-content-between align-items-center">
 
-                    <div class="card">
+                    <h3 class="card-title">
+                        Gallery Photos
+                    </h3>
 
 
-                        <!-- Card Header -->
-                        <div class="card-header d-flex justify-content-between align-items-center">
+                    <button type="button"
+                            class="btn btn-primary btn-sm"
+                            data-toggle="modal"
+                            data-target="#newRecordModal">
 
-                            <h3 class="card-title">
-                                Uploads List
-                            </h3>
+                        <i class="fas fa-plus"></i>
+                        New Record
 
-                            <button type="button"
-                                    class="btn btn-primary btn-sm"
-                                    data-toggle="modal"
-                                    data-target="#newRecordModal">
+                    </button>
 
-                                <i class="fas fa-plus"></i>
-                                New Record
+                </div>
 
-                            </button>
 
-                        </div>
+                <!-- SUCCESS MESSAGE -->
+                @if(session('success'))
 
+                    <div class="alert alert-success alert-dismissible m-3">
 
-                        <!-- Success Message -->
-                        @if(session('success'))
+                        <button type="button"
+                                class="close"
+                                data-dismiss="alert">
 
-                            <div class="alert alert-success m-3">
-                                {{ session('success') }}
-                            </div>
+                            &times;
 
-                        @endif
+                        </button>
 
-
-                        <!-- Validation Errors -->
-                        @if($errors->any())
-
-                            <div class="alert alert-danger m-3">
-
-                                <ul class="mb-0">
-
-                                    @foreach($errors->all() as $error)
-
-                                        <li>{{ $error }}</li>
-
-                                    @endforeach
-
-                                </ul>
-
-                            </div>
-
-                        @endif
-
-
-                        <!-- Table -->
-                        <div class="card-body">
-
-                            <div class="table-responsive">
-
-                                <table class="table table-bordered">
-
-                                    <thead>
-
-                                        <tr>
-
-                                            <th style="width:60px">
-                                                #
-                                            </th>
-
-                                            <th>
-                                                Photo
-                                            </th>
-
-                                             <th>
-                                                Title
-                                            </th>
-
-                                            <th>
-                                                Status
-                                            </th>
-
-                                            <th style="width:100px">
-                                                Action
-                                            </th>
-
-                                        </tr>
-
-                                    </thead>
-
-
-                                    <tbody>
-
-                                        @forelse($uploads as $key)
-
-                                            <tr>
-
-                                                <!-- ID -->
-                                                <td>
-                                                    {{ $key->id }}
-                                                </td>
-
-
-                                                <!-- Photo -->
-                                                <td>
-
-                                                    @if(!empty($key->photo))
-
-                                                        <a href="{{ asset($key->photo) }}"
-                                                           target="_blank">
-
-                                                            <img src="{{ asset($key->photo) }}"
-                                                                 width="100"
-                                                                 height="90"
-                                                                 alt="Upload Photo"
-                                                                 style="object-fit:cover; border-radius:5px; cursor:pointer;">
-
-                                                        </a>
-
-                                                    @else
-
-                                                        No Photo
-
-                                                    @endif
-
-                                                </td>
-
-                                                <td>  {{ $key->type_name }}</td>
-
-
-                                                <!-- Status -->
-                                                <td>
-                                                    {{ $key->status }}
-                                                </td>
-
-
-                                                <!-- Action -->
-                                                <td>
-
-                                                    <button type="button"
-                                                            class="btn btn-primary btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#editUploadModal"
-                                                            data-id="{{ $key->id }}"
-                                                            data-status="{{ $key->status }}"
-                                                            data-photo="{{ $key->photo }}">
-
-                                                        Edit
-
-                                                    </button>
-
-                                                </td>
-
-                                            </tr>
-
-                                        @empty
-
-                                            <tr>
-
-                                                <td colspan="4"
-                                                    class="text-center">
-
-                                                    No records found.
-
-                                                </td>
-
-                                            </tr>
-
-                                        @endforelse
-
-                                    </tbody>
-
-                                </table>
-
-                            </div>
-
-                        </div>
-
+                        {{ session('success') }}
 
                     </div>
 
+                @endif
+
+
+                <!-- ERROR MESSAGE -->
+                @if(session('error'))
+
+                    <div class="alert alert-danger alert-dismissible m-3">
+
+                        <button type="button"
+                                class="close"
+                                data-dismiss="alert">
+
+                            &times;
+
+                        </button>
+
+                        {{ session('error') }}
+
+                    </div>
+
+                @endif
+
+
+
+                <!-- ================================================= -->
+                <!-- GALLERY GRID -->
+                <!-- ================================================= -->
+
+                <div class="card-body">
+
+
+                    @if($uploads->count() > 0)
+
+
+                        <div class="row">
+
+
+                            @foreach($uploads as $key)
+
+
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
+
+
+                                    <div class="card gallery-card h-100">
+
+
+                                        <!-- IMAGE -->
+
+                                        <div class="gallery-image">
+
+
+                                            @if(!empty($key->photo))
+
+
+                                                <a href="{{ asset($key->photo) }}"
+                                                   target="_blank">
+
+
+                                                    <img src="{{ asset($key->photo) }}"
+                                                         class="gallery-photo"
+                                                         alt="Gallery Photo">
+
+
+                                                </a>
+
+
+                                            @else
+
+
+                                                <div class="no-image">
+
+                                                    <i class="fas fa-image"></i>
+
+                                                    <span>
+                                                        No Image
+                                                    </span>
+
+                                                </div>
+
+
+                                            @endif
+
+
+                                            <!-- PHOTO NUMBER -->
+
+                                            <div class="photo-number">
+
+                                                {{ $loop->iteration }}
+
+                                            </div>
+
+
+                                            <!-- STATUS ON IMAGE -->
+
+                                            <div class="photo-status">
+
+
+                                                @if(strtolower($key->status) == 'active')
+
+
+                                                    <span class="badge badge-success">
+
+                                                        Active
+
+                                                    </span>
+
+
+                                                @elseif(strtolower($key->status) == 'inactive')
+
+
+                                                    <span class="badge badge-danger">
+
+                                                        Inactive
+
+                                                    </span>
+
+
+                                                @else
+
+
+                                                    <span class="badge badge-secondary">
+
+                                                        {{ $key->status }}
+
+                                                    </span>
+
+
+                                                @endif
+
+
+                                            </div>
+
+
+                                        </div>
+
+
+
+                                        <!-- CARD BODY -->
+
+                                        <div class="card-body gallery-details">
+
+
+                                            <div class="d-flex justify-content-between align-items-center">
+
+
+                                                <div>
+
+
+                                                    <small class="text-muted">
+
+                                                        Gallery Type
+
+                                                    </small>
+
+
+                                                    <h5 class="gallery-title mb-0">
+
+                                                        {{ $key->type_name ?? 'Gallery' }}
+
+                                                    </h5>
+
+
+                                                </div>
+
+
+                                                <div class="gallery-icon">
+
+                                                    <i class="fas fa-images"></i>
+
+                                                </div>
+
+
+                                            </div>
+
+
+                                        </div>
+
+
+
+                                        <!-- DELETE -->
+
+                                        <div class="card-footer gallery-footer">
+
+
+                                            <form action="{{ route('deleteuploads') }}"
+                                                  method="POST"
+                                                  class="delete-upload-form">
+
+
+                                                @csrf
+
+
+                                                <!-- REAL DATABASE ID -->
+
+                                                <input type="hidden"
+                                                       name="id"
+                                                       value="{{ $key->id }}">
+
+
+                                                <button type="submit"
+                                                        class="btn btn-danger btn-sm btn-block">
+
+
+                                                    <i class="fas fa-trash-alt mr-1"></i>
+
+                                                    Delete Photo
+
+
+                                                </button>
+
+
+                                            </form>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            @endforeach
+
+
+                        </div>
+
+
+                    @else
+
+
+                        <!-- NO PHOTOS -->
+
+                        <div class="empty-gallery">
+
+
+                            <i class="fas fa-images"></i>
+
+
+                            <h4>
+                                No Gallery Photos
+                            </h4>
+
+
+                            <p>
+                                Click New Record to upload photos.
+                            </p>
+
+
+                            <button type="button"
+                                    class="btn btn-primary"
+                                    data-toggle="modal"
+                                    data-target="#newRecordModal">
+
+
+                                <i class="fas fa-plus"></i>
+
+                                Upload Photos
+
+
+                            </button>
+
+
+                        </div>
+
+
+                    @endif
+
+
                 </div>
+
 
             </div>
 
@@ -234,18 +366,21 @@
 
 
 
-<!-- ================================================= -->
-<!-- NEW RECORD MODAL -->
-<!-- ================================================= -->
+<!-- ====================================================== -->
+<!-- ADD NEW PHOTOS MODAL -->
+<!-- ====================================================== -->
 
 <div class="modal fade"
      id="newRecordModal"
      tabindex="-1"
      role="dialog"
+     aria-labelledby="newRecordModalLabel"
      aria-hidden="true">
 
-    <div class="modal-dialog"
+
+    <div class="modal-dialog modal-lg"
          role="document">
+
 
         <div class="modal-content">
 
@@ -254,88 +389,302 @@
                   method="POST"
                   enctype="multipart/form-data">
 
+
                 @csrf
 
 
-                <!-- Header -->
+                <input type="hidden"
+                       name="_form"
+                       value="create">
+
+
+
+                <!-- MODAL HEADER -->
+
                 <div class="modal-header">
 
-                    <h5 class="modal-title">
-                        Add New Upload
+
+                    <h5 class="modal-title"
+                        id="newRecordModalLabel">
+
+                        <i class="fas fa-images mr-2"></i>
+
+                        Add Gallery Photos
+
                     </h5>
+
 
                     <button type="button"
                             class="close"
                             data-dismiss="modal">
 
-                        <span>&times;</span>
+
+                        <span>
+                            &times;
+                        </span>
+
 
                     </button>
 
+
                 </div>
 
 
-                <!-- Body -->
+
+                <!-- MODAL BODY -->
+
                 <div class="modal-body">
 
 
-                    <!-- Photo -->
+                    <!-- VALIDATION ERRORS -->
+
+                    @if($errors->any() && old('_form') == 'create')
+
+
+                        <div class="alert alert-danger">
+
+
+                            <strong>
+
+                                Please correct the following errors:
+
+                            </strong>
+
+
+                            <ul class="mb-0 mt-2">
+
+
+                                @foreach($errors->all() as $error)
+
+
+                                    <li>
+                                        {{ $error }}
+                                    </li>
+
+
+                                @endforeach
+
+
+                            </ul>
+
+
+                        </div>
+
+
+                    @endif
+
+
+
+                    <!-- GALLERY TYPE -->
+
                     <div class="form-group">
 
+
                         <label>
-                            Gallery Title
-                            <span class="text-danger">*</span>
+                            Gallery Type
                         </label>
 
-                        <select class="form-control" name="type" required>
+
+                        <select name="type"
+                                class="form-control @error('type') is-invalid @enderror"
+                                required>
+
+
+                            <option value="">
+
+                                Select Gallery Type
+
+                            </option>
+
+
                             @foreach($types as $type)
-                            <option value="{{$type->id}}">{{$type->type_name}}</option>
+
+
+                                <option value="{{ $type->id }}"
+                                    {{ old('type') == $type->id ? 'selected' : '' }}>
+
+
+                                    {{ $type->type_name }}
+
+
+                                </option>
+
+
                             @endforeach
+
+
                         </select>
 
+
+                        @error('type')
+
+
+                            <div class="invalid-feedback">
+
+                                {{ $message }}
+
+                            </div>
+
+
+                        @enderror
+
+
                     </div>
 
-                     <div class="form-group">
+
+
+                    <!-- PHOTOS -->
+
+                    <div class="form-group">
+
 
                         <label>
-                            Photo
-                            <span class="text-danger">*</span>
+                            Select Photos
                         </label>
 
-                        <input type="file"
-                               name="photo[]"
-                               class="form-control"
-                               accept=".jpg,.jpeg,.png,.gif"
-                               required multiple> 
+
+                        <div class="upload-area">
+
+
+                            <i class="fas fa-cloud-upload-alt"></i>
+
+
+                            <p>
+                                Choose one or more gallery images
+                            </p>
+
+
+                            <input type="file"
+                                   name="photo[]"
+                                   id="photos"
+                                   class="form-control-file"
+                                   accept=".jpg,.jpeg,.png,.gif"
+                                   multiple
+                                   required>
+
+
+                        </div>
+
+
+                        <small class="form-text text-muted">
+
+                            JPG, JPEG, PNG and GIF allowed.
+                            Maximum 5 MB per photo.
+
+                        </small>
+
+
+                        @error('photo')
+
+
+                            <div class="text-danger mt-2">
+
+                                {{ $message }}
+
+                            </div>
+
+
+                        @enderror
+
+
+                        @error('photo.*')
+
+
+                            <div class="text-danger mt-2">
+
+                                {{ $message }}
+
+                            </div>
+
+
+                        @enderror
+
 
                     </div>
 
 
-                    <!-- Status -->
+
+                    <!-- PREVIEW -->
+
                     <div class="form-group">
+
+
+                        <label>
+                            Preview
+                        </label>
+
+
+                        <div id="imagePreview"
+                             class="preview-container">
+
+
+                            <span class="preview-empty">
+
+                                Selected images will appear here.
+
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- STATUS -->
+
+                    <div class="form-group">
+
 
                         <label>
                             Status
-                            <span class="text-danger">*</span>
                         </label>
 
+
                         <select name="status"
-                                class="form-control"
+                                class="form-control @error('status') is-invalid @enderror"
                                 required>
 
+
                             <option value="">
+
                                 Select Status
+
                             </option>
 
-                            <option value="Active">
+
+                            <option value="active"
+                                {{ old('status') == 'active' ? 'selected' : '' }}>
+
                                 Active
+
                             </option>
 
-                            <option value="Inactive">
+
+                            <option value="inactive"
+                                {{ old('status') == 'inactive' ? 'selected' : '' }}>
+
                                 Inactive
+
                             </option>
+
 
                         </select>
+
+
+                        @error('status')
+
+
+                            <div class="invalid-feedback">
+
+                                {{ $message }}
+
+                            </div>
+
+
+                        @enderror
+
 
                     </div>
 
@@ -343,8 +692,11 @@
                 </div>
 
 
-                <!-- Footer -->
+
+                <!-- MODAL FOOTER -->
+
                 <div class="modal-footer">
+
 
                     <button type="button"
                             class="btn btn-secondary"
@@ -353,177 +705,398 @@
                         Close
 
                     </button>
+
 
                     <button type="submit"
                             class="btn btn-primary">
 
-                        Save Record
+
+                        <i class="fas fa-upload mr-1"></i>
+
+                        Upload Photos
+
 
                     </button>
+
 
                 </div>
 
 
             </form>
 
+
         </div>
 
+
     </div>
+
 
 </div>
 
 
 
-<!-- ================================================= -->
-<!-- EDIT UPLOAD MODAL -->
-<!-- ================================================= -->
+<!-- ====================================================== -->
+<!-- GALLERY CSS -->
+<!-- ====================================================== -->
 
-<div class="modal fade"
-     id="editUploadModal"
-     tabindex="-1"
-     role="dialog"
-     aria-hidden="true">
-
-    <div class="modal-dialog"
-         role="document">
-
-        <div class="modal-content">
+<style>
 
 
-            <form action="{{ route('updateuploads') }}"
-                  method="POST"
-                  enctype="multipart/form-data">
+.gallery-card {
 
-                @csrf
+    border-radius: 10px;
 
+    overflow: hidden;
 
-                <!-- Header -->
-                <div class="modal-header">
+    border: 1px solid rgba(255,255,255,0.08);
 
-                    <h5 class="modal-title">
-                        Edit Upload
-                    </h5>
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 
-                    <button type="button"
-                            class="close"
-                            data-dismiss="modal">
-
-                        <span>&times;</span>
-
-                    </button>
-
-                </div>
+}
 
 
-                <!-- Body -->
-                <div class="modal-body">
+.gallery-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,0.30);
+
+}
 
 
-                    <!-- IMPORTANT ID -->
-                    <input type="hidden"
-                           name="id"
-                           id="edit_id">
+
+.gallery-image {
+
+    width: 100%;
+
+    height: 230px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #252a30;
+
+}
 
 
-                    <!-- Current Photo -->
-                    <div class="form-group">
 
-                        <label>
-                            Current Photo
-                        </label>
+.gallery-photo {
 
-                        <br>
+    width: 100%;
 
-                        <a href="#"
-                           id="current_photo_link"
-                           target="_blank">
+    height: 100%;
 
-                            <img id="edit_photo_preview"
-                                 src=""
-                                 width="120"
-                                 height="100"
-                                 style="object-fit:cover; border-radius:5px;">
+    object-fit: cover;
 
-                        </a>
+    display: block;
 
-                    </div>
+    transition: transform 0.35s ease;
+
+}
 
 
-                    <!-- Change Photo -->
-                    <div class="form-group">
 
-                        <label>
-                            Change Photo
-                        </label>
+.gallery-card:hover .gallery-photo {
 
-                        <input type="file"
-                               name="photo"
-                               class="form-control"
-                               accept=".jpg,.jpeg,.png,.gif">
+    transform: scale(1.06);
 
-                        <small class="text-muted">
-                            Leave empty if you do not want to change the photo.
-                        </small>
-
-                    </div>
+}
 
 
-                    <!-- Status -->
-                    <div class="form-group">
 
-                        <label>
-                            Status
-                            <span class="text-danger">*</span>
-                        </label>
+.photo-number {
 
-                        <select name="status"
-                                id="edit_status"
-                                class="form-control"
-                                required>
+    position: absolute;
 
-                            <option value="Active">
-                                Active
-                            </option>
+    left: 12px;
 
-                            <option value="Inactive">
-                                Inactive
-                            </option>
+    top: 12px;
 
-                        </select>
+    min-width: 30px;
 
-                    </div>
+    height: 30px;
 
+    padding: 0 8px;
 
-                </div>
+    display: flex;
 
+    justify-content: center;
 
-                <!-- Footer -->
-                <div class="modal-footer">
+    align-items: center;
 
-                    <button type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal">
+    border-radius: 30px;
 
-                        Close
+    background: rgba(0,0,0,0.65);
 
-                    </button>
+    color: white;
 
-                    <button type="submit"
-                            class="btn btn-success">
+    font-weight: 600;
 
-                        Update
-
-                    </button>
-
-                </div>
+}
 
 
-            </form>
 
-        </div>
+.photo-status {
 
-    </div>
+    position: absolute;
 
-</div>
+    right: 12px;
+
+    top: 12px;
+
+}
+
+
+
+.photo-status .badge {
+
+    padding: 7px 10px;
+
+    border-radius: 15px;
+
+}
+
+
+
+.gallery-details {
+
+    padding: 15px;
+
+}
+
+
+
+.gallery-title {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    text-transform: capitalize;
+
+    margin-top: 3px;
+
+}
+
+
+
+.gallery-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0,123,255,0.12);
+
+    color: #3498db;
+
+}
+
+
+
+.gallery-footer {
+
+    padding: 12px 15px;
+
+}
+
+
+
+.gallery-footer .btn {
+
+    border-radius: 5px;
+
+}
+
+
+
+.no-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #888;
+
+}
+
+
+
+.no-image i {
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.empty-gallery {
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+}
+
+
+
+.empty-gallery > i {
+
+    display: block;
+
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+    color: #6c757d;
+
+}
+
+
+
+.empty-gallery h4 {
+
+    font-weight: 600;
+
+}
+
+
+
+.empty-gallery p {
+
+    color: #999;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+/* UPLOAD AREA */
+
+.upload-area {
+
+    border: 2px dashed #6c757d;
+
+    border-radius: 8px;
+
+    padding: 25px;
+
+    text-align: center;
+
+}
+
+
+
+.upload-area > i {
+
+    display: block;
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+    color: #3498db;
+
+}
+
+
+
+.upload-area p {
+
+    margin-bottom: 15px;
+
+}
+
+
+
+/* IMAGE PREVIEW */
+
+.preview-container {
+
+    min-height: 100px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    border: 1px dashed #6c757d;
+
+    border-radius: 6px;
+
+    padding: 10px;
+
+}
+
+
+
+.preview-empty {
+
+    color: #888;
+
+    padding: 20px;
+
+}
+
+
+
+.preview-image {
+
+    width: 110px;
+
+    height: 100px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+
+    margin-right: 10px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+}
+
+
+
+@media(max-width: 768px) {
+
+    .gallery-image {
+
+        height: 260px;
+
+    }
+
+}
+
+
+</style>
+
 
 @endsection
