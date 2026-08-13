@@ -52,11 +52,19 @@
 
                 <div class="modal-body">
 
-                    <div class="form-group">
-                        <label>name</label>
-                        <input type="text" name="name" class="form-control" required>
-                    </div>
+                   <div class="form-group">
+    <label>Name</label>
 
+    <input type="text"
+           name="name"
+           class="form-control @error('name') is-invalid @enderror"
+           value="{{ old('name') }}"
+           required>
+
+    @error('name')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
                     
 
                     

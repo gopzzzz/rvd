@@ -13,11 +13,19 @@ class DepartmentController extends Controller
         return view('department', compact('department'));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-        ]);
+   public function store(Request $request)
+{
+    $request->validate([
+        'name' => [
+            'required',
+            'string',
+            'max:100',
+            'regex:/^[A-Za-z ]+$/',
+        ],
+    ], [
+        'name.required' => 'Name is required.',
+        'name.regex' => 'Name can contain only letters.',
+    ]);
 
         DB::table('department')->insert([
             'name' => $request->name,

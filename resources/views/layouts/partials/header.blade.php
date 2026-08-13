@@ -224,6 +224,14 @@
     </a>
 </li>
 
+ <li class="nav-item">
+    <a href="{{ route('department.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-book"></i>
+        <p>Department</p>
+    </a>
+</li>
+
+
 
           <li class="nav-item">
     <a href="{{ route('course.index') }}" class="nav-link">
@@ -248,19 +256,32 @@
 </li>
          
     
-        <li class="nav-item">
-    <a href="{{ route('department.index') }}" class="nav-link">
-        <i class="nav-icon fas fa-book"></i>
-        <p>department</p>
-    </a>
-</li>
-
+       
  <!-- <li class="nav-item">
     <a href="{{ route('events.index') }}" class="nav-link">
         <i class="nav-icon fas fa-book"></i>
         <p>Events</p>
     </a>
 </li> -->
+<li class="nav-item">
+    <a href="{{ route('downloads') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>Downloads</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('contacts') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>Contacts</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('faq') }}" class="nav-link">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>FAQ</p>
+    </a>
+</li>
+
           <li class="nav-item">
     <a href="{{ route('logout') }}" class="nav-link">
         <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -270,34 +291,12 @@
 
 
        
-<li class="nav-item">
-    <a href="{{ route('downloads') }}" class="nav-link">
-        <i class="nav-icon fas fa-info-circle"></i>
-        <p>Downloads</p>
-    </a>
-</li>
 
 
-<li class="nav-item">
-    <a href="{{ route('uploads') }}" class="nav-link">
-        <i class="nav-icon fas fa-info-circle"></i>
-        <p>Uploads</p>
-    </a>
-</li>
 
-<li class="nav-item">
-    <a href="{{ route('contacts') }}" class="nav-link">
-        <i class="nav-icon fas fa-info-circle"></i>
-        <p>Contacts</p>
-    </a>
-</li>
 
-<li class="nav-item">
-    <a href="{{ route('faq') }}" class="nav-link">
-        <i class="nav-icon fas fa-info-circle"></i>
-        <p>FAQ</p>
-    </a>
-</li>
+
+
           
  
           

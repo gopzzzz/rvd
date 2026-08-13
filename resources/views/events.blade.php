@@ -51,19 +51,44 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label>Type</label>
-                        <input type="text" name="type" class="form-control" required>
-                    </div>
+    <label>Type</label>
 
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" name="title" class="form-control" required>
-                    </div>
+    <input type="text"
+           name="type"
+           class="form-control @error('type') is-invalid @enderror"
+           value="{{ old('type') }}"
+           required>
 
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea name="description" class="form-control" required></textarea>
-                    </div>
+    @error('type')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+
+                   <div class="form-group">
+    <label>Title</label>
+
+    <input type="text"
+           name="title"
+           class="form-control @error('title') is-invalid @enderror"
+           value="{{ old('title') }}"
+           required>
+
+    @error('title')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+                  <div class="form-group">
+    <label>Description</label>
+
+    <textarea name="description"
+              class="form-control @error('description') is-invalid @enderror"
+              rows="4"
+              required>{{ old('description') }}</textarea>
+
+    @error('description')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
 
                     <div class="form-group">
                         <label>Date</label>
@@ -108,19 +133,44 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label>Type</label>
-                        <input type="text" name="type" id="edit_type" class="form-control">
-                    </div>
+    <label>Type</label>
 
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" name="title" id="edit_title" class="form-control">
-                    </div>
+    <input type="text"
+           name="type"
+           id="edit_type"
+           class="form-control @error('type') is-invalid @enderror"
+           value="{{ old('type') }}">
 
+    @error('type')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea name="description" id="edit_description" class="form-control"></textarea>
-                    </div>
+    <label>Title</label>
+
+    <input type="text"
+           name="title"
+           id="edit_title"
+           class="form-control @error('title') is-invalid @enderror"
+           value="{{ old('title') }}">
+
+    @error('title')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+
+                   <div class="form-group">
+    <label>Description</label>
+
+    <textarea name="description"
+              id="edit_description"
+              class="form-control @error('description') is-invalid @enderror"
+              rows="4">{{ old('description') }}</textarea>
+
+    @error('description')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
 
                     <div class="form-group">
                         <label>Date</label>

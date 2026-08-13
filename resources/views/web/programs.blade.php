@@ -78,8 +78,9 @@
     </div>
     
     <div class="tabs text-center mb-40 reveal">
-      <button class="tab-btn active" onclick="openTab('curric-bba', this)" style="padding:10px 30px; margin:0 5px; border:none; background:white; cursor:pointer; font-size:1.1rem; font-weight:600; color:#555; border-radius:30px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">BBA</button>
-      <button class="tab-btn" onclick="openTab('curric-bcom', this)" style="padding:10px 30px; margin:0 5px; border:none; background:white; cursor:pointer; font-size:1.1rem; font-weight:600; color:#555; border-radius:30px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">B.Com</button>
+     @foreach($course as $courSe)
+      <button class="tab-btn" onclick="openTab('curric-{{$courSe->key}}', this)" style="padding:10px 30px; margin:0 5px; border:none; background:white; cursor:pointer; font-size:1.1rem; font-weight:600; color:#555; border-radius:30px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">{{$courSe->coursename}}</button>
+      @endforeach
     </div>
     
     <style>
@@ -91,125 +92,41 @@
       .semester-card ul li:last-child { border-bottom: none; }
     </style>
 
+    @foreach($course as $courSe)
+
+    @php 
+
+    $semester=DB::table('semester_details')->where('course_id',$courSe->id)->get();
+
+    @endphp
+
     <!-- BBA Panel -->
-    <div class="tab-content active" id="curric-bba">
+    <div class="tab-content active" id="curric-{{$courSe->key}}">
       <div class="grid-3 reveal" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:25px;">
-        <div class="semester-card">
-          <h4>Semester 1</h4>
-          <ul>
-            <li>Financial Accounting</li>
-            <li>Principles of Management</li>
-            <li>Corporate Administration</li>
-            <li>Business Economics</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 2</h4>
-          <ul>
-            <li>Corporate Accounting</li>
-            <li>Business Environment</li>
-            <li>Organizational Behavior</li>
-            <li>Marketing Management</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 3</h4>
-          <ul>
-            <li>Human Resource Management</li>
-            <li>Business Statistics</li>
-            <li>Corporate Communication</li>
-            <li>Financial Management</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 4</h4>
-          <ul>
-            <li>Cost Accounting</li>
-            <li>Business Law</li>
-            <li>Entrepreneurship</li>
-            <li>Banking Operations</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 5</h4>
-          <ul>
-            <li>Income Tax I</li>
-            <li>Auditing</li>
-            <li>International Business</li>
-            <li>Strategic Management</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 6</h4>
-          <ul>
-            <li>Income Tax II</li>
-            <li>Management Accounting</li>
-            <li>Project Work</li>
-            <li>E-Business</li>
-          </ul>
-        </div>
+      @foreach($semester as $sem)
+
+    <div class="semester-card">
+
+        <h4>{{ $sem->semester }}</h4>
+
+        <ul>
+            @foreach(explode(',', $sem->subjects) as $subject)
+                <li>{{ trim($subject) }}</li>
+            @endforeach
+        </ul>
+
+    </div>
+
+@endforeach
+       
+        
       </div>
     </div>
 
+    @endforeach
+
     <!-- B.Com Panel -->
-    <div class="tab-content" id="curric-bcom" style="display:none;">
-      <div class="grid-3" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:25px;">
-        <div class="semester-card">
-          <h4>Semester 1</h4>
-          <ul>
-            <li>Financial Accounting I</li>
-            <li>Indian Financial System</li>
-            <li>Marketing & Services</li>
-            <li>Corporate Administration</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 2</h4>
-          <ul>
-            <li>Advanced Financial Accounting</li>
-            <li>Retail Management</li>
-            <li>Banking Law</li>
-            <li>Quantitative Analysis I</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 3</h4>
-          <ul>
-            <li>Corporate Accounting I</li>
-            <li>Financial Management</li>
-            <li>Business Ethics</li>
-            <li>Quantitative Analysis II</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 4</h4>
-          <ul>
-            <li>Advanced Corporate Accounting</li>
-            <li>Cost Accounting</li>
-            <li>E-Business</li>
-            <li>Stock Market Operations</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 5</h4>
-          <ul>
-            <li>Entrepreneurship Development</li>
-            <li>International Financial Reporting</li>
-            <li>Income Tax I</li>
-            <li>Costing Methods</li>
-          </ul>
-        </div>
-        <div class="semester-card">
-          <h4>Semester 6</h4>
-          <ul>
-            <li>Business Regulations</li>
-            <li>Management Accounting</li>
-            <li>Income Tax II</li>
-            <li>Principles & Practice of Auditing</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+   
   </div>
 </section>
 
