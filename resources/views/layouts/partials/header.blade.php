@@ -249,6 +249,22 @@
 
 
 <li class="nav-item">
+
+    <a href="{{ route('student-life.index') }}"
+       class="nav-link">
+
+        <i class="nav-icon fas fa-user-graduate"></i>
+
+        <p>
+            Student Life
+        </p>
+
+    </a>
+
+</li>
+
+
+<li class="nav-item">
     <a href="{{ route('uploads') }}" class="nav-link">
         <i class="nav-icon fas fa-info-circle"></i>
         <p>Gallery</p>

@@ -4,290 +4,393 @@
 
 <div class="content-wrapper">
 
-    <!-- PAGE HEADER -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
 
-                <div class="col-sm-6">
-                    <h1>Semester-wise Curriculum</h1>
-                </div>
+<!-- PAGE HEADER -->
+<section class="content-header">
 
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item">
-                            <a href="{{ route('course.index') }}">Courses</a>
-                        </li>
+    <div class="container-fluid">
 
-                        <li class="breadcrumb-item active">
-                            Semester-wise Curriculum
-                        </li>
-                    </ol>
-                </div>
+        <div class="row mb-2">
+
+            <div class="col-sm-6">
+                <h1>Semester-wise Curriculum</h1>
+            </div>
+
+            <div class="col-sm-6">
+
+                <ol class="breadcrumb float-sm-right">
+
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('course.index') }}">
+                            Courses
+                        </a>
+                    </li>
+
+                    <li class="breadcrumb-item active">
+                        Semester-wise Curriculum
+                    </li>
+
+                </ol>
 
             </div>
+
         </div>
-    </section>
+
+    </div>
+
+</section>
 
 
-    <!-- MAIN CONTENT -->
-    <section class="content">
-        <div class="container-fluid">
+<!-- MAIN CONTENT -->
+<section class="content">
 
-            <!-- SUCCESS MESSAGE -->
-            @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button"
-                            class="close"
-                            data-dismiss="alert">
-                        &times;
-                    </button>
-
-                    <i class="fas fa-check-circle"></i>
-                    {{ session('success') }}
-                </div>
-            @endif
+    <div class="container-fluid">
 
 
-            <!-- ERROR MESSAGE -->
-            @if(session('error'))
-                <div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button"
-                            class="close"
-                            data-dismiss="alert">
-                        &times;
-                    </button>
+        <!-- SUCCESS MESSAGE -->
 
-                    <i class="fas fa-exclamation-circle"></i>
-                    {{ session('error') }}
-                </div>
-            @endif
+        @if(session('success'))
 
+            <div class="alert alert-success alert-dismissible fade show">
 
-            <!-- VALIDATION ERRORS -->
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Please fix the following errors:</strong>
+                <button type="button"
+                        class="close"
+                        data-dismiss="alert">
 
-                    <ul class="mb-0 mt-2">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+                    &times;
+
+                </button>
+
+                <i class="fas fa-check-circle"></i>
+
+                {{ session('success') }}
+
+            </div>
+
+        @endif
 
 
-            <!-- COURSE DETAILS -->
-            <div class="card card-primary">
+        <!-- ERROR MESSAGE -->
 
-                <div class="card-header">
-                    <h3 class="card-title">
-                        <i class="fas fa-book mr-2"></i>
-                        Course Details
-                    </h3>
-                </div>
+        @if(session('error'))
 
-                <div class="card-body">
+            <div class="alert alert-danger alert-dismissible fade show">
 
-                    <div class="row">
+                <button type="button"
+                        class="close"
+                        data-dismiss="alert">
 
-                        <!-- COURSE NAME -->
-                        <div class="col-md-4">
-                            <div class="course-detail-box">
-                                <strong>
-                                    <i class="fas fa-book-open mr-1"></i>
-                                    Course Name
-                                </strong>
+                    &times;
 
-                                <p>
-                                    {{ $course->coursename }}
-                                </p>
-                            </div>
-                        </div>
+                </button>
+
+                <i class="fas fa-exclamation-circle"></i>
+
+                {{ session('error') }}
+
+            </div>
+
+        @endif
 
 
-                        <!-- FULL NAME -->
-                        <div class="col-md-4">
-                            <div class="course-detail-box">
-                                <strong>
-                                    <i class="fas fa-graduation-cap mr-1"></i>
-                                    Course Full Name
-                                </strong>
+        <!-- VALIDATION ERRORS -->
 
-                                <p>
-                                    {{ $course->overview }}
-                                </p>
-                            </div>
-                        </div>
+        @if($errors->any())
+
+            <div class="alert alert-danger">
+
+                <strong>
+                    Please fix the following errors:
+                </strong>
+
+                <ul class="mb-0 mt-2">
+
+                    @foreach($errors->all() as $error)
+
+                        <li>
+                            {{ $error }}
+                        </li>
+
+                    @endforeach
+
+                </ul>
+
+            </div>
+
+        @endif
 
 
-                        <!-- ELIGIBILITY -->
-                        <div class="col-md-4">
-                            <div class="course-detail-box">
-                                <strong>
-                                    <i class="fas fa-user-check mr-1"></i>
-                                    Eligibility
-                                </strong>
+        <!-- COURSE DETAILS -->
 
-                                <p>
-                                    {{ $course->eligibility }}
-                                </p>
-                            </div>
+        <div class="card card-primary">
+
+            <div class="card-header">
+
+                <h3 class="card-title">
+
+                    <i class="fas fa-book mr-2"></i>
+
+                    Course Details
+
+                </h3>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="row">
+
+
+                    <!-- COURSE NAME -->
+
+                    <div class="col-md-4">
+
+                        <div class="course-detail-box">
+
+                            <strong>
+
+                                <i class="fas fa-book-open mr-1"></i>
+
+                                Course Name
+
+                            </strong>
+
+                            <p>
+                                {{ $course->coursename }}
+                            </p>
+
                         </div>
 
                     </div>
 
+
+                    <!-- FULL NAME -->
+
+                    <div class="col-md-4">
+
+                        <div class="course-detail-box">
+
+                            <strong>
+
+                                <i class="fas fa-graduation-cap mr-1"></i>
+
+                                Course Full Name
+
+                            </strong>
+
+                            <p>
+                                {{ $course->overview }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ELIGIBILITY -->
+
+                    <div class="col-md-4">
+
+                        <div class="course-detail-box">
+
+                            <strong>
+
+                                <i class="fas fa-user-check mr-1"></i>
+
+                                Eligibility
+
+                            </strong>
+
+                            <p>
+                                {{ $course->eligibility }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
                 </div>
 
             </div>
 
-
-            <!-- SEMESTER LIST -->
-            <div class="card">
-
-                <div class="card-header">
-
-                    <h3 class="card-title">
-                        <i class="fas fa-list mr-2"></i>
-                        Semester List
-                    </h3>
-
-                    <button type="button"
-                            class="btn btn-primary btn-sm float-right"
-                            data-toggle="modal"
-                            data-target="#addSemesterModal">
-
-                        <i class="fas fa-plus mr-1"></i>
-                        Add Semester
-
-                    </button>
-
-                </div>
+        </div>
 
 
-                <div class="card-body">
+        <!-- SEMESTER LIST -->
 
-                    <div class="table-responsive">
+        <div class="card">
 
-                        <table class="table table-bordered table-hover">
+            <div class="card-header">
 
-                            <thead>
+                <h3 class="card-title">
+
+                    <i class="fas fa-list mr-2"></i>
+
+                    Semester List
+
+                </h3>
+
+
+                <button type="button"
+                        class="btn btn-primary btn-sm float-right"
+                        data-toggle="modal"
+                        data-target="#addSemesterModal">
+
+                    <i class="fas fa-plus mr-1"></i>
+
+                    Add Semester
+
+                </button>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover">
+
+                        <thead>
+
+                            <tr>
+
+                                <th style="width:70px;">
+                                    #
+                                </th>
+
+                                <th>
+                                    Semester
+                                </th>
+
+                                <th>
+                                    Subjects
+                                </th>
+
+                                <th style="width:200px;">
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            @forelse($semesters as $semester)
+
                                 <tr>
 
-                                    <th style="width:70px;">
-                                        #
-                                    </th>
+                                    <!-- NUMBER -->
 
-                                    <th>
-                                        Semester
-                                    </th>
-
-                                    <th>
-                                        Subjects
-                                    </th>
-
-                                    <th style="width:200px;">
-                                        Action
-                                    </th>
-
-                                </tr>
-                            </thead>
+                                    <td>
+                                        {{ $loop->iteration }}
+                                    </td>
 
 
-                            <tbody>
+                                    <!-- SEMESTER -->
 
-                                @forelse($semesters as $semester)
+                                    <td>
 
-                                    <tr>
+                                        <strong>
+                                            {{ $semester->semester }}
+                                        </strong>
 
-                                        <td>
-                                            {{ $loop->iteration }}
-                                        </td>
+                                    </td>
 
-                                        <td>
-                                            <strong>
-                                                {{ $semester->semester }}
-                                            </strong>
-                                        </td>
 
-                                        <td>
-                                            {{ $semester->subjects }}
-                                        </td>
+                                    <!-- SUBJECTS -->
 
-                                        <td>
+                                    <td>
+                                        {{ $semester->subjects }}
+                                    </td>
 
-                                            <!-- EDIT BUTTON -->
-                                            <button type="button"
-                                                    class="btn btn-primary btn-sm editSemester"
-                                                    data-id="{{ $semester->id }}"
-                                                    data-semester="{{ $semester->semester }}"
-                                                    data-subjects="{{ $semester->subjects }}">
 
-                                                <i class="fas fa-edit mr-1"></i>
-                                                Edit
+                                    <!-- ACTION -->
+
+                                    <td>
+
+                                        <!-- EDIT -->
+
+                                        <button type="button"
+                                                class="btn btn-primary btn-sm"
+                                                data-toggle="modal"
+                                                data-target="#editSemesterModal{{ $semester->id }}">
+
+                                            <i class="fas fa-edit mr-1"></i>
+
+                                            Edit
+
+                                        </button>
+
+
+                                        <!-- DELETE -->
+
+                                        <form action="{{ route('semester.delete', $semester->id) }}"
+                                              method="POST"
+                                              style="display:inline;">
+
+                                            @csrf
+
+                                            @method('DELETE')
+
+                                            <button type="submit"
+                                                    class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure you want to delete this semester?')">
+
+                                                <i class="fas fa-trash mr-1"></i>
+
+                                                Delete
 
                                             </button>
 
+                                        </form>
 
-                                            <!-- DELETE BUTTON -->
-                                            <form action="{{ route('semester.delete', $semester->id) }}"
-                                                  method="POST"
-                                                  style="display:inline;">
+                                    </td>
 
-                                                @csrf
-                                                @method('DELETE')
+                                </tr>
 
-                                                <button type="submit"
-                                                        class="btn btn-danger btn-sm"
-                                                        onclick="return confirm('Are you sure you want to delete this semester?')">
+                            @empty
 
-                                                    <i class="fas fa-trash mr-1"></i>
-                                                    Delete
+                                <tr>
 
-                                                </button>
+                                    <td colspan="4"
+                                        class="text-center">
 
-                                            </form>
+                                        <i class="fas fa-info-circle mr-1"></i>
 
-                                        </td>
+                                        No semester details found.
 
-                                    </tr>
+                                    </td>
 
-                                @empty
+                                </tr>
 
-                                    <tr>
+                            @endforelse
 
-                                        <td colspan="4"
-                                            class="text-center">
+                        </tbody>
 
-                                            <i class="fas fa-info-circle mr-1"></i>
-                                            No semester details found.
-
-                                        </td>
-
-                                    </tr>
-
-                                @endforelse
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
+                    </table>
 
                 </div>
 
             </div>
 
         </div>
-    </section>
+
+
+    </div>
+
+</section>
 
 </div>
 
-
-
 <!-- ===================================================== -->
+
 <!-- ADD SEMESTER MODAL -->
+
 <!-- ===================================================== -->
 
 <div class="modal fade"
@@ -296,120 +399,149 @@
      role="dialog"
      aria-hidden="true">
 
-    <div class="modal-dialog modal-lg">
 
-        <div class="modal-content">
+<div class="modal-dialog modal-lg">
 
-            <form action="{{ route('semester.store') }}"
-                  method="POST">
+    <div class="modal-content">
 
-                @csrf
+        <form action="{{ route('semester.store') }}"
+              method="POST">
 
-                <!-- COURSE ID -->
-                <input type="hidden"
-                       name="course_id"
-                       value="{{ $course->id }}">
+            @csrf
 
+            <!-- COURSE ID -->
 
-                <div class="modal-header">
-
-                    <h5 class="modal-title">
-                        <i class="fas fa-plus-circle mr-2"></i>
-                        Add Semester
-                    </h5>
-
-                    <button type="button"
-                            class="close"
-                            data-dismiss="modal">
-
-                        <span>&times;</span>
-
-                    </button>
-
-                </div>
+            <input type="hidden"
+                   name="course_id"
+                   value="{{ $course->id }}">
 
 
-                <div class="modal-body">
+            <!-- HEADER -->
 
-                    <!-- SEMESTER -->
-                    <div class="form-group">
+            <div class="modal-header">
 
-                        <label>
-                            <i class="fas fa-layer-group mr-1"></i>
-                            Semester
-                        </label>
+                <h5 class="modal-title">
 
-                        <input type="text"
-                               name="semester"
-                               class="form-control"
-                               placeholder="Example: Semester 1"
-                               value="{{ old('semester') }}"
-                               required>
+                    <i class="fas fa-plus-circle mr-2"></i>
 
-                    </div>
+                    Add Semester
+
+                </h5>
+
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal">
+
+                    <span>&times;</span>
+
+                </button>
+
+            </div>
 
 
-                    <!-- SUBJECTS -->
-                    <div class="form-group">
+            <!-- BODY -->
 
-                        <label>
-                            <i class="fas fa-book mr-1"></i>
-                            Subjects
-                        </label>
+            <div class="modal-body">
 
-                        <textarea name="subjects"
-                                  class="form-control"
-                                  rows="6"
-                                  placeholder="Enter subjects for this semester"
-                                  required>{{ old('subjects') }}</textarea>
 
-                        <small class="form-text text-muted">
-                            Example: Mathematics, Physics, Engineering Graphics
-                        </small>
+                <!-- SEMESTER -->
 
-                    </div>
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fas fa-layer-group mr-1"></i>
+
+                        Semester
+
+                    </label>
+
+                    <input type="text"
+                           name="semester"
+                           class="form-control"
+                           placeholder="Example: Semester 1"
+                           value="{{ old('semester') }}"
+                           required>
 
                 </div>
 
 
-                <div class="modal-footer">
+                <!-- SUBJECTS -->
 
-                    <button type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal">
+                <div class="form-group">
 
-                        <i class="fas fa-times mr-1"></i>
-                        Close
+                    <label>
 
-                    </button>
+                        <i class="fas fa-book mr-1"></i>
 
+                        Subjects
 
-                    <button type="submit"
-                            class="btn btn-primary">
+                    </label>
 
-                        <i class="fas fa-save mr-1"></i>
-                        Save Semester
+                    <textarea name="subjects"
+                              class="form-control"
+                              rows="6"
+                              placeholder="Enter subjects for this semester"
+                              required>{{ old('subjects') }}</textarea>
 
-                    </button>
+                    <small class="form-text text-muted">
+
+                        Example: Mathematics, Physics, Engineering Graphics
+
+                    </small>
 
                 </div>
 
-            </form>
 
-        </div>
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal">
+
+                    <i class="fas fa-times mr-1"></i>
+
+                    Close
+
+                </button>
+
+
+                <button type="submit"
+                        class="btn btn-primary">
+
+                    <i class="fas fa-save mr-1"></i>
+
+                    Save Semester
+
+                </button>
+
+            </div>
+
+        </form>
 
     </div>
 
 </div>
 
 
+</div>
 
 <!-- ===================================================== -->
-<!-- EDIT SEMESTER MODAL -->
+
+<!-- EDIT SEMESTER MODALS -->
+
 <!-- ===================================================== -->
+
+@foreach($semesters as $semester)
+
 
 <div class="modal fade"
-     id="editSemesterModal"
+     id="editSemesterModal{{ $semester->id }}"
      tabindex="-1"
      role="dialog"
      aria-hidden="true">
@@ -418,18 +550,24 @@
 
         <div class="modal-content">
 
-            <form id="editSemesterForm"
+            <form action="{{ route('semester.update', $semester->id) }}"
                   method="POST">
 
                 @csrf
+
                 @method('PUT')
 
+
+                <!-- HEADER -->
 
                 <div class="modal-header">
 
                     <h5 class="modal-title">
+
                         <i class="fas fa-edit mr-2"></i>
+
                         Edit Semester
+
                     </h5>
 
                     <button type="button"
@@ -443,43 +581,56 @@
                 </div>
 
 
+                <!-- BODY -->
+
                 <div class="modal-body">
 
+
                     <!-- SEMESTER -->
+
                     <div class="form-group">
 
                         <label>
+
                             <i class="fas fa-layer-group mr-1"></i>
+
                             Semester
+
                         </label>
 
                         <input type="text"
                                name="semester"
-                               id="edit_semester"
                                class="form-control"
+                               value="{{ $semester->semester }}"
                                required>
 
                     </div>
 
 
                     <!-- SUBJECTS -->
+
                     <div class="form-group">
 
                         <label>
+
                             <i class="fas fa-book mr-1"></i>
+
                             Subjects
+
                         </label>
 
                         <textarea name="subjects"
-                                  id="edit_subjects"
                                   class="form-control"
                                   rows="6"
-                                  required></textarea>
+                                  required>{{ $semester->subjects }}</textarea>
 
                     </div>
 
+
                 </div>
 
+
+                <!-- FOOTER -->
 
                 <div class="modal-footer">
 
@@ -488,6 +639,7 @@
                             data-dismiss="modal">
 
                         <i class="fas fa-times mr-1"></i>
+
                         Close
 
                     </button>
@@ -497,6 +649,7 @@
                             class="btn btn-success">
 
                         <i class="fas fa-save mr-1"></i>
+
                         Update Semester
 
                     </button>
@@ -512,62 +665,63 @@
 </div>
 
 
+@endforeach
 
 <!-- ===================================================== -->
+
 <!-- PAGE CSS -->
+
 <!-- ===================================================== -->
 
 <style>
 
-    .course-detail-box {
-        padding: 10px 5px;
-    }
+.course-detail-box {
+    padding: 10px 5px;
+}
 
-    .course-detail-box strong {
-        display: block;
-        font-size: 15px;
-        margin-bottom: 8px;
-    }
+.course-detail-box strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
 
-    .course-detail-box p {
-        margin: 0;
-        font-size: 15px;
-    }
+.course-detail-box p {
+    margin: 0;
+    font-size: 15px;
+}
 
-    .table td,
-    .table th {
-        vertical-align: middle;
-    }
+.table td,
+.table th {
+    vertical-align: middle;
+}
 
-    .table td:nth-child(3) {
-        white-space: normal;
-        word-break: break-word;
-    }
+.table td:nth-child(3) {
+    white-space: normal;
+    word-break: break-word;
+}
 
-    .btn {
-        margin-bottom: 2px;
-    }
+.btn {
+    margin-bottom: 2px;
+}
 
-    .modal-content {
-        border-radius: 5px;
-    }
+.modal-content {
+    border-radius: 5px;
+}
 
-    .modal-header {
-        background-color: #007bff;
-        color: #fff;
-    }
+.modal-header {
+    background-color: #007bff;
+    color: #fff;
+}
 
-    .modal-header .close {
-        color: #fff;
-        opacity: 1;
-    }
+.modal-header .close {
+    color: #fff;
+    opacity: 1;
+}
 
-    .modal-header .close:hover {
-        color: #fff;
-    }
+.modal-header .close:hover {
+    color: #fff;
+}
 
 </style>
-
-
 
 @endsection
