@@ -1,26 +1,40 @@
- @extends('layouts.mainlayout')
+@extends('layouts.mainlayout')
 
 @section('content')
 
- <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+<div class="content-wrapper">
+
+    <!-- Content Header -->
     <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Simple Tables</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Simple Tables</li>
-            </ol>
-          </div>
+        <div class="container-fluid">
+
+            <div class="row mb-2">
+
+                <div class="col-sm-6">
+                    <h1>About Us</h1>
+                </div>
+
+                <div class="col-sm-6">
+
+                    <ol class="breadcrumb float-sm-right">
+
+                        <li class="breadcrumb-item">
+                            <a href="#">Home</a>
+                        </li>
+
+                        <li class="breadcrumb-item active">
+                            About Us
+                        </li>
+
+                    </ol>
+
+                </div>
+
+            </div>
+
         </div>
-      </div><!-- /.container-fluid -->
     </section>
 
-<<<<<<< HEAD
 
     <!-- SUCCESS MESSAGE -->
 
@@ -51,106 +65,37 @@
 
     <!-- Main Content -->
 
-=======
-    <!-- Main content -->
->>>>>>> b5f31f9259a95d96365ac0d56f5871405b1f5eec
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-    <h3 class="card-title">Bordered Table</h3>
 
-</div>
+        <div class="container-fluid">
 
+            <div class="row">
 
+                <div class="col-md-12">
+
+                    <div class="card">
 
 
+                        <!-- Card Header -->
+
+                        <div class="card-header d-flex justify-content-between align-items-center">
+
+                            <h3 class="card-title">
+                                About Us List
+                            </h3>
 
 
-
-
-<<<<<<< HEAD
-                    <!-- ====================================== -->
-                    <!-- ALL VALIDATION ERRORS INSIDE MODAL -->
-                    <!-- ====================================== -->
-
-                    @if ($errors->any())
-
-                        <div class="alert alert-danger alert-dismissible">
-
-                            <button type="button"
-                                    class="close"
-                                    data-dismiss="alert">
-
-                                &times;
-
-                            </button>
-
-                            <h5>
-                                <i class="fas fa-exclamation-triangle"></i>
-                                Please correct the following errors:
-                            </h5>
-
-
-                            <ul class="mb-0">
-
-                                @foreach ($errors->all() as $error)
-
-                                    <li>
-                                        {{ $error }}
-                                    </li>
-
-                                @endforeach
-
-                            </ul>
 
                         </div>
 
-                    @endif
 
+                        <!-- Table -->
 
-
-                    <!-- ABOUT US -->
-
-                    <div class="form-group">
-
-                        <label>
-                            About Us
-                        </label>
-
-                        <textarea name="about"
-                                  rows="3"
-                                  class="form-control @error('about') is-invalid @enderror"
-                                  required>{{ old('about') }}</textarea>
-
-
-                        @error('about')
-
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-
-                        @enderror
-
-                    </div>
-
-
-    <!-- <button type="button" class="btn btn-primary btn-sm"
-            data-toggle="modal"
-            data-target="#newRecordModal">
-        <i class="fas fa-plus"></i> New Record
-    </button> -->
-</div>
-
+                     
 
 
               <!-- /.card-header -->
              <div class="card-body">
-=======
-              <div class="card-body">
->>>>>>> b5f31f9259a95d96365ac0d56f5871405b1f5eec
 
     @if($aboutus)
 <form action="{{ route('updateaboutus') }}" method="POST">
@@ -267,44 +212,10 @@
 
                     <!-- VISION -->
 
-                    
-
-
-
-                    <!-- MISSION -->
-
-                    
-
-
-        
-                </div>
-
-<<<<<<< HEAD
-
 
                 <!-- Modal Footer -->
 
-                <div class="modal-footer">
-
-
-                    <button type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal">
-
-                        Close
-
-                    </button>
-
-
-                    <button type="submit"
-                            class="btn btn-primary">
-
-                        Save Record
-
-                    </button>
-
-
-                </div>
+               
 
 
             </form>
@@ -321,24 +232,9 @@
 <!-- AUTOMATICALLY OPEN MODAL WHEN VALIDATION FAILS -->
 <!-- ======================================================= -->
 
-@if ($errors->any())
-
-<script>
-
-    $(document).ready(function () {
-
-        $('#newRecordModal').modal('show');
-
-    });
-
-</script>
-
-@endif
 
 
-@endsection
-=======
->>>>>>> b5f31f9259a95d96365ac0d56f5871405b1f5eec
+
             </div>
 
         </form>
@@ -353,13 +249,8 @@
 
 </div>
               </div>
-             
-
-
-
-                        
               <!-- /.card-body -->
-              
+            
             </div>
             <!-- /.card -->
 
@@ -383,8 +274,7 @@
   </div>
  @endsection
 
-
- <script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
 
     const editBtn = document.getElementById('editBtn');
@@ -411,8 +301,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
-<<<<<<< HEAD
 </script>
-=======
-</script>
->>>>>>> b5f31f9259a95d96365ac0d56f5871405b1f5eec
