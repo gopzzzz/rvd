@@ -573,3 +573,58 @@ $(document).ready(function () {
 </script>
 
 @endif
+
+
+<!-- ===================================================== -->
+<!-- EDIT SCRIPT -->
+<!-- ===================================================== -->
+
+<script>
+
+$(document).ready(function () {
+
+
+    $('.editgallerytype').click(function () {
+
+
+        $('#edit_id').val(
+            $(this).data('id')
+        );
+
+
+        $('#edit_type_name').val(
+            $(this).data('name')
+        );
+
+
+    });
+
+
+});
+
+</script>
+
+
+
+<!-- ===================================================== -->
+<!-- REOPEN NEW RECORD AFTER VALIDATION ERROR -->
+<!-- ===================================================== -->
+
+@if($errors->any() && old('_form') == 'create')
+
+
+<script>
+
+$(document).ready(function () {
+
+
+    $('#newGalleryTypeModal').modal('show');
+
+
+});
+
+</script>
+
+
+@endif
+

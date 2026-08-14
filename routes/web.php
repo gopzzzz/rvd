@@ -23,6 +23,7 @@ use App\Http\Controllers\WebController;
 use App\Http\Controllers\FacultiesController;
 
 use App\Http\Controllers\StudentLifeController;
+use App\Http\Controllers\GalleryTypeController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -237,16 +238,9 @@ Route::delete('/student-life/{id}', [StudentLifeController::class, 'destroy'])
 
 
 
-
-
-
-
-
-
-
-
-
-
+Route::get('/gallery-types',[GalleryTypeController::class, 'index'])->name('gallerytypes');
+Route::post('/create-gallery-type',[GalleryTypeController::class, 'store'])->name('creategallerytype');
+Route::post('/update-gallery-type',[GalleryTypeController::class, 'update'])->name('updategallerytype');
 
 
 require __DIR__.'/auth.php';
