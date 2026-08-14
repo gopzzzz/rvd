@@ -149,8 +149,10 @@
      @foreach($principal as $leaders)
     
       <div style="text-align: center; background: #fff; padding: 40px 20px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-       <div style="width: 120px; height: 120px; background: var(--crimson); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-    {{ collect(explode(' ', trim($leaders->name)))->map(fn($word) => strtoupper(substr($word, 0, 1)))->take(2)->implode('') }}
+       <div style="width: 200px; height: auto; background: var(--crimson); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; margin: 0 auto 20px; font-family: var(--font-cinzel); border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden;">
+    <img src="{{ asset('/'.$leaders->photo) }}"
+         alt="{{ $leaders->name }}"
+         style="width: 100%; height: 100%; object-fit: cover;">
 </div>
         <h3 style="font-size: 22px; margin-bottom: 5px; color: #222;">{{$leaders->name}}</h3>
         <h4 style="color: var(--crimson); font-size: 16px; margin-bottom: 10px; font-weight: 600; text-transform: uppercase;">{{$leaders->occupation}}</h4>

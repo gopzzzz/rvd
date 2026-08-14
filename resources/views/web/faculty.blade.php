@@ -27,7 +27,7 @@
                 <div class="stat-label" style="font-size: 1.1rem; font-weight: 600; margin-top: 10px; color:#000;">Faculty Members</div>
             </div>
             <div class="stat-box text-center" style="background: var(--light-gray); padding: 30px; border-radius: 8px; flex: 1; min-width: 250px; border-top: 4px solid var(--gold);">
-                <div class="stat-number" style="font-size: 3rem; color: var(--gold); font-family: var(--font-heading); font-weight: 700;"><span class="counter" data-target="{{$experience}}" data-suffix="+">0</span></div>
+                <div class="stat-number" style="font-size: 3rem; color: var(--gold); font-family: var(--font-heading); font-weight: 700;"><span class="counter" data-target="{{$experience}} ?? 0" data-suffix="+">0</span></div>
                 <div class="stat-label" style="font-size: 1.1rem; font-weight: 600; margin-top: 10px; color:#000;">Years Avg Experience</div>
             </div>
             <div class="stat-box text-center" style="background: var(--light-gray); padding: 30px; border-radius: 8px; flex: 1; min-width: 250px; border-top: 4px solid var(--crimson);">
@@ -38,6 +38,8 @@
     </div>
 </section>
 
+
+@if($principal)
 <!-- PRINCIPAL -->
 <section class="bg-light section-pad" id="principal">
     <div class="container">
@@ -47,9 +49,11 @@
         
         <div class="principal-card reveal" style="background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-wrap: wrap; margin: 0 auto; max-width: 900px;">
             <div style="flex: 1; min-width: 300px; background: linear-gradient(135deg, var(--crimson), #5a0000); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; color: #fff;">
-                <div style="width: 150px; height: 150px; border-radius: 50%; background: #fff; color: var(--crimson); font-size: 4rem; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 5px solid var(--gold); margin-bottom: 20px;">
-                    RV
-                </div>
+               <div style="width: 150px; height: 150px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; border: 5px solid var(--gold); margin-bottom: 20px; overflow: hidden;">
+    <img src="{{ asset('/'.$principal->photo) }}"
+         alt="Principal"
+         style="width: 100%; height: 100%; object-fit: cover;">
+</div>
                 <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 5px; color: #fff;">{{$principal->name}}</h3>
                 <p style="color: var(--gold); font-size: 1.1rem; font-weight: 600;">{{$principal->occupation}}</p>
             </div>
@@ -84,6 +88,8 @@
     </div>
 </section>
 
+@endif
+
 
 @foreach($department as $dept)
 
@@ -107,7 +113,11 @@
             <!-- Faculty 1 -->
              @foreach($faculty as $fac)
             <div class="faculty-card" style="background: var(--light-gray); border-radius: 8px; overflow: hidden; text-align: center; padding-bottom: 20px; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                <div class="faculty-initials" style="background: var(--crimson); color: white; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 700; font-family: var(--font-heading);">PS</div>
+              <div class="faculty-initials" style="background: var(--crimson); color: white; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 700; font-family: var(--font-heading); overflow: hidden;">
+    <img src="{{ asset('/'.$fac->photo) }}"
+         alt="{{ $fac->name }}"
+         style="width: 100%; height: 100%; object-fit: cover;">
+</div> 
                 <div class="faculty-info" style="padding: 20px;">
                     <h3 style="font-size: 1.2rem; margin-bottom: 5px; color: var(--crimson);">{{$fac->name}}</h3>
                     <p style="color: #666; font-size: 0.95rem; font-weight: 600; margin-bottom: 15px;">{{$fac->occupation}}</p>

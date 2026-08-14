@@ -145,7 +145,7 @@
 
                                         <!-- DEPARTMENT -->
                                         <td>
-                                            Department {{ $key->department_id }}
+                                             {{ $key->department_name }}
                                         </td>
 
 
@@ -402,7 +402,7 @@
                                 <option value="{{ $department->id }}"
                                     {{ old('department_id') == $department->id ? 'selected' : '' }}>
 
-                                    Department {{ $department->id }}
+                                     {{ $department->name }}
 
                                 </option>
 
@@ -461,7 +461,7 @@
                         <input type="file"
                                name="photo"
                                class="form-control @error('photo') is-invalid @enderror"
-                               accept=".jpg,.jpeg,.png,.webp">
+                               accept=".jpg,.jpeg,.png,.webp" >
 
 
                         @error('photo')
@@ -538,7 +538,7 @@
                             Experience
                         </label>
 
-                        <input type="text"
+                        <input type="number"
                                name="experiance"
                                value="{{ old('experiance') }}"
                                class="form-control @error('experiance') is-invalid @enderror"
@@ -687,7 +687,7 @@
 
                                 <option value="{{ $department->id }}">
 
-                                    Department {{ $department->id }}
+                                     {{ $department->name }}
 
                                 </option>
 
@@ -759,7 +759,7 @@
                         <input type="file"
                                name="photo"
                                class="form-control"
-                               accept=".jpg,.jpeg,.png,.webp">
+                               accept=".jpg,.jpeg,.png,.webp" >
 
                         <small class="text-muted">
 

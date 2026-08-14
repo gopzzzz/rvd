@@ -51,7 +51,7 @@
 
        @foreach($facilities as $fac)
       <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-        <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
+        <img src="{{asset('/'.$fac->image)}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
         <div style="padding: 25px;">
           <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">{{$fac->title}}</h4>
           <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">{{$fac->description}}.</p>
@@ -81,7 +81,7 @@
 
        @foreach($club as $clubs)
       <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-        <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
+        <img src="{{asset('/'.$clubs->image)}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
         <div style="padding: 25px;">
           <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">{{$clubs->title}}</h4>
           <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">{{$clubs->description}}.</p>
@@ -113,7 +113,7 @@
 
        @foreach($sports as $sport)
       <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-        <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
+        <img src="{{asset('/'.$sport->image)}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
         <div style="padding: 25px;">
           <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">{{$sport->title}}</h4>
           <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">{{$sport->description}}.</p>
@@ -194,7 +194,7 @@
 
        @foreach($nss as $ns)
       <div class="facility-card" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-        <img src="{{asset('web/images/students_classroom.jpg')}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
+        <img src="{{asset('/'.$ns->image)}}" alt="Smart Classrooms" style="width: 100%; height: 200px; object-fit: cover;">
         <div style="padding: 25px;">
           <h4 style="margin-bottom: 10px; font-family: 'Playfair Display', serif; color: var(--crimson);">{{$ns->title}}</h4>
           <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">{{$ns->description}}.</p>

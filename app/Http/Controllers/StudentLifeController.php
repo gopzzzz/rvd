@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class StudentLifeController extends Controller
 {
@@ -28,15 +30,44 @@ class StudentLifeController extends Controller
             'description' => 'required|string',
         ]);
 
-        $image = $request->file('image')->store(
-            'studentlife',
-            'public'
-        );
+        if ($request->hasFile('image')) {
+
+         
+            $file = $request->file('image');
+
+            $folder = public_path(
+                'uploads/studentlife'
+            );
+
+            if (!File::exists($folder)) {
+
+                File::makeDirectory(
+                    $folder,
+                    0755,
+                    true
+                );
+            }
+
+            $filename =
+                time() . '_' .
+                $file->getClientOriginalName();
+
+            $file->move(
+                $folder,
+                $filename
+            );
+
+            $photoPath =
+                'uploads/studentlife/' .
+                $filename;
+
+        }
+        
 
         DB::table('studentlifes')->insert([
             'type' => $request->type,
             'title' => $request->title,
-            'image' => $image,
+            'image' => $photoPath,
             'description' => $request->description,
             'created_at' => now(),
             'updated_at' => now(),
@@ -77,26 +108,58 @@ class StudentLifeController extends Controller
                 ->with('error', 'Record not found.');
         }
 
-        $image = $studentLife->image;
-
         if ($request->hasFile('image')) {
 
-            if ($image && Storage::disk('public')->exists($image)) {
-                Storage::disk('public')->delete($image);
+            $file = $request->file('image');
+
+            $folder = public_path(
+                'uploads/studentlife'
+            );
+
+            if (!File::exists($folder)) {
+
+                File::makeDirectory(
+                    $folder,
+                    0755,
+                    true
+                );
             }
 
-            $image = $request->file('image')->store(
-                'studentlife',
-                'public'
+            $filename =
+                time() . '_' .
+                $file->getClientOriginalName();
+
+            $file->move(
+                $folder,
+                $filename
             );
+
+
+            // Delete old photo
+            if (!empty($faculty->photo)) {
+
+                $oldPhoto =
+                    public_path($faculty->photo);
+
+                if (File::exists($oldPhoto)) {
+
+                    File::delete($oldPhoto);
+                }
+            }
+
+
+            $photoPath =
+                'uploads/studentlife/' .
+                $filename;
         }
+
 
         DB::table('studentlifes')
             ->where('id', $id)
             ->update([
                 'type' => $request->type,
                 'title' => $request->title,
-                'image' => $image,
+                'image' => $photoPath,
                 'description' => $request->description,
                 'updated_at' => now(),
             ]);

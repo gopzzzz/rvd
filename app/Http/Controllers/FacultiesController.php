@@ -14,7 +14,13 @@ class FacultiesController extends Controller
 
     public function index()
     {
-        $faculties = DB::table('faculties')->get();
+        $faculties = DB::table('faculties')
+         ->leftJoin('department', 'faculties.department_id', '=', 'department.id')
+                ->select(
+                    'faculties.*',
+                    'department.name as department_name'
+                )
+                ->get();
 
         $departments = DB::table('department')->get();
 
@@ -103,7 +109,7 @@ class FacultiesController extends Controller
         // PHOTO UPLOAD
         // ============================================
 
-        $photoPath = null;
+        $photoPath = 'uploads/faculties/1786693792_pngtree-user-vector-avatar-png-image_1541962.jpg';
 
         if ($request->hasFile('photo')) {
 
