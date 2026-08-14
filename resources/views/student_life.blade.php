@@ -352,7 +352,7 @@
 
                                                 @if($studentLife->image)
 
-                                                    <img src="{{ asset('storage/' . $studentLife->image) }}"
+                                                    <img src="{{ asset('/' . $studentLife->image) }}"
                                                          alt="{{ $studentLife->title }}"
                                                          style="width:100px;
                                                                 height:70px;

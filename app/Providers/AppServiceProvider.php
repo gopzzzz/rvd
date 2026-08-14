@@ -22,7 +22,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
     $contacts = DB::table('contacts')->first();
+    $totaladmission=DB::table('admissions')->count();
+     $departments=DB::table('department')->count();
+     $course=DB::table('courses')->count();
+      $faculties=DB::table('faculties')->count();
+    
 
     View::share('contacts', $contacts);
+    View::share('totaladmission', $totaladmission);
+    View::share('departments', $departments);
+     View::share('course', $course);
+       View::share('faculties', $faculties);
     }
 }

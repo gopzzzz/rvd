@@ -1107,7 +1107,7 @@ a[style*="color: var(--crimson)"][style*="font-weight: bold"] {
 }
 .faculty-photo-wrap { background: var(--light-bg) !important; }
 .faculty-photo-overlay { background: rgba(139,0,0,0.88) !important; }
-.faculty-initials { color: var(--crimson) !important; opacity: 0.2 !important; }
+.faculty-initials { color: var(--crimson) !important; opacity:1 !important; }
 .faculty-info h4 { font-family: 'Playfair Display', serif !important; color: var(--text-dark) !important; font-size: 15px !important; }
 .faculty-info .designation {
   color: var(--gold-dark) !important;
