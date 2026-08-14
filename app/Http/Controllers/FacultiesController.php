@@ -38,7 +38,6 @@ class FacultiesController extends Controller
                 'integer'
             ],
 
-            // NAME - letters, spaces and dot only
             'name' => [
                 'required',
                 'string',
@@ -53,7 +52,6 @@ class FacultiesController extends Controller
                 'max:2048'
             ],
 
-            // OCCUPATION - letters, spaces and dot only
             'occupation' => [
                 'required',
                 'string',
@@ -61,7 +59,6 @@ class FacultiesController extends Controller
                 'regex:/^[a-zA-Z\s.]+$/'
             ],
 
-            // QUALIFICATION - letters + common symbols, no numbers
             'qualification' => [
                 'required',
                 'string',
@@ -203,7 +200,6 @@ class FacultiesController extends Controller
                 'integer'
             ],
 
-            // NAME
             'name' => [
                 'required',
                 'string',
@@ -218,7 +214,6 @@ class FacultiesController extends Controller
                 'max:2048'
             ],
 
-            // OCCUPATION
             'occupation' => [
                 'required',
                 'string',
@@ -226,7 +221,6 @@ class FacultiesController extends Controller
                 'regex:/^[a-zA-Z\s.]+$/'
             ],
 
-            // QUALIFICATION
             'qualification' => [
                 'required',
                 'string',
@@ -381,6 +375,74 @@ class FacultiesController extends Controller
             ->with(
                 'success',
                 'Faculty updated successfully.'
+            );
+    }
+
+
+    // ============================================
+    // DELETE FACULTY
+    // ============================================
+
+    public function delete(Request $request)
+    {
+        $request->validate([
+
+            'id' => [
+                'required',
+                'integer'
+            ]
+
+        ]);
+
+
+        // Get faculty
+        $faculty = DB::table('faculties')
+            ->where('id', $request->id)
+            ->first();
+
+
+        if (!$faculty) {
+
+            return redirect()
+                ->route('faculties')
+                ->with(
+                    'error',
+                    'Faculty record not found.'
+                );
+        }
+
+
+        // ============================================
+        // DELETE PHOTO FILE
+        // ============================================
+
+        if (!empty($faculty->photo)) {
+
+            $photoPath =
+                public_path($faculty->photo);
+
+
+            if (File::exists($photoPath)) {
+
+                File::delete($photoPath);
+            }
+        }
+
+
+        // ============================================
+        // DELETE DATABASE RECORD
+        // ============================================
+
+        DB::table('faculties')
+            ->where('id', $request->id)
+            ->delete();
+
+
+        return redirect()
+            ->route('faculties')
+            ->with(
+                'success',
+                'Faculty deleted successfully.'
             );
     }
 }

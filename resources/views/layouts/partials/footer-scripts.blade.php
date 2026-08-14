@@ -118,8 +118,6 @@ $(document).ready(function () {
 
 
 
-<!-- OPEN ADD MODAL AUTOMATICALLY WHEN VALIDATION FAILS -->
-<!-- ===================================================== -->
 
 @if ($errors->any())
 
@@ -137,9 +135,6 @@ $(document).ready(function () {
 
 
 
-<!-- ===================================================== -->
-<!-- EDIT BUTTON SCRIPT -->
-<!-- ===================================================== -->
 
 <script>
 $(document).ready(function () {
@@ -236,9 +231,7 @@ $(document).on('click', '.editCourse', function () {
 
 
 
-<!-- ================================================= -->
-<!-- JAVASCRIPT -->
-<!-- ================================================= -->
+
 @if ($errors->any() && old('_form') == 'create')
 
 <script>
@@ -311,133 +304,9 @@ $(document).ready(function () {
 
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endif
 
 
-
-
-<script>
-
-$(document).ready(function () {
-
-
-    $('.editfaculty').click(function () {
-
-
-        var id =
-            $(this).data('id');
-
-        var department =
-            $(this).data('department');
-
-        var name =
-            $(this).data('name');
-
-        var photo =
-            $(this).data('photo');
-
-        var occupation =
-            $(this).data('occupation');
-
-        var qualification =
-            $(this).data('qualification');
-
-        var experiance =
-            $(this).data('experiance');
-
-        var bio =
-            $(this).data('bio');
-
-
-        // Fill values
-
-        $('#edit_id').val(id);
-
-        $('#edit_department').val(department);
-
-        $('#edit_name').val(name);
-
-        $('#edit_occupation').val(occupation);
-
-        $('#edit_qualification').val(qualification);
-
-        $('#edit_experiance').val(experiance);
-
-        $('#edit_bio').val(bio);
-
-
-        // Photo Preview
-
-        if(photo) {
-
-            var photoUrl =
-                '{{ asset("") }}' + photo;
-
-
-            $('#previewPhoto')
-                .attr('src', photoUrl)
-                .show();
-
-
-            $('#previewPhotoLink')
-                .attr('href', photoUrl)
-                .show();
-
-        }
-        else {
-
-            $('#previewPhoto').hide();
-
-            $('#previewPhotoLink').hide();
-
-        }
-
-
-    });
-
-
-});
-
-</script>
-
-
-
-@if($errors->any() && old('_form') == 'create')
-
-<script>
-
-$(document).ready(function () {
-
-    $('#newFacultyModal').modal('show');
-
-});
-
-</script>
-
-@endif
-
-
-
-<!-- ====================================================== -->
-<!-- DELETE CONFIRMATION -->
-<!-- ====================================================== -->
 
 <script>
 
@@ -469,10 +338,6 @@ $(document).ready(function () {
 </script>
 
 
-
-<!-- ====================================================== -->
-<!-- IMAGE PREVIEW -->
-<!-- ====================================================== -->
 
 <script>
 
@@ -556,10 +421,6 @@ $(document).ready(function () {
 
 
 
-<!-- ====================================================== -->
-<!-- REOPEN MODAL AFTER VALIDATION ERROR -->
-<!-- ====================================================== -->
-
 @if($errors->any() && old('_form') == 'create')
 
 <script>
@@ -574,10 +435,6 @@ $(document).ready(function () {
 
 @endif
 
-
-<!-- ===================================================== -->
-<!-- EDIT SCRIPT -->
-<!-- ===================================================== -->
 
 <script>
 
@@ -606,9 +463,6 @@ $(document).ready(function () {
 
 
 
-<!-- ===================================================== -->
-<!-- REOPEN NEW RECORD AFTER VALIDATION ERROR -->
-<!-- ===================================================== -->
 
 @if($errors->any() && old('_form') == 'create')
 
@@ -628,3 +482,156 @@ $(document).ready(function () {
 
 @endif
 
+
+
+<!-- ====================================================== -->
+<!-- JAVASCRIPT -->
+<!-- ====================================================== -->
+
+<script>
+
+$(document).ready(function () {
+
+
+    // =============================================
+    // EDIT FACULTY
+    // =============================================
+
+    $('.editfaculty').click(function () {
+
+
+        var id =
+            $(this).data('id');
+
+        var department =
+            $(this).data('department');
+
+        var name =
+            $(this).data('name');
+
+        var photo =
+            $(this).data('photo');
+
+        var occupation =
+            $(this).data('occupation');
+
+        var qualification =
+            $(this).data('qualification');
+
+        var experiance =
+            $(this).data('experiance');
+
+        var bio =
+            $(this).data('bio');
+
+
+        $('#edit_id').val(id);
+
+        $('#edit_department').val(department);
+
+        $('#edit_name').val(name);
+
+        $('#edit_occupation').val(occupation);
+
+        $('#edit_qualification').val(qualification);
+
+        $('#edit_experiance').val(experiance);
+
+        $('#edit_bio').val(bio);
+
+
+        // =========================================
+        // PHOTO PREVIEW
+        // =========================================
+
+        if (photo) {
+
+            var photoUrl =
+                "{{ asset('') }}" + photo;
+
+
+            $('#previewPhoto')
+                .attr(
+                    'src',
+                    photoUrl
+                );
+
+
+            $('#previewPhotoLink')
+                .attr(
+                    'href',
+                    photoUrl
+                );
+
+
+            $('#currentPhotoSection').show();
+
+        } else {
+
+            $('#previewPhoto')
+                .attr(
+                    'src',
+                    ''
+                );
+
+            $('#previewPhotoLink')
+                .attr(
+                    'href',
+                    '#'
+                );
+
+            $('#currentPhotoSection').hide();
+
+        }
+
+    });
+
+
+
+    // =============================================
+    // DELETE CONFIRMATION
+    // =============================================
+
+    $('.deleteFacultyForm').submit(function (e) {
+
+
+        var confirmDelete =
+            confirm(
+                'Are you sure you want to delete this faculty?'
+            );
+
+
+        if (!confirmDelete) {
+
+            e.preventDefault();
+
+            return false;
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+
+<!-- ====================================================== -->
+<!-- OPEN ADD MODAL IF VALIDATION FAILS -->
+<!-- ====================================================== -->
+
+@if($errors->any() && old('_form') == 'create')
+
+<script>
+
+$(document).ready(function () {
+
+    $('#newFacultyModal')
+        .modal('show');
+
+});
+
+</script>
+
+@endif

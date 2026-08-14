@@ -66,8 +66,18 @@
                 <!-- SUCCESS MESSAGE -->
                 @if(session('success'))
 
-                    <div class="alert alert-success m-3">
+                    <div class="alert alert-success alert-dismissible fade show m-3">
+
                         {{ session('success') }}
+
+                        <button type="button"
+                                class="close"
+                                data-dismiss="alert">
+
+                            <span>&times;</span>
+
+                        </button>
+
                     </div>
 
                 @endif
@@ -76,8 +86,18 @@
                 <!-- ERROR MESSAGE -->
                 @if(session('error'))
 
-                    <div class="alert alert-danger m-3">
+                    <div class="alert alert-danger alert-dismissible fade show m-3">
+
                         {{ session('error') }}
+
+                        <button type="button"
+                                class="close"
+                                data-dismiss="alert">
+
+                            <span>&times;</span>
+
+                        </button>
+
                     </div>
 
                 @endif
@@ -95,22 +115,16 @@
                                 <tr>
 
                                     <th>ID</th>
-
                                     <th>Department</th>
-
                                     <th>Name</th>
-
                                     <th>Photo</th>
-
                                     <th>Occupation</th>
-
                                     <th>Qualification</th>
-
                                     <th>Experience</th>
-
                                     <th>Bio</th>
-
-                                    <th>Action</th>
+                                    <th style="min-width:170px;">
+                                        Action
+                                    </th>
 
                                 </tr>
 
@@ -123,6 +137,7 @@
 
                                     <tr>
 
+                                        <!-- ID -->
                                         <td>
                                             {{ $key->id }}
                                         </td>
@@ -195,32 +210,64 @@
                                         <!-- ACTION -->
                                         <td>
 
-                                            <button type="button"
-                                                    class="btn btn-primary btn-sm editfaculty"
+                                            <div class="d-flex">
 
-                                                    data-id="{{ $key->id }}"
+                                                <!-- EDIT BUTTON -->
 
-                                                    data-department="{{ $key->department_id }}"
+                                                <button type="button"
+                                                        class="btn btn-primary btn-sm editfaculty mr-1"
 
-                                                    data-name="{{ $key->name }}"
+                                                        data-id="{{ $key->id }}"
 
-                                                    data-photo="{{ $key->photo }}"
+                                                        data-department="{{ $key->department_id }}"
 
-                                                    data-occupation="{{ $key->occupation }}"
+                                                        data-name="{{ $key->name }}"
 
-                                                    data-qualification="{{ $key->qualification }}"
+                                                        data-photo="{{ $key->photo }}"
 
-                                                    data-experiance="{{ $key->experiance }}"
+                                                        data-occupation="{{ $key->occupation }}"
 
-                                                    data-bio="{{ $key->bio }}"
+                                                        data-qualification="{{ $key->qualification }}"
 
-                                                    data-toggle="modal"
+                                                        data-experiance="{{ $key->experiance }}"
 
-                                                    data-target="#editFacultyModal">
+                                                        data-bio="{{ $key->bio }}"
 
-                                                Edit
+                                                        data-toggle="modal"
 
-                                            </button>
+                                                        data-target="#editFacultyModal">
+
+                                                    <i class="fas fa-edit"></i>
+
+                                                    Edit
+
+                                                </button>
+
+
+                                                <!-- DELETE FORM -->
+
+                                                <form action="{{ route('deletefaculties') }}"
+                                                      method="POST"
+                                                      class="deleteFacultyForm">
+
+                                                    @csrf
+
+                                                    <input type="hidden"
+                                                           name="id"
+                                                           value="{{ $key->id }}">
+
+                                                    <button type="submit"
+                                                            class="btn btn-danger btn-sm">
+
+                                                        <i class="fas fa-trash"></i>
+
+                                                        Delete
+
+                                                    </button>
+
+                                                </form>
+
+                                            </div>
 
                                         </td>
 
@@ -273,20 +320,18 @@
 
         <div class="modal-content">
 
-
             <form action="{{ route('createfaculties') }}"
                   method="POST"
                   enctype="multipart/form-data">
 
                 @csrf
 
-
                 <input type="hidden"
                        name="_form"
                        value="create">
 
 
-                <!-- MODAL HEADER -->
+                <!-- HEADER -->
                 <div class="modal-header">
 
                     <h5 class="modal-title">
@@ -304,11 +349,12 @@
                 </div>
 
 
-                <!-- MODAL BODY -->
+                <!-- BODY -->
                 <div class="modal-body">
 
 
                     <!-- VALIDATION ERRORS -->
+
                     @if($errors->any() && old('_form') == 'create')
 
                         <div class="alert alert-danger">
@@ -336,6 +382,7 @@
 
 
                     <!-- DEPARTMENT -->
+
                     <div class="form-group">
 
                         <label>
@@ -349,7 +396,6 @@
                             <option value="">
                                 Select Department
                             </option>
-
 
                             @foreach($departments as $department)
 
@@ -378,6 +424,7 @@
 
 
                     <!-- NAME -->
+
                     <div class="form-group">
 
                         <label>
@@ -404,6 +451,7 @@
 
 
                     <!-- PHOTO -->
+
                     <div class="form-group">
 
                         <label>
@@ -429,6 +477,7 @@
 
 
                     <!-- OCCUPATION -->
+
                     <div class="form-group">
 
                         <label>
@@ -455,6 +504,7 @@
 
 
                     <!-- QUALIFICATION -->
+
                     <div class="form-group">
 
                         <label>
@@ -481,6 +531,7 @@
 
 
                     <!-- EXPERIENCE -->
+
                     <div class="form-group">
 
                         <label>
@@ -507,6 +558,7 @@
 
 
                     <!-- BIO -->
+
                     <div class="form-group">
 
                         <label>
@@ -528,11 +580,11 @@
 
                     </div>
 
-
                 </div>
 
 
-                <!-- MODAL FOOTER -->
+                <!-- FOOTER -->
+
                 <div class="modal-footer">
 
                     <button type="button"
@@ -552,7 +604,6 @@
                     </button>
 
                 </div>
-
 
             </form>
 
@@ -577,7 +628,6 @@
 
         <div class="modal-content">
 
-
             <form action="{{ route('updatefaculties') }}"
                   method="POST"
                   enctype="multipart/form-data">
@@ -586,12 +636,14 @@
 
 
                 <!-- FACULTY ID -->
+
                 <input type="hidden"
                        name="id"
                        id="edit_id">
 
 
-                <!-- MODAL HEADER -->
+                <!-- HEADER -->
+
                 <div class="modal-header">
 
                     <h5 class="modal-title">
@@ -609,11 +661,13 @@
                 </div>
 
 
-                <!-- MODAL BODY -->
+                <!-- BODY -->
+
                 <div class="modal-body">
 
 
                     <!-- DEPARTMENT -->
+
                     <div class="form-group">
 
                         <label>
@@ -628,7 +682,6 @@
                             <option value="">
                                 Select Department
                             </option>
-
 
                             @foreach($departments as $department)
 
@@ -647,6 +700,7 @@
 
 
                     <!-- NAME -->
+
                     <div class="form-group">
 
                         <label>
@@ -664,7 +718,9 @@
 
 
                     <!-- CURRENT PHOTO -->
-                    <div class="form-group">
+
+                    <div class="form-group"
+                         id="currentPhotoSection">
 
                         <label>
                             Current Photo
@@ -693,6 +749,7 @@
 
 
                     <!-- REPLACE PHOTO -->
+
                     <div class="form-group">
 
                         <label>
@@ -705,7 +762,9 @@
                                accept=".jpg,.jpeg,.png,.webp">
 
                         <small class="text-muted">
+
                             Leave empty to keep the current photo.
+
                         </small>
 
                     </div>
@@ -713,6 +772,7 @@
 
 
                     <!-- OCCUPATION -->
+
                     <div class="form-group">
 
                         <label>
@@ -730,6 +790,7 @@
 
 
                     <!-- QUALIFICATION -->
+
                     <div class="form-group">
 
                         <label>
@@ -747,6 +808,7 @@
 
 
                     <!-- EXPERIENCE -->
+
                     <div class="form-group">
 
                         <label>
@@ -764,6 +826,7 @@
 
 
                     <!-- BIO -->
+
                     <div class="form-group">
 
                         <label>
@@ -777,11 +840,11 @@
 
                     </div>
 
-
                 </div>
 
 
-                <!-- MODAL FOOTER -->
+                <!-- FOOTER -->
+
                 <div class="modal-footer">
 
                     <button type="button"
@@ -801,7 +864,6 @@
                     </button>
 
                 </div>
-
 
             </form>
 

@@ -219,6 +219,8 @@ Route::post('/createfaculties',[FacultiesController::class, 'store']
 
 Route::post('/updatefaculties',[FacultiesController::class, 'update']
 )->name('updatefaculties');
+Route::post('/deletefaculties',[FacultiesController::class, 'delete']
+)->name('deletefaculties');
 
 
 Route::get('/student-life', [StudentLifeController::class, 'index'])
